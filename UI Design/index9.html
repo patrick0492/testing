@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link rel="stylesheet" href="./css/style9.css">
+</head>
+<body> 
+  <div class="loader">
+    <div class="counter">
+      <h2 class="number"></h2>
+      <div class="progress">
+        <div class="percentBar"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let k = 0;
+    let numberPer = document.querySelector('.number');
+    let percentBar = document.querySelector('.percentBar');
+    let loader = document.querySelector('.loader');
+    let interval = setInterval(function(){
+      numberPer.innerHTML = k+`<span>%</span>`;
+      percentBar.style.width = k+'%';
+      k++
+      if(k == 101){
+        clearInterval(interval)
+        setTimeout(function(){
+          loader.style.opacity = '0';
+          loader.style.visibility = 'hidden';
+        },1000);
+      }
+    },100)
+  </script>
+  <!-- Sticky Notes -->
+  <div class="sticky-notes">
+    <div class="container">
+      <div class="notes">
+        <div id="create">
+          <i class="fa-solid fa-plus"></i>
+          <div class="createBox">
+            <div class="innerCreateBox">
+              <textarea placeholder="Write Here And Press Enter" id="userInput" maxlength="160"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let createBox = document.getElementsByClassName('createBox')[0];
+    let notes = document.getElementsByClassName('notes')[0];
+    let input = document.getElementById('userInput');
+    let j = 0;
+
+    createBox.addEventListener('keydown', content);
+
+    document.getElementById('create').addEventListener('click', function(){
+      createBox.style.display = 'block';
+    })
+
+    function content(e){
+      if(e.keyCode == '13'){
+        divStyle(input.value);
+        input.value='';
+        createBox.style.display = 'none';
+      }
+    }
+
+    // fill random colors in notes
+    function color(){
+      let randomColors = ['#c2ff3d', '#ff3de8', '#3dc2ff','#04e022','#bc83e6','#ebb328'];
+      if(j > randomColors.length - 1){
+        j = 0;
+      }
+      return randomColors[j++];
+    }
+
+    function divStyle(text){
+      let div = document.createElement('div');
+      div.className = 'note';
+      div.innerHTML = '<div class="details">'+'<h3>'+text+'<h3>'+'</div>'; 
+
+        // remove note
+      div.addEventListener('dblclick', function(){
+        div.remove();
+      })    
+      // fill random colors in note
+      div.setAttribute('style', 'background:'+color()+'');
+
+      notes.appendChild(div);
+    }
+
+
+  </script>
+  <!-- Progress bar -->
+  <div class="progress-bar">
+    <div class="container">
+      <div class="circle" data-degree="84" data-color="#ff2972">
+        <h2 class="number"><span></span></h2>
+        <h4>HTML</h4>
+      </div>
+      <div class="circle" data-degree="58" data-color="#fee800">
+        <h2 class="number"><span></span></h2>
+        <h4>CSS</h4>
+      </div>
+      <div class="circle" data-degree="98" data-color="#04fc43">
+        <h2 class="number"><span></span></h2>
+        <h4>JavaS</h4>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(event){
+      let circle = document.querySelectorAll('.circle');
+      circle.forEach(function(progress){
+        let degree = 0;
+        var targetDegree = parseInt(progress.getAttribute('data-degree'));
+        let color = progress.getAttribute('data-color');
+        let number = progress.querySelector('.number');
+
+        var interval = setInterval(function(){
+          degree += 1;
+          if (degree > targetDegree){
+            clearInterval(interval);
+            return;
+          }
+          progress.style.background = `conic-gradient(${color} ${degree}%, #222 0%)`;
+          number.innerHTML = degree + `<span>%</span>`;
+          number.style.color = color;
+        },50)
+      })
+    })
+  </script>
+  <!-- Typing Effect -->
+  <div class="typingeffect">
+    <div class="typing-container">
+      <span id="typed-text"></span>
+      <span class="cursor"> | </span>
+    </div>
+  </div>
+  <script>
+    const textArray = ['Fantastic...','Hello, Words!', 'Welcome to the Typing Animation', 'Enjoy Coding!'];
+    const typingSpeed = 150;
+    const delayBetweenTexts = 2000;
+    let textIndex = 0;
+    let charIndex = 0;
+
+    const typedTextElement = document.getElementById('typed-text');
+
+    function typeText(){
+      if(charIndex < textArray[textIndex].length){
+        typedTextElement.textContent += textArray[textIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeText,typingSpeed);
+      } else{
+        setTimeout(DeleteText,delayBetweenTexts)
+      }
+    }
+    function DeleteText(){
+      if(charIndex> 0){
+        typedTextElement.textContent = textArray[textIndex].substring(0,charIndex - 1);
+        charIndex--;
+        setTimeout(DeleteText,typingSpeed/2);
+      } else{
+        textIndex = (textIndex + 1) % textArray.length;
+        setTimeout(typeText,typingSpeed);
+      }
+    }
+    typeText();
+  </script>
+
+  <!-- Keyboard -->
+  <div class="keyboard-wrapper">
+    <div class="keyboard">
+      
+    </div>
+  </div>
+  <script>
+    let keyboardContainer = document.querySelector('.keyboard');
+    let keys = '1234567890qwertyuiopasdfghjklzxcvbnm'.split('');
+
+    keys.forEach((key, index) =>{
+      let keyDiv = document.createElement('div');
+      keyDiv.classList.add('key');
+
+      let keyElement = document.createElement('i');
+      keyElement.setAttribute('data-key', key);
+      keyElement.innerText = key.toUpperCase();
+      keyDiv.appendChild(keyElement);
+      keyboardContainer.appendChild(keyDiv);
+
+      if (key === '0' || key === 'p' || key === "l"){
+        let linebBreak = document.createElement('div');
+        linebBreak.classList.add('break');
+        keyboardContainer.appendChild(linebBreak)
+      }
+    })
+
+    document.addEventListener('keydown', (event) =>{
+      let keyElement = document.querySelector(`.key i[data-key="${event.key.toLocaleLowerCase()}"]`);
+      if (keyElement) keyElement.parentElement.classList.add('active');
+    })
+
+    document.addEventListener('keyup', (event) =>{
+      let keyElement = document.querySelector(`.key i[data-key="${event.key.toLocaleLowerCase()}"]`);
+      if (keyElement) keyElement.parentElement.classList.remove('active');
+    })
+
+
+  </script>
+</body>
+</html>

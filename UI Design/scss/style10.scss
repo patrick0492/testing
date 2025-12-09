@@ -1,0 +1,303 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// ************************************************************************ Progress Bar ********************************
+.progress-bar{
+  height: 400px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #363636;
+  .container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+  .circle{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    flex-direction: column;
+  }
+  .circle::before{
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: #222;
+    opacity: .8;
+  }
+  .circle::after{
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #222;
+    border: 15px solid #4d4c51;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.75),
+    0 -2px 2px rgba(255,255,255,.5),
+    inset 0 4px 2px rgba(0,0,0,.25),
+    inset 0 -2px 2px rgba(255,255,255,.5);
+  }
+  .number{
+    position: relative;
+    color: #fff;
+    z-index: 10;
+    line-height: 1em;
+    font-size: 2em;
+  }
+  .number span{
+    font-size: .5em;
+    font-weight: 500;
+  }
+  h4{
+    position: relative;
+    color: #fff;
+    z-index: 10;
+    font-weight: 500;
+    font-size: .8em;
+    text-transform: uppercase;
+    line-height: .6em;
+  }
+}
+// Clock **************************************************************************************************************************
+.clock{
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: #2f363e;
+  #clock{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+  }
+  #hrDots,#secDots,#minDots{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    rotate: 90deg;
+  }
+  #hrDots::before,#secDots::before,#minDots::before{
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    box-shadow: 25px 25px 75px rgba(0,0,0,.25),
+    10px 10px 70px rgba(0,0,0,.25), 
+    inset 5px 5px 10px rgba(0,0,0,.25),
+    inset 5px 5px 20px rgba(255,255,255,.2),
+    inset -5px -5px 15px rgba(0,0,0,.75);
+  }
+  h2{
+    color: #fff;
+  }
+  #hrDots h2,#secDots h2,#minDots h2{
+    position: absolute;
+    text-align: center;
+    transform: rotate(-90deg);
+    color: var(--clr);
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 4em;
+    font-weight: 500;
+  }
+  #hrDots h2 span,#secDots h2 span,#minDots h2 span{
+    position: absolute;
+    font-size: .25em;
+    font-weight: 500;
+    bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+  // for am/pm
+  // #secDots b{
+  //   position: absolute;
+  //   color: #fff;
+  //   display: inline-flex;
+  //   transform: rotate(-90deg) translate(-30px,90px);
+  // }
+  #minDots .dot,
+  #hrDots .dot,
+  #secDots .dot{
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 3px;
+    background: var(--clr);
+    transform-origin: 100px;
+  }
+  #secDots .active.dot,
+  #hrDots .active.dot,
+  #minDots .active.dot{
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr),
+    0 0 20px var(--clr),
+    0 0 30px var(--clr);
+  }
+  #secDots .active.dot~ .dot,
+  #hrDots .active.dot~ .dot,
+  #minDots .active.dot~ .dot{
+    background: #555;
+  }
+  #secDots .dot:nth-child(5n + 5),
+  #minDots .dot:nth-child(5n + 5){
+    width: 20px;
+  }
+  #hrDots .dot{
+    width: 20px;
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      background: var(--clr);
+      border-top-right-radius: 4px;
+      box-shadow: 1.5px 9px var(--clr),
+      4px 18px var(--clr),
+      7px 27px var(--clr);
+    }
+  }
+  #hrDots .dot.active ~ .dot::before{
+          background: #fff;
+      border-top-right-radius: 4px;
+      box-shadow: 1.5px 9px #555,
+      4px 18px #555,
+      7px 27px #555;
+  }
+}
+// *************************************************************************************************************** ColaCard
+.colacard{
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #151515;
+  .card{
+    position: relative;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+    transition-delay: .5s;
+    &:hover{
+      width: 600px;
+      transition-delay: .5s;
+    }
+  }
+  .circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: #191919;
+      border: 8px solid var(--clr);
+      filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+      transition: .5s, background .5s;
+      transition-delay: 0.75s, 1s;
+    }
+  }
+  .card:hover .circle::before{
+    transition-delay: .5s;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--clr);
+  }
+  .logo{
+    position: relative;
+    width: 250px;
+    transition: .5s;
+    transition-delay: .5s;
+  }
+  .card:hover .logo{
+    transform: scale(0);
+    transition-delay: 0s;
+  }
+  .product-img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0) rotate(315deg);
+    height: 300px;
+    transition: 0.5s ease-in-out;
+  }
+  .card:hover .product-img{
+    transition-delay: .75s;
+    top: 25%;
+    left: 72%;
+    height: 500px;
+    transform: translate(-50%,-50%) scale(1) rotate(15deg);
+  }
+  .content{
+    position: absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: .5s;
+    visibility: hidden;
+    h2{
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 2.5em;
+      line-height: 1em;
+    }
+    p{
+      color: #fff;
+    }
+    a{
+      position: relative;
+      color: #111;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+  }
+  .card:hover .content{
+    transition-delay: .75s;
+    visibility: visible;
+    opacity: 1;
+    left: 20px;
+  }
+}

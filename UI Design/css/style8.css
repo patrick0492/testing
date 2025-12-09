@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cosmiccards {
+  background: #0c0c0c;
+  position: relative;
+  min-height: 200vh;
+}
+.cosmiccards h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 30px;
+  margin: 0;
+}
+.cosmiccards .container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.cosmiccards .cosmos {
+  position: absolute;
+  width: 90px;
+  height: 150px;
+}
+.cosmiccards .cosmis-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #7e7e7e;
+  animation: fall-and-disappear 5s infinite ease-in-out;
+  transform-origin: bottom;
+  transform: scale(0);
+}
+.cosmiccards .cosmis-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@keyframes fall-and-disappear {
+  0% {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    top: -200px;
+    transform: scale(1);
+  }
+  100% {
+    top: -150px;
+    left: -300px;
+    transform: scale(0);
+  }
+}
+
+.infislider {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  transform-style: preserve-3d;
+}
+.infislider .box {
+  position: relative;
+  display: flex;
+  perspective: 500px;
+}
+.infislider .item {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  background: #fff;
+  top: calc(50% - 150px);
+  left: calc(50% - 100px);
+  transition: 0.5s;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.1333333333));
+}
+.infislider .item:nth-child(1) {
+  transform: translate3d(-250px, 0, 0) scale(0.8) rotateY(25deg);
+  z-index: 1;
+}
+.infislider .item:nth-child(2) {
+  transform: translate3d(-250px, 0, 0) scale(0.8) rotateY(25deg);
+  z-index: 2;
+}
+.infislider .item:nth-child(3) {
+  transform: translate3d(-150px, 0, 0) scale(0.9) rotateY(15deg);
+  z-index: 3;
+}
+.infislider .item:nth-child(4) {
+  transform: translate3d(0px, 0, 0) scale(1) rotateY(0deg);
+  z-index: 4;
+}
+.infislider .item:nth-child(5) {
+  transform: translate3d(150px, 0, 0) scale(0.9) rotateY(-15deg);
+  z-index: 3;
+}
+.infislider .item:nth-child(6) {
+  transform: translate3d(250px, 0, 0) scale(0.8) rotateY(-25deg);
+  z-index: 2;
+}
+.infislider .item:nth-child(7) {
+  transform: translate3d(250px, 0, 0) scale(0.8) rotateY(-25deg);
+  z-index: -1;
+}
+.infislider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.infislider .buttons {
+  position: absolute;
+  bottom: 75px;
+  display: flex;
+  gap: 20px;
+}
+.infislider .buttons span {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+}
+.infislider .buttons span:hover {
+  opacity: 1;
+}
+.infislider .buttons span::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  rotate: -45deg;
+}
+.infislider .buttons span:last-child::before {
+  content: "";
+  position: absolute;
+  left: initial;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  rotate: 135deg;
+}
+
+.horiscroll {
+  min-height: 800vh;
+}
+.horiscroll .horiscontainer {
+  position: fixed;
+  display: flex;
+  width: 500%;
+  height: 100vh;
+  transition: 0.5s ease-out;
+}
+.horiscroll section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--clr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #333;
+}
+.horiscroll .content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.horiscroll h2 {
+  font-size: 4em;
+  font-family: sans-serif;
+  color: #333;
+}

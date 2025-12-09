@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style3.css">
+</head>
+<body>
+  <div class="dragtouchslider">
+    <div class="dtslider">
+      <button class="slider-prev">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <div class="inner-slider">
+        <div class="slider-item">
+          <img src="./img/IMG_0184.PNG" alt="">
+        </div>
+        <div class="slider-item">
+          <img src="./img/IMG_0185.jpg" alt="">
+        </div>
+        <div class="slider-item">
+          <img src="./img/IMG_0186.jpg" alt="">
+        </div>
+        <div class="slider-item">
+          <img src="./img/IMG_0187.jpg" alt="">
+        </div>
+        <div class="slider-item">
+          <img src="./img/IMG_0188.jpg" alt="">
+        </div>
+        <div class="slider-item">
+          <img src="./img/IMG_0189.jpg" alt="">
+        </div>
+        <div class="slider-item">
+          <img src="./img/IMG_0190.jpg" alt="">
+        </div>
+      </div>
+      <button class="slider-next">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </div>
+    <script>
+      const slider = document.querySelector('.dtslider');
+      const innerSlider = document.querySelector('.inner-slider');
+      const prev = document.querySelector('.slider-prev');
+      const next = document.querySelector('.slider-next');
+
+      let dragged = false;
+      let startX;
+      let x;
+
+      // desktop
+      slider.addEventListener('mousedown', e =>{
+        dragged = true;
+        startX = e.offsetX - innerSlider.offsetLeft;
+        slider.style.cursor = 'grabbing';
+      });
+      slider.addEventListener('mouseenter', () =>{
+        slider.style.cursor = 'grab';
+      });
+      slider.addEventListener('mouseup', () =>{
+        slider.style.cursor = 'grab';
+        dragged = false;
+      });
+
+      slider.addEventListener('mousemove', e =>{
+        if(!dragged) return;
+        e.preventDefault();
+
+        x = e.offsetX;
+
+        innerSlider.style.left = `${x - startX}px`;
+
+        checkProbs();
+      });
+
+      // mobile
+      slider.addEventListener('touchstart', e =>{
+        dragged = true;
+        startX = e.targetTouches[0].clientX - innerSlider.offsetLeft;
+
+        checkProbs();
+      }, {passive: true});
+
+      slider.addEventListener('touchmove', e =>{
+        if (!dragged) return;
+        x = e.targetTouches[0].clientX;
+
+        innerSlider.style.left = `${x - startX}px`;
+
+        checkProbs();
+
+      }, {passive: true});
+
+      prev.addEventListener('click', () =>{
+        let innerSliderLeft = innerSlider.style.left;
+        innerSlider.style.left = parseInt(innerSliderLeft.replace('px', '')) + 265 + 'px';
+
+        checkProbs();
+      });
+      next.addEventListener('click', () =>{
+        let innerSliderLeft = innerSlider.style.left;
+        innerSlider.style.left = parseInt(innerSliderLeft.replace('px', '')) - 265 + 'px';
+
+        checkProbs();
+      });
+
+      const checkProbs = () =>{
+        let outer = slider.getBoundingClientRect();
+        let inner = innerSlider.getBoundingClientRect();
+
+        if (parseInt(innerSlider.style.left) > 0)
+          innerSlider.style.left = '-10px';
+
+          if (inner.right < outer.right)
+            innerSlider.style.left = `-${inner.width - outer.width - 10}px`;
+      }
+    </script>
+  </div>
+
+  <div class="csstextslider">
+    <div class="slider-container slider-1">
+      <div class="slider">
+        <p>Text template 1</p>
+        <p>Text template 2</p>
+        <p>Text template 3</p>
+        <p>Text template 4</p>
+        <p>Text template 1</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="respgallery">
+    <ul class="gallery">
+      <li><img src="./img/bg01.jpg" alt=""></li>
+      <li><img src="./img/bg02.jpg" alt=""></li>
+      <li><img src="./img/IMG_0184.PNG" alt=""></li>
+      <li><img src="./img/IMG_0185.jpg" alt=""></li>
+      <li><img src="./img/IMG_0186.jpg" alt=""></li>
+      <li><img src="./img/bg01.jpg" alt=""></li>
+      <li><img src="./img/IMG_0187.jpg" alt=""></li>
+      <li><img src="./img/IMG_0188.jpg" alt=""></li>
+      <li><img src="./img/IMG_0189.jpg" alt=""></li>
+      <li><img src="./img/IMG_0190.jpg" alt=""></li>
+      <li><img src="./img/bg01.jpg" alt=""></li>
+      <li><img src="./img/bg02.jpg" alt=""></li>
+      <li><img src="./img/IMG_0184.PNG" alt=""></li>
+      <li><img src="./img/IMG_0185.jpg" alt=""></li>
+      <li><img src="./img/IMG_0187.jpg" alt=""></li>
+      <li><img src="./img/bg01.jpg" alt=""></li>
+      <li><img src="./img/IMG_0188.jpg" alt=""></li>
+      <li><img src="./img/bg01.jpg" alt=""></li>
+      <li><img src="./img/IMG_0189.jpg" alt=""></li>
+      <li><img src="./img/IMG_0186.jpg" alt=""></li>
+      <li><img src="./img/IMG_0190.jpg" alt=""></li>
+      <li><img src="./img/bg02.jpg" alt=""></li>
+      <li><img src="./img/IMG_0185.jpg" alt=""></li>
+      <li><img src="./img/IMG_0186.jpg" alt=""></li>
+      <li><img src="./img/IMG_0187.jpg" alt=""></li>
+      <li><img src="./img/IMG_0184.PNG" alt=""></li>
+      <li><img src="./img/IMG_0188.jpg" alt=""></li>
+      <li><img src="./img/IMG_0189.jpg" alt=""></li>
+      <li><img src="./img/IMG_0190.jpg" alt=""></li>
+    </ul>
+  </div>
+
+  <div class="neumloader">
+    <div class="loader">
+      <div class="text">
+        <p>Neumorphism Gradient Loading Animation Effects -</p>
+      </div>
+      <span><i></i></span>
+    </div>
+    <script>
+      let text = document.querySelector('.text p');
+      text.innerHTML = text.innerText.split('').map((char, i) =>
+      `<b style="transform:rotate(${i * 7.35}deg)">${char}</b>`).join('');
+    </script>
+  </div>
+
+  <div class="hovertext">
+    <div class="word">
+      <span class="char" style="--i:0;" data-text="c">c</span>
+      <span class="char" style="--i:1;" data-text="r">r</span>
+      <span class="char" style="--i:2;" data-text="e">e</span>
+      <span class="char" style="--i:3;" data-text="a">a</span>
+      <span class="char" style="--i:4;" data-text="t">t</span>
+      <span class="char" style="--i:4;" data-text="i">i</span>
+      <span class="char" style="--i:5;" data-text="v">v</span>
+      <span class="char" style="--i:6;" data-text="e">e</span>
+    </div>
+  </div>
+
+  <div class="teamcircular">
+    <div class="container">
+      <div class="icon">
+        <div class="imgBx active" style="--i:1;" data-id="content1">
+          <img src="./img/23.jpg" alt="">
+        </div>
+        <div class="imgBx" style="--i:2;" data-id="content2">
+          <img src="./img/30.jpg" alt="">
+        </div>
+        <div class="imgBx" style="--i:3;" data-id="content3">
+          <img src="./img/40.jpg" alt="">
+        </div>
+        <div class="imgBx" style="--i:4;" data-id="content4">
+          <img src="./img/46.jpg" alt="">
+        </div>
+        <div class="imgBx" style="--i:5;" data-id="content5">
+          <img src="./img/47.jpg" alt="">
+        </div>
+        <div class="imgBx" style="--i:6;" data-id="content6">
+          <img src="./img/48.jpg" alt="">
+        </div>
+        <div class="imgBx" style="--i:7;" data-id="content7">
+          <img src="./img/59.jpg" alt="">
+        </div>
+        <div class="imgBx" style="--i:8;" data-id="content8">
+          <img src="./img/61.jpg" alt="">
+        </div>
+      </div>
+      <div class="content">
+        <div class="contentBx active" id="content1">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/23.jpg" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Name Here <br><span>Product Designer</span></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentBx" id="content2">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/30.jpg" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Name Here <br><span>Product Designer</span></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentBx" id="content3">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/40.jpg" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Name Here <br><span>Product Designer</span></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentBx" id="content4">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/46.jpg" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Name Here <br><span>Product Designer</span></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentBx" id="content5">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/47.jpg" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Name Here <br><span>Product Designer</span></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentBx" id="content6">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/48.jpg" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Name Here <br><span>Product Designer</span></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentBx" id="content7">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/59.jpg" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Name Here <br><span>Product Designer</span></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentBx" id="content8">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/61.jpg" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Name Here <br><span>Product Designer</span></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let imgBx = document.querySelectorAll('.imgBx');
+      let contentBx = document.querySelectorAll('.contentBx');
+
+      for(let i=0; i<imgBx.length; i++){
+        imgBx[i].addEventListener('mouseover', function(){
+          for(let i=0; i<contentBx.length; i++){
+            contentBx[i].className = 'contentBx';
+          }
+          document.getElementById(this.dataset.id).className = 'contentBx active';
+
+          for(let i=0; i<imgBx.length; i++){
+            imgBx[i].className = 'imgBx';
+          }
+          this.className  = 'imgBx active';
+        })
+      }
+    </script>
+  </div>
+
+  <div class="cubeani">
+    <div class="cube">
+      <div class="big">
+        <span style="--i:0;--clr:#e2e2e2"></span>
+        <span style="--i:1;--clr:#f0f0f0"></span>
+        <span style="--i:2;--clr:#e2e2e2"></span>
+        <span style="--i:3;--clr:#f0f0f0"></span>
+        <span class="top" style="--clr:#fff"></span>
+      </div>
+    </div>
+    <div class="cube2">
+      <div class="big">
+        <span style="--i:0;--clr:#ffa20d"></span>
+        <span style="--i:1;--clr:#ff8502"></span>
+        <span style="--i:2;--clr:#ffa20d"></span>
+        <span style="--i:3;--clr:#ff8502"></span>
+        <span class="top" style="--clr:#ffbb56"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tickerani">
+    <div id="loader">
+      <div class="loader-top">
+        <div class="loader-top-inner">
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+        </div>
+      </div>
+      <div class="loader-center">
+        <span>------------------------------------------------------------------------------</span>
+        <h1>*STASHED*</h1>
+        <span>------------------------------------------------------------------------------</span>
+      </div>
+      <div class="loader-bottom">
+        <div class="loader-bottom-inner">
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+          <div class="ticker-text">STASHED</div>
+          <div class="ticker-text">//////////</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cssshape">
+    <div class="box">
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+
+  <div class="cubeanim">
+    <div class="container">
+      <div class="cube">
+        <div style="--x:-1;--y:0;">
+          <span style="--i:3;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:1;"></span>
+        </div>
+        <div style="--x:0;--y:0;">
+          <span style="--i:3;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:1;"></span>
+        </div>
+        <div style="--x:1;--y:0;">
+          <span style="--i:3;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:1;"></span>
+        </div>
+      </div>
+      <div class="cube">
+        <div style="--x:-1;--y:0;">
+          <span style="--i:3;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:1;"></span>
+        </div>
+        <div style="--x:0;--y:0;">
+          <span style="--i:3;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:1;"></span>
+        </div>
+        <div style="--x:1;--y:0;">
+          <span style="--i:3;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:1;"></span>
+        </div>
+      </div>
+      <div class="cube">
+        <div style="--x:-1;--y:0;">
+          <span style="--i:3;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:1;"></span>
+        </div>
+        <div style="--x:0;--y:0;">
+          <span style="--i:3;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:1;"></span>
+        </div>
+        <div style="--x:1;--y:0;">
+          <span style="--i:3;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:1;"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="letterani">
+    <div class="grid">
+      <div class="letter-anim">
+        <span data-letter="S">S</span>
+      </div>
+      <div class="letter-anim">
+        <span data-letter="T">T</span>
+      </div>
+      <div class="letter-anim">
+        <span data-letter="Y">Y</span>
+      </div>
+      <div class="letter-anim">
+        <span data-letter="L">L</span>
+      </div>
+      <div class="letter-anim">
+        <span data-letter="E">E</span>
+      </div>
+      <div class="letter-anim">
+        <span data-letter="S" class="top">S</span>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

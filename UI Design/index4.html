@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Roboto+Condesed:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link rel="stylesheet" href="./css/style4.css">
+</head>
+<body>
+  <div class="menuhover">
+    <ul class="list">
+      <li><a href="#!">HOME</a></li>
+      <li><a href="#!">ABOUT</a></li>
+      <li><a href="#!">SERVICES</a></li>
+      <li><a href="#!">TEAM</a></li>
+      <li><a href="#!">CONTACT</a></li>
+    </ul>
+  </div>
+  <script>
+    let list = document.querySelectorAll('.list li a');
+    list.forEach(link =>{
+      let letters = link.textContent.split('');
+      link.textContent = '';
+      letters.forEach((letter, i) =>{
+        i += 1;
+        let span = document.createElement('span');
+        let delay = i/15;
+
+        let letterOut = document.createElement('span');
+        letterOut.textContent = letter;
+        letterOut.style.transitionDelay = `${delay}s`;
+        letterOut.classList.add('out');
+        span.append(letterOut);
+
+        let letterIn = document.createElement('span');
+        letterIn.textContent = letter;
+        letterIn.style.transitionDelay = `${delay}s`;
+        letterIn.classList.add('in');
+        span.append(letterIn);
+        
+        link.append(span);
+      })
+
+    })
+  </script>
+
+  <div class="testimonialslider">
+    <div class="container">
+      <div class="testimonials">
+        <h2 class="heading">
+          <span>Testimonials</span>
+          <span>What students say about Code & Create on Youtube</span>
+        </h2>
+        <div class="quote">
+          <div class="stars">
+            <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+          </div>
+          <p class="quote-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatem cumque earum nisi voluptas excepturi nesciunt sequi reprehenderit. Similique maxime saepe rerum debitis architecto repellat magnam aspernatur illum commodi nostrum officia quibusdam ab eligendi sapiente placeat recusandae nemo fugit, ipsam cumque veritatis quo eaque quaerat culpa! Eligendi libero animi autem commodi saepe aliquid, quae neque blanditiis error tenetur expedita, hic exercitationem vitae. At, molestias odio. Odit, quibusdam dolore harum assumenda temporibus possimus alias similique veritatis voluptatibus deleniti placeat iure aut hic vitae voluptas nihil error? A dolor recusandae reprehenderit praesentium.</p>
+          <i class="bx bxs-quote-right quote-icon"></i>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <img src="./img/IMG_0184.PNG" alt="">
+            <div class="credential">
+              <h3 class="name">Carl Realo</h3>
+              <p class="profession">Professional</p>
+            </div>
+            <div class="comment" hidden>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis tenetur, nesciunt, aspernatur delectus repudiandae doloremque consequatur architecto porro sapiente perspiciatis hic, libero a repellat expedita. Fugit vitae sapiente mollitia officiis id accusamus officia, nisi fugiat sequi minima, magni deleniti eaque?</div>
+          </div>
+          <div class="card">
+            <img src="./img/IMG_0185.jpg" alt="">
+            <div class="credential">
+              <h3 class="name">John Smith</h3>
+              <p class="profession">Co-Founder</p>
+            </div>
+            <div class="comment" hidden>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit inventore esse perspiciatis consectetur, omnis possimus est culpa quia temporibus? Saepe esse odit repellendus sit aperiam dolorum ducimus tenetur obcaecati delectus deleniti, in tempora repellat totam maxime sequi architecto eaque cupiditate voluptatibus, quos eligendi praesentium! Deserunt, doloribus pariatur voluptates non earum sit rerum accusamus eaque officia distinctio eligendi optio, nam, assumenda saepe error necessitatibus labore vitae quo explicabo porro sapiente.</div>
+          </div>
+          <div class="card">
+            <img src="./img/IMG_0187.jpg" alt="">
+            <div class="credential">
+              <h3 class="name">Milton Weave</h3>
+              <p class="profession">Webdesigner</p>
+            </div>
+            <div class="comment" hidden>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda iure itaque nobis soluta nostrum, culpa eveniet, laborum, illum magni voluptatibus quod suscipit ducimus esse qui numquam deleniti eos sint consequuntur ipsa! Dolore architecto, tempora eaque aperiam molestias necessitatibus consectetur nesciunt, inventore non iure, minus accusantium reprehenderit distinctio modi? Ut voluptas debitis alias quae praesentium molestiae a odit voluptates cum ducimus officia eaque nihil ipsa animi eos impedit suscipit tempora nisi, at porro sequi quisquam. Aut dolores mollitia unde repellat neque, sint soluta blanditiis. Enim harum doloremque esse quia corrupti blanditiis placeat nihil tempore quam, fugiat cum sit, consequatur accusamus sapiente cumque consectetur magnam, ea modi. In harum consectetur voluptatem quo?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const cards = document.querySelectorAll('.card')
+    const quote = document.querySelector('.quote')
+    const quoteText = document.querySelector('.quote-text')
+    quoteText.textContent = cards[0].lastElementChild.textContent;
+
+    cards.forEach((card) =>{
+      card.addEventListener('click', () =>{
+        quoteText.textContent = card.lastElementChild.textContent;
+        quote.style.borderColor = getComputedStyle(card).borderColor;
+        cards.forEach((item) => (item.style.backgroundColor = 'transparent'));
+        card.style.backgroundColor = '#333'
+      })
+    })
+  </script>
+
+  <div class="cssfullscreenslider">
+    <div class="container">
+      <div class="tabs">
+        <input type="radio" id="web" name="slider" checked>
+        <input type="radio" id="graphics" name="slider">
+        <input type="radio" id="photography" name="slider">
+        <div class="buttons">
+          <label for="web"></label>
+          <label for="graphics"></label>
+          <label for="photography"></label>
+        </div>
+        <div class="content">
+          <div class="box web">
+            <div class="contentbox">
+              <h2>Web Development</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia eos nisi commodi odit ut quis, quisquam provident dolores quae consequuntur itaque unde aliquam! Ipsa, natus quae doloremque suscipit nesciunt voluptas?</p>
+              <button>Learn More</button>
+            </div>
+          </div>
+          <div class="box graphics">
+            <div class="contentbox">
+              <h2>Graphics</h2>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi consectetur odit praesentium maxime dolores? Eos accusantium quas temporibus illo provident velit. Temporibus aperiam ad architecto, molestiae minus illum? Suscipit veritatis vero ullam natus, omnis recusandae?</p>
+              <button>Learn More</button>
+            </div>
+          </div>
+          <div class="box photography">
+            <div class="contentbox">
+              <h2>Photography</h2>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi molestias vitae, odio magni explicabo dignissimos animi? Quasi necessitatibus pariatur beatae dolor. Cum dolorum perferendis provident, magni quos excepturi quod.</p>
+              <button>Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spoilers">
+    
+  </div>
+
+  <div class="blogcontainer">
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <img src="./img/IMG_0184.PNG" alt="">
+      </div>
+      <div class="blog-card-content">
+        <h3>27 January 2023</h3>
+        <h1>Explore New Tours</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore animi tempora veniam quibusdam dolorem.</p>
+        <button class="card-btn" type="button">Read <span>More</span></button>
+      </div>
+      <div class="blog-tours">
+        <div class="blog-tours-item">
+          <div class="tour-img">
+            <img src="./img/IMG_0185.jpg" alt="">
+          </div>
+          <span>Explore Tour 1</span>
+          <i class="fa-solid fa-magnifying-glass-location"></i>
+        </div>
+        <div class="blog-tours-item">
+          <div class="tour-img">
+            <img src="./img/IMG_0188.jpg" alt="">
+          </div>
+          <span>Explore Tour 2</span>
+          <i class="fa-solid fa-magnifying-glass-location"></i>
+        </div>
+        <div class="blog-tours-item">
+          <div class="tour-img">
+            <img src="./img/IMG_0189.jpg" alt="">
+          </div>
+          <span>Explore Tour 3</span>
+          <i class="fa-solid fa-magnifying-glass-location"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const button = document.querySelector('.card-btn');
+    const blogCard = document.querySelector('.blog-card');
+
+    button.addEventListener('click', () =>{
+      blogCard.classList.toggle('change') ? (button.firstElementChild.textContent = 'less') : (button.firstElementChild.textContent = 'more');
+    })
+  </script>
+
+  <div class="imgslider">
+    <section>
+      <div class="imgScroll">
+        <div>
+          <img src="./img/IMG_0184.PNG" alt="">
+          <img src="./img/IMG_0185.jpg" alt="">
+          <img src="./img/IMG_0186.jpg" alt="">
+          <img src="./img/IMG_0187.jpg" alt="">
+          <img src="./img/IMG_0188.jpg" alt="">
+          <img src="./img/IMG_0189.jpg" alt="">
+          <img src="./img/IMG_0190.jpg" alt="">
+          <img src="./img/IMG_0185.jpg" alt="">
+          <img src="./img/IMG_0186.jpg" alt="">
+        </div>
+        <div>
+          <img src="./img/IMG_0184.PNG" alt="">
+          <img src="./img/IMG_0185.jpg" alt="">
+          <img src="./img/IMG_0186.jpg" alt="">
+          <img src="./img/IMG_0187.jpg" alt="">
+          <img src="./img/IMG_0188.jpg" alt="">
+          <img src="./img/IMG_0189.jpg" alt="">
+          <img src="./img/IMG_0190.jpg" alt="">
+          <img src="./img/IMG_0185.jpg" alt="">
+          <img src="./img/IMG_0186.jpg" alt="">
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

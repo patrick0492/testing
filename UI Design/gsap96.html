@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Text Animation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gsap96.css"> 
+</head>
+<body>
+  <nav>
+    <p>/ CG191125</p>
+    <p>Experiment_507</p>
+  </nav>
+  <div class="container">
+    <section class="hero">
+      <div class="about-copy">
+        <div class="copy-block">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto soluta nesciunt fugiat consequuntur aliquid quas veniam, delectus est velit?</p>
+        </div>
+        <div class="copy-block">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum atque reprehenderit laudantium distinctio vel, necessitatibus in soluta.</p>
+        </div>
+        <div class="copy-block">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis praesentium ad, error a modi reprehenderit animi cupiditate voluptate perferendis officia.</p>
+        </div>
+      </div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <div class="marquee-item"><img src="img/0001.jpg" alt=""></div>
+          <div class="marquee-item"><img src="img/0002.jpg" alt=""></div>
+          <div class="marquee-item"><img src="img/0003.jpg" alt=""></div>
+          <div class="marquee-item"><img src="img/0004.jpg" alt=""></div>
+          <div class="marquee-item"><img src="img/0005.jpg" alt=""></div>
+          <div class="marquee-item"><img src="img/0006.jpg" alt=""></div>
+          <div class="marquee-item"><img src="img/0007.jpg" alt=""></div>
+          <div class="marquee-item"><img src="img/0008.jpg" alt=""></div>
+          <div class="marquee-item"><img src="img/0009.jpg" alt=""></div>
+          <div class="marquee-item"><img src="img/0010.jpg" alt=""></div>
+        </div>
+      </div>
+
+      <div class="scrollindicator"></div>
+    </section>
+  </div>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/CustomEase.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.1/dist/lenis.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () =>{
+      gsap.registerPlugin(ScrollTrigger, SplitText);
+
+
+      const lenis = new Lenis();
+      let targetVelocity = 0;
+
+      lenis.on('scroll', (e) =>{
+        targetVelocity = Math.abs(e.velocity) * 0.02;
+        ScrollTrigger.update();
+      })
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
+      gsap.ticker.lagSmoothing(0);
+
+      const textBlocks = gsap.utils.toArray('.copy-block p');
+      const splitInstances = textBlocks.map((block) =>
+        SplitText.create(block, {type: 'words', mask: 'words'})
+      );
+      gsap.set(splitInstances[1].words, {yPercent: 100});
+      gsap.set(splitInstances[2].words, {yPercent: 100});
+
+      const overlapCount = 3;
+
+      const getWordProgress = (phaseProgress, wordIndex, totalWords) =>{
+        const totalLength = 1 + overlapCount / totalWords;
+        const scale = 
+        1 / 
+        Math.min(
+          totalLength, 1+ (totalWords - 1) / totalWords + overlapCount / totalWords
+        );
+        const startTime = (wordIndex / totalWords) * scale;
+        const endTime = startTime + (overlapCount / totalWords) * scale;
+        const duration = endTime - startTime;
+
+        if (phaseProgress <= startTime) return 0;
+        if (phaseProgress >= endTime) return 1;
+        return (phaseProgress - startTime) / duration;
+      };
+
+      const animateBlock = (outBlock, inBlock, phaseProgress) =>{
+        outBlock.words.forEach((word, i) =>{
+          const progress = getWordProgress(phaseProgress, i, outBlock.words.length);
+          gsap.set(word, {yPercent: progress * 100});
+        });
+        inBlock.words.forEach((word, i) =>{
+          const progress = getWordProgress(phaseProgress, i, inBlock.words.length);
+          gsap.set(word, {yPercent: 100 - progress * 100});
+        });
+      };
+
+      const indicator = document.querySelector('.scrollindicator');
+      const marqueeTrack = document.querySelector('.marquee-track');
+      const items = gsap.utils.toArray('.marquee-item');
+      items.forEach((item) => marqueeTrack.appendChild(item.cloneNode(true)));
+
+      let marqueePosition = 0;
+      let smoothVelocity = 0;
+
+      gsap.ticker.add(() =>{
+        smoothVelocity += (targetVelocity - smoothVelocity) * 0.5;
+
+        const baseSpeed = 0.45;
+        const speed = baseSpeed + smoothVelocity * 9;
+        marqueePosition -= speed;
+
+        const trackWidth = marqueeTrack.scrollWidth / 2;
+        if (marqueePosition <= -trackWidth) {
+          marqueePosition = 0;
+        }
+
+        gsap.set(marqueeTrack, {x: marqueePosition});
+
+        targetVelocity *= 0.9;
+      });
+
+      ScrollTrigger.create({
+        trigger: '.container',
+        start: 'top top',
+        end: 'bottom bottom',
+        onUpdate: (self) =>{
+          const scrollProgress = self.progress;
+
+          gsap.set(indicator, { '--progress': scrollProgress});
+
+          if (scrollProgress <= 0.5){
+            const phase1 = scrollProgress / 0.5;
+            animateBlock(splitInstances[0], splitInstances[1], phase1);
+          } else{
+            const phase2 = (scrollProgress - 0.5) / 0.5;
+            gsap.set(splitInstances[0].words, {yPercent: 100});
+            animateBlock(splitInstances[1], splitInstances[2], phase2)
+          }
+        },
+      });
+
+    });
+
+  </script>
+</body>
+</html>

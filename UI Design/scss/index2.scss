@@ -1,0 +1,622 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.cards{
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  .container{
+    display: flex;
+    width: 90vw;
+  }
+  .panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: .5;
+    margin: 10px;
+    position: relative;
+    transition: flex .7s ease-in;
+  }
+  h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+  }
+  .panel.active{
+    flex: 5;
+  }
+  .panel.active h3{
+    opacity: 1;
+    transition: opacity .3s ease-in .4s;
+  }
+  @media (max-width: 480px){
+    .container{
+      width: 100vw;
+    }
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+      display: none;
+    }
+  }
+}
+/**************************** Scroll Animation ********************/ 
+.scrollanimation{
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  align-items: center;
+  background-color: #efedd6;
+  overflow: hidden;
+  padding-bottom: 100px;
+  h1{
+    margin: 10px;
+  }
+  .box{
+    background-color: steelblue;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 2px 4px 5px rgba(0,0,0,.3);
+    transform: translateX(400%);
+    // transform: translateX(400%);
+    // 400% for wide screens
+    transition: transform .8s ease, opacity .8s ease .2s;
+    opacity: 0;
+  }
+  .box:nth-of-type(even){
+    transform: translateX(-400%);
+  }
+  .box.show{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  @media (max-width:990px){
+    .box{
+      transform: translateX(200%);
+    }
+    .box:nth-of-type(even){
+      transform: translateX(-200%);
+    }
+    .box:nth-of-type(even).show{
+      transform: translateX(0);
+    }
+  }
+  .box h2{
+    font-size: 45px;
+  }
+}
+//***************************************** Vertical Slider ********** 
+.verticalslider{
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  .slider-container{
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+  .left-slide{
+    height: 100%;
+    width: 35%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform .5s ease-in-out;
+  }
+  .left-slide > div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  .left-slide h1{
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: -30px;
+  }
+  .right-slide{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 35%;
+    width: 65%;
+    transition: transform .5s ease-in-out;
+  }
+  .right-slide > div{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+  }
+  button{
+    background-color: #fff;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px;
+  }
+  button:hover{
+    color: #222;
+  }
+  button:focus{
+    outline: none;
+  }
+  .slider-container .action-buttons button{
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    z-index: 100;
+  }
+  .slider-container .down-button{
+    transform: translateX(-100%);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  .slider-container .up-button{
+    transform: translateY(-100%);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+// **************************imagecarousel**************************
+.imagecarousel{
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding-bottom: 100px;
+  img{
+    width: 300px;
+    height: 500px;
+    object-fit: cover;
+  }
+  .carousel{
+    box-shadow: 2px 2px 5px rgba(0,0,0,.3);
+    height: 530px;
+    width: 300px;
+    overflow: hidden;
+  }
+  .image-container{
+    display: flex;
+    transform: translateX(0);
+    transition: transform .5s ease-in-out;
+  }
+  .buttons-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn{
+    background-color: rebeccapurple;
+    color: #fff;
+    border: none;
+    padding: .5rem;
+    cursor: pointer;
+    width: 49.5%;
+  }
+  .btn:hover{
+    opacity: .9;
+  }
+  .btn:focus{
+    outline: none;
+  }
+}
+// ***************************** Menu **************************
+.nav{
+  font-family: 'Roboto', sans-serif;
+  .logo{
+    width: 150px;
+  }
+}
+.nav-btn{
+  border: none; 
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+.open-btn{
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+.nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform .3s ease-in-out;
+  z-index: 100;
+}
+.nav.visible{
+  transform: translateX(0);
+}
+.nav-black{
+  background-color: rgb(34, 31, 31);
+  width: 60%;
+  max-width: 480px;
+  min-width: 320px;
+  transition-delay: .4s;
+}
+.nav-black.visible{
+  transition-delay: 0s;
+}
+.nav-red{
+  background-color: rgb(229, 9, 20);
+  width: 95%;
+  transition-delay: .2s;
+}
+.nav-red.visible{
+  transition-delay: .2s;
+}
+.nav-white{
+  background-color: #fff;
+  width: 95%;
+  padding: 40px;
+  position: relative;
+  transition-delay: 0s;
+}
+.nav-white.visible{
+  transition-delay: .4s;
+}
+.close-btn{
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  opacity: .3;
+}
+.list{
+  list-style: none;
+  padding: 0;
+}
+.list li{
+  margin: 20px 0;
+}
+.list a{
+  color: rgb(34, 31, 31);
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.list ul{
+  list-style: none;
+  padding-left: 20px;
+}
+// **************************** testimonial Slider*****************
+.testimonialslider{
+  display: flex;
+  width: 100%;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  flex-direction: column;
+  background: #f4f4f4;
+  padding: 10px;
+  .testimonial-container{
+    background-color: #476ce4;
+    color: #fff;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 50px 80px;
+    max-width: 768px;
+    position: relative;
+  }
+  .fa-quote{
+    color: rgba(255,255,255,.3);
+    font-size: 20px;
+    position: absolute;
+    top: 70px;
+  }
+  .fa-quote-right{
+    left: 40px;
+  }
+  .fa-quote-left{
+    right: 40px;
+  }
+  .testimonial{
+    line-height: 28px;
+    text-align: justify;
+  }
+  .user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .user-image{
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    object-fit: cover;
+  }
+  .user-details{
+    margin-left: 10px;
+  }
+  .role{
+    font-weight: normal;
+    margin: 8px 0;
+  }
+  .progress-bar{
+    background-color: #fff;
+    height: 4px;
+    width: 100%;
+    animation: grow 5s linear infinite;
+    margin-bottom: 20px;
+    transform-origin: left;
+  }
+  @keyframes grow{
+    0%{
+      transform: scaleX(0);
+    }
+  }
+  @media(max-width: 768px){
+    .fa-quote{
+      display: none;
+    }
+    .testimonial-container{
+      padding: 20px 30px;
+    }
+  }
+}
+/************************Cookie Policy *****************************/ 
+.cookie-container{
+  background: linear-gradient(260deg, #9b6c50 0%, #4f2626 100%);
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%,-50%);
+  // z-index: 200;
+  color: #fff;
+  display: flex;
+  width: 25rem;
+  height: 11rem;
+  border-radius: 1.2rem;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  align-items: center;
+  justify-content: space-between;
+  margin: 200px auto;
+}
+.cookie-container .text{
+  width: 70%;
+}
+.cookie-container .cookie{
+  transform: scale(.6);
+  overflow: visible;
+}
+.cookie-title{
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+.cookie-subtitle{
+  font-size: .8rem;
+  font-weight: regular;
+  padding: 1rem 0;
+}
+.cookie-container button{
+  border-style: none;
+  padding: .5rem 1rem;
+  font-size: .6rem;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 0.3rem;
+  color: #4f2626;
+}
+/*************************** SVG Micro Animation **********************/ 
+.svgmicroanimation{
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(260deg, #6a9eec, #65c0d3);
+  font-family: 'Roboto', sans-serif;
+  .container{
+    background-color: #fff;
+    color: #000;
+    padding: 5rem;
+    border-radius: 2rem;
+  }
+  .home, .notifications, .messages{
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+  }
+  .home-title, .notification-title, .messages-title{
+    padding-left: 2rem;
+  }
+  .notification-svg, .messages-svg, .notification-svg{
+    overflow: visible;
+  }
+}
+/***************************Form Animation ****************************/ 
+.formanimation{
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(90deg, #6190e8, #a7bfe8);
+  form{
+    min-height: 40vh;
+    width: 50vw;
+    background: #fff;
+    color: #777474;
+    border-radius: 2rem;
+    padding: 3rem 3rem;
+    display: flex;
+    position: relative;
+  }
+  .title{
+    color: #6190e8;
+    margin-bottom: 10px;
+  }
+  .contact-right,
+  .contact-left{
+    flex: 1;
+  }
+  .contact-right{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border: none;
+    color: #777474;
+    font-size: .7rem;
+    outline: none;
+  }
+  .input-container{
+    position: relative;
+  }
+  .placeholder{
+    position: relative;
+    z-index: 1;
+    padding: .3rem 0rem;
+    font-size: .7rem;
+    pointer-events: none;
+    opacity: .6;
+    transform-origin: left;
+  }
+  .line-svg{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: visible;
+    opacity: .8;
+  }
+  .checkbox-label{
+    font-size: .7rem;
+  }
+  .promo-container{
+    position: relative;
+    display: flex;
+  }
+  .checkbox{
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .checkbox-label{
+    padding-left: .5rem;
+  }
+  .checkbox-container{
+    position: relative;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .checkmark, .checkbox{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #c5c5c5;
+  }
+  .checkbox-fill{
+    position: absolute;
+    background-color: #6190e8;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+  }
+  .tick-mark{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%,-50%) scale(.6);
+  }
+  button{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: .7rem;
+    color: #fff;
+    border-radius: .2rem;
+    border-style: none;
+    padding: .5rem 2.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    background-color: #6190e8;
+    align-self: flex-start;
+  }
+  #character{
+    position: absolute;
+    transform: scale(0.6) translate(0%, 30%);
+    bottom: 0;
+    transform-origin: bottom;
+    left: 0;
+  }
+  .submitted{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #777474;
+    font-size: 1rem;
+    pointer-events: none;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+  .line-svg{
+    width: 100%;
+  }
+  @media screen and (max-width: 812px){
+    form{
+      width: 90vw;
+      min-height: 80vh;
+      flex-direction: column;
+      padding: 8rem 3rem;
+    }
+    .line-svg{
+      width: 100%;
+    }
+    #character{
+      transform: scale(.4) translate(0%, 30%);
+    }
+  }
+}
+
+// Gallery

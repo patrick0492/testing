@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700,800,900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.circletext{
+  font-family: 'Roboto', sans-serif;
+  min-height: 80vh;
+  background: #222;
+  overflow: hidden;
+  cursor: none;
+  .text{
+    position: absolute;
+    font-size: 1.5em;
+    color: #0f0;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    transition: opacity .25s;
+    animation: aniColor 5s linear infinite;
+  }
+  .text::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #0f0;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+  }
+  &:hover .text{
+    opacity: 1;
+  }
+  .text span{
+    position: absolute;
+    top: -100px;
+    text-transform: uppercase;
+    transform-origin: 0 100px;
+    font-weight: 400;
+  }
+  @keyframes aniColor{
+    0%{
+      filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) hue-rotate(0deg);
+    }
+    100%{
+      filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) hue-rotate(360deg);
+    }
+  }
+}
+
+// Playing Card Effect ***************************************************************************************************************************************
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+.playingcards{
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background: #0f0f0f;
+  overflow: hidden;
+  .container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .card{
+    position: absolute;
+    width: 240px;
+    height: 320px;
+    border-radius: 8px;
+    background: #5e5cfc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0,0,0,.2);
+    border: 10px solid rgba(0,0,0,.1);
+    cursor: pointer;
+    transition: .5s;
+    transform-origin: 50% 100%;
+    font-size: 8em;
+    font-weight: 700;
+    filter: hue-rotate(calc(var(--i) * 50deg));
+    box-shadow: 0 15px 50px rgba(0,0,0,.1);
+  }
+  .container:hover .card{
+    transform: rotate(calc(var(--i) * 5deg)) translate(calc(var(--i) * 120px), -50px);
+    color: rgba(0,0,0,.25);
+    box-shadow: 0 15px 50px rgba(0,0,0,.25);
+  }
+  .container:active .card{
+    background: #333;
+  }
+  .container .card:active{
+    translate: calc(var(--i) * 20px) -50px;
+    z-index: 100;
+    background: #5e5cfc;
+  }
+}
+// infinte scroll css ************************************************
+.infiscrollcss{
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #111;
+  flex-direction: column;
+  .scroll{
+    position: relative;
+    display: flex;
+    width: 700px;
+    text-transform: uppercase;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg,transparent,#fff 20%,#fff 80%,transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent,#fff 20%,#fff 80%,transparent);
+  }
+  .scroll div{
+    white-space: nowrap;
+    animation: aniScroll var(--t) linear infinite;
+    animation-delay: calc(var(--t) / -1);
+
+  }
+  @keyframes aniScroll{
+    0%{
+      transform: translateX(100%);
+    }
+    100%{
+      transform: translateX(-100%);
+    }
+  }
+  .scroll div:nth-child(2){
+    animation: aniScroll2 var(--t) linear infinite;
+    animation-delay: calc(var(--t) / -2);
+  }
+  @keyframes aniScroll2{
+    0%{
+      transform: translateX(0);
+    }
+    100%{
+      transform: translateX(-200%);
+    }
+  }
+  .scroll div span{
+    display: inline-flex;
+    margin: 10px;
+    letter-spacing: .2em;
+    background: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: .5s;
+    &:hover{
+      background-color: #4caf50;
+      cursor: pointer;
+    }
+  }
+  .imgbx{
+    img{
+      max-width: 100px;
+      scale: .8;
+      filter: grayscale(1);
+      &:hover{
+        filter: grayscale(0);
+      }
+    }
+  }
+}
+// Mailvalidation ******************************************************
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --default-color: hsl(200, 4%, 60%);
+  --active-color: hsl(200, 70%, 56%);
+  --error-color: hsl(353, 64%, 53%);
+  --border-color: hsl(200, 4%, 64%);
+  --text-color: hsl(200, 4%, 24%);
+  --body-color: hsl(0, 0%, 100%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: 1rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+}
+.mailvalidation{
+  input {
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    color: var(--text-color);
+  }
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--body-color);
+  .container{
+    height: 60vh;
+    margin-inline: 1.5rem;
+    display: grid;
+    place-items: center;
+  }
+  .form{
+    width: 100%;
+    max-width: 340px;
+  }
+  .form-field{
+    position: relative;
+  }
+  .form-input{
+    width: 100%;
+    border: 3px solid var(--default-color);
+    padding: 1.4rem 1.4rem 1.4rem 4.5rem;
+    border-radius: 4rem;
+    outline: none;
+    font-weight: 500;
+    transition: border-color .4s, box-shadow .4s;
+  }
+  .form-input::placeholder{
+    color: var(--text-color);
+  }
+  .form-label{
+    position: absolute;
+    left: 1.5rem;
+    top: -.65rem;
+    background-color: var(--body-color);
+    padding: 2px;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+  }
+  .form-icon{
+    height: max-content;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 1.5rem;
+    top: 0;
+    bottom: 0;
+    margin-block: auto;
+  }
+  .form-field::after{
+    content: '';
+    position: absolute;
+    height: 28px;
+    border: 1px solid var(--border-color);
+    left: 3.75rem;
+    top: 0;
+    bottom: 0;
+    margin-block: auto;
+  }
+  .form-error{
+    position: absolute;
+    left: 1.5rem;
+    bottom: -1.5rem;
+    display: flex;
+    align-items: center;
+    column-gap: .25rem;
+    color: var(--error-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s;
+  }
+  .form-error i{
+    font-size: 1rem;
+  }
+  .form-error span{
+    font-size: var(--smaller-font-size);
+    font-weight: 500;
+  }
+  .form-input:focus,
+  .valid .form-input{
+    border-color: var(--active-color);
+    box-shadow: 0 8px 24px hsla(200,70%,56%,.3);
+  }
+  .invalid .form-input{
+    border-color: var(--error-color);
+    box-shadow: 0 8px 24px hsla(353,64%,53%,.3);
+  }
+  .invalid .form-error{
+    opacity: 1;
+  }
+}
+// ********************************************** Glowing corner
+.glowingcorner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  background: #222;
+  gap: 40px;
+  .loader{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(calc(90deg * var(--i)));
+    background: rgba(45,45,45,1);
+    overflow: hidden;
+  }
+  .loader::before{
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(var(--clr),transparent,transparent);
+    animation: aniCorner 1.5s linear infinite;
+  }
+  .loader::after{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: rgba(45,45,45,.9);
+  }
+  @keyframes aniCorner{
+    0%{
+      transform: translate(-150px,-150px);
+    }
+    25%{
+      transform: translate(0px,-150px);
+    }
+    50%{
+      transform: translate(0px,0px);
+    }
+    75%{
+      transform: translate(-150px,0);
+    }
+    100%{
+      transform: translate(-150px,-150px);
+    }
+  }
+}
+// 3dslideshow ***********************************************************
+.dslideshow{
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #111;
+  .slideshow{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  .slide{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    transform: rotateY(270deg);
+    transform-style: preserve-3d;
+    animation: ani3d 20s linear infinite;
+    animation-delay: calc(var(--i) * 2s);
+    // for eight use 2.5s for 10 2s
+    // animation-delay: calc(var(--i) * 2.5s);
+  }
+  @keyframes ani3d{
+    0%{
+      transform: rotateY(270deg);
+    }
+    10%,100%{
+      transform: rotateY(90deg);
+    }
+  }
+  img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  h2{
+    position: relative;
+    z-index: 1000;
+    color: #fff;
+    font-size: 10em;
+    transform: rotateY(180deg) translateY(100px) translateZ(50px);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    font-weight: 900;
+    -webkit-text-stroke: 1px #000
+  }
+  h2 span{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-weight: 500;
+    font-size: .5em;
+    transform: translate(0,50%) translateZ(50px);
+    backface-visibility: hidden;
+  }
+}
+// imagegrid *************************************************************************************************************************************************
+.imagegrid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60VH;
+  background: #222;
+  padding: 4rem;
+  .container{
+    position: relative;
+    display: grid;
+    width: 600px;
+    grid-gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 150px 150px 150px 150px;
+    grid-template-areas: 'img1 img3 img4'
+                          'img1 img3 img6'
+                          'img2 img3 img6'
+                          'img2 img5 img5';
+  }
+  .img1{
+    grid-area: img1;
+  }
+  .img2{
+    grid-area: img2;
+  }
+  .img3{
+    grid-area: img3;
+  }
+  .img4{
+    grid-area: img4;
+  }
+  .img5{
+    grid-area: img5;
+  }
+  .img6{
+    grid-area: img6;
+  }
+  .item{
+    position: relative;
+    // background: #fff;
+  }
+  .item img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+    border-radius: 10px;
+  }
+  .container:hover .item img:not(:hover){
+    filter: grayscale(1);
+    opacity: .5;
+  }
+}

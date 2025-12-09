@@ -1,0 +1,151 @@
+/* 
+300 light
+400 Regular
+600 Semi bold
+700 Bold
+800  Extra bold
+*/
+.project-display{
+  font-size: 80px;
+  line-height: 88px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+h1.project-h1{
+  font-size: 60px;
+  letter-spacing: 0px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+h2.project-h2{
+  font-size: 44px;
+  letter-spacing: 0px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+h3.project-h3{
+  font-size: 36px;
+  letter-spacing: -0.75px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+h4.project-h4{
+  font-size: 24px;
+  letter-spacing: -0.2px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.project-p-large-bold{
+  line-height: 1.2;
+  font-size: 20px;
+  letter-spacing: -0.1;
+  font-weight: 600;
+}
+.project-p-large-regular{
+  line-height: 1.2;
+  font-size: 20px;
+  letter-spacing: -0.1;
+  font-weight: 400;
+}
+p.project-p-regular-bold{
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 600;
+}
+.project-p-regular-regular{
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 400;
+}
+.project-p-small-bold{
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: 600;
+}
+.project-p-small-regular{
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: 400;
+}
+.project-sub-bold{
+  line-height: 1.5;
+  font-size: 12px;
+  font-weight: 600;
+}
+.project-sub-regular{
+  line-height: 1.5;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.typo-caps{
+  text-transform: uppercase;
+}
+.typo-80{
+  opacity: .8;
+}
+.typo-50{
+  opacity: .5;
+}
+
+.btn,
+.btn:link,
+.btn:visited{
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 4px;
+  margin-right: 20px;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+.btn-x-dark:link,
+.btn-x-dark:visited{
+  background-color: #0b1642;
+  color: #fff;
+  outline-offset: -1px;
+}
+.btn-x-dark:hover,
+.btn-x-dark:active{
+  background-color: #4d4da6;
+}
+.btn-dark:link,
+.btn-dark:visited{
+  background-color: #007efa;
+  color: #fff;
+}
+.btn-dark:hover,
+.btn-dark:active{
+  
+}
+.btn-light:link,
+.btn-light:visited{
+  background-color: #fff;
+  color: #0b1642;
+  outline: 1px solid #b3b3b3;
+}
+.btn-light:hover,
+.btn-light:active{
+}
+.btn-navi{
+  background-color: #007efa;
+  display: inline-block;
+  color: #fff;
+  padding: 8px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.btn-navi-dark{
+  background-color: #0b1642;
+  color: #007efa;
+}
+a:link.link,
+a:visited.link{
+  text-decoration: none;
+  color: #007efa;
+}
+a:hover.link,
+a:active.link{
+  text-decoration: underline;
+  color: #0b1642;
+}

@@ -1,0 +1,866 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  // background: #f2f2f2;
+}
+/***************** responsive dropdown **********************************/ 
+.respdropdownmenu{
+  font-family: 'Poppins', sans-serif;
+  background: #36474f;
+  position: absolute;
+  width: 100%;
+  min-height: 66px;
+  background: #43a5f6;
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  .logo{
+    color: #fff;
+    font-size: 1.75em;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  ul{
+    position: relative;
+    li{
+      list-style: none;
+      position: relative;
+      float: left;
+      a{
+        color: #fff;
+        font-size: 1.1em;
+        padding: 20px 25px;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+      }
+      a:hover{
+        background: #2b93e3;
+      }
+    }
+  }
+  ul li ul{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background: #445964;
+    display: none;
+  }
+  ul li:hover > ul{
+    display: block;
+  }
+  ul li ul li{
+    position: relative;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.2);
+  }
+  ul li ul li ul{
+    top: 0;
+    left: 200px;
+  }
+}
+@media (max-width: 900px){
+  .respdropdownmenu{
+    padding: 10px 20px;
+    nav{
+      position: absolute;
+      width: 100%;
+      top: 66px;
+      left: 0;
+      background: #445964;
+      display: none;
+    }
+    &.active nav{
+      display: initial;
+    }
+    nav ul li{
+      width: 100%;
+    }
+    nav ul li ul{
+      position: relative;
+      width: 100%;
+      left: 0;
+    }
+    ul li ul li ul{
+      top: 0;
+      left: 0;
+    }
+    nav ul li:hover ul li{
+      background: #546e7b;
+    }
+  }
+  .menuToggle{
+    position: relative;
+    width: 40px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menuToggle::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transform: translateY(-12px);
+    box-shadow: 0 12px #fff;
+  }
+  .menuToggle::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transform: translateY(12px);
+  }
+  header.active .menuToggle::before{
+    transform: rotate(45deg);
+    box-shadow: 0 0 #fff;
+  }
+  header.active .menuToggle::after{
+    transform: rotate(315deg);
+  }
+}
+/***************** Fieldanimation **********************************/ 
+.fieldanimation{
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  flex-direction: column;
+  gap: 30px;
+  background: #1d2b3a;
+  .inputBox{
+    position: relative;
+    width: 250px;
+  }
+  input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,.25);
+    background: #1d2b3a;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    transition: .5s;
+  }
+  span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255,255,255,.25);
+    text-transform: uppercase;
+    transition: .5s;
+  }
+  input:focus ~ span,
+  input:valid ~ span{
+    color: #00dfc4;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #1d2b3a;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
+    letter-spacing: 0.2em;
+  }
+  .inputBox:nth-child(2) input:valid ~ span,
+  .inputBox:nth-child(2) input:focus ~ span{
+    background: #00dfc4;
+    color: #1d2b3a;
+    border-radius: 2px;
+  }
+  input:valid{
+    border: 1px solid #00dfc4;
+  } 
+}
+/*************************************************** Mobile Nav *******/ 
+.mobilenav{
+  .container{
+    width: 100%;
+    height: 400px;
+    background: #5349b1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  .navbar{
+    background: #fff;
+    padding: 20px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+  }
+  .link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    padding: 15px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 80px;
+  }
+  .link i{
+    font-size: 30px;
+  }
+  .link p{
+    font-weight: 500;
+    margin-left: 15px;
+    display: none;
+  }
+  .active{
+    background: #ddd9f1;
+    color: #5349b1;
+    width: 140px;
+    transition: width .5s;
+  }
+  .link.active P{
+    display: block;
+  }
+  .active i{
+    color: #5349b1;
+  }
+}
+/************************************************* gradientcirlce ****/ 
+.gradientcircle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  background: #222;
+  position: relative;
+  &::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#08ff12, #0791ff);
+    z-index: 10;
+    mix-blend-mode: multiply;
+  }
+  .circle{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,.05);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff5, 0 0 0 20px #333, 0 0 0 22px #fff, 0 0 50px #fff, 0 0 450px #fff;
+  }
+  .circle::before{
+    content: '';
+    overflow: hidden;
+    position: absolute;
+    width: 2px;
+    height: 170px;
+    border-radius: 2px;
+    background: linear-gradient(0deg, transparent, #fff);
+    transform-origin: bottom;
+    animation: animateNiddles 20s steps(60) infinite;
+  }
+  .circle::after{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 130px;
+    border-radius: 2px;
+    background: linear-gradient(0deg, transparent, #fff);
+    transform-origin: bottom;
+    animation: animateNiddles 120s steps(60) infinite;
+  }
+  @keyframes animateNiddles{
+    0%{
+      transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100%{
+      transform: translate(-50%,-50%) rotate(360deg);
+    }
+  }
+  li{
+    position: absolute;
+    list-style: none;
+    transform-origin: 0 240px;
+    top: 10px;
+    transform: rotate(calc(21deg * var(--i)));
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: consolas;
+  }
+  li span{
+    color: #fff;
+    display: inline-block;
+    transform: rotate(calc(-21deg * var(--i)));
+    text-shadow: 0 0 15px #fff, 0 0 35px #fff, 0 0 75px #fff, 0 0 150px #fff;
+  }
+}
+/************************************************* accordion ****/ 
+.accordion{
+  width: 100%;
+  height: 800px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f5f8ff;
+  .container{
+    margin: 0 40px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  h1{
+    color: #333;
+  }
+  .tab{
+    position: relative;
+    background: #fff;
+    padding: 0 20px 20px;
+    box-shadow: 0 15px 25px rgba(0,0,0,.05);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  input{
+    appearance: none;
+  }
+  label{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  label::after{
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 2em;
+    color: rgba(0,0,0,.1);
+    transition: transform 1s;
+  }
+  .tab:hover label::after{
+    color: #333;
+  }
+  input:checked ~ label::after{
+    transform: rotate(135deg);
+    color: #fff;
+  }
+  label h2{
+    width: 40px;
+    height: 40px;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.25em;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  input:checked ~ label h2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(255,255,255,.2);
+    font-size: 8em;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+  .tab:nth-child(2) label h2{
+    background: linear-gradient(135deg,#70f570, #49c628);
+  }
+  .tab:nth-child(3) label h2{
+    background: linear-gradient(135deg,#3c8ce7, #00eaff);
+  }
+  .tab:nth-child(4) label h2{
+    background: linear-gradient(135deg,#ff96f9, #c32bac);
+  }
+  .tab:nth-child(5) label h2{
+    background: linear-gradient(135deg,#fd6e6a, #49c628);
+  }
+  label h3{
+    position: relative;
+    font-weight: 500;
+    color: #333;
+    z-index: 10;
+  }
+  input:checked ~ label h3{
+    background: #fff;
+    padding: 2px 10px;
+    color: #333;
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.05);
+  }
+  .content{
+    max-height: 0;
+    transition: 1s;
+    overflow: hidden;
+  }
+  input:checked ~.content{
+    max-height: 100vh;
+  }
+  .content p{
+    position: relative;
+    padding: 10px 0;
+    color: #333;
+    z-index: 10;
+  }
+  input:checked ~ .content p{
+    color: #fff;
+  }
+}
+/******************************TextAnimation *************************/ 
+.textanimation{
+  font-family: 'Poppins', sans-serif;
+  background: #333;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow:hidden;
+  .box{
+    position: relative;
+    width: 100%;
+    height: 175px;
+    transform-style: preserve-3d;
+  }
+  .box div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: aniText 24s linear infinite;
+  }
+  @keyframes aniText{
+    0%{
+      transform: perspective(1000px) rotateX(0deg);
+    }
+    100%{
+      transform: perspective(1000px) rotateX(360deg);
+    }
+  }
+  .box span{
+    position: absolute;
+    inset: 0;
+    transform: rotateX(calc(var(--i) * 15deg));
+  }
+  .box span::before{
+    content: '3D Text';
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: #fffd;
+    text-transform: uppercase;
+    font-size: 4em;
+    font-weight: 800;
+    -webkit-text-stroke: 2px #000;
+    text-shadow: 0 0 50px rgba(0,0,0,.5);
+  }
+  span:nth-child(3n+2):before{
+    color: #e3f2fddd;
+  }
+  span:nth-child(3n+3):before{
+    color: #fce4ecdd;
+  }
+}
+
+/***************************** Icon Hover **************************/ 
+.iconhover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  ul{
+    position: relative;
+    display: flex;
+    gap: 40px;
+  }
+  li{
+    position: relative;
+    list-style: none;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.1);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: #fff;
+    cursor: pointer;
+  }
+  .fa{
+    font-size: 6em;
+    -webkit-text-stroke: 2px var(--clr);
+    color: transparent;
+  }
+  li::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    border-bottom: 4px solid var(--clr);
+    transition: .5s ease-out;
+    font-family: fontAwesome;
+    text-align: center;
+    line-height: 120px;
+    font-size: 6em;
+    color: var(--clr);
+  }
+  li:hover::before{
+    height: 100%;
+  }
+  li:nth-child(1)::before{
+    content: '\f099';
+  }
+  li:nth-child(2)::before{
+    content: '\f16d';
+  }
+  li:nth-child(3)::before{
+    content: '\f232';
+  }
+  li:nth-child(4)::before{
+    content: '\f16a';
+  }
+}
+/******************************* Bubble********************************/ 
+.soapbubble{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: #000;
+  .bubble{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    box-shadow: inset 0 0 25px rgba(255,255,255,.25);
+    border-radius: 50%;
+    animation: aniBubble 8s ease-in-out infinite;
+  }
+  .bubble:nth-child(2){
+    position: relative;
+    zoom: 0.45;
+    left: -10px;
+    top: -100px;
+    animation-delay: -4s;
+  }
+  .bubble:nth-child(3){
+    position: relative;
+    zoom: 0.25;
+    right: -80px;
+    top: -300px;
+    animation-delay: -6s;
+  }
+  .bubble:nth-child(4){
+    position: relative;
+    zoom: 0.35;
+    left: -120px;
+    bottom: -200px;
+    animation-delay: -3s;
+  }
+  .bubble:nth-child(5){
+    position: relative;
+    zoom: 0.5;
+    left: 0;
+    top: 200px;
+    animation-delay: -5s;
+  }
+  @keyframes aniBubble{
+    0%,100%{
+      transform: translateY(-20px);
+    }
+    50%{
+      transform: translateY(20px);
+    }
+  }
+  .bubble::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    top: 50px;
+    left: 45px;
+    z-index: 10;
+    filter: blur(2px);
+  }
+  .bubble::after{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    top: 80px;
+    left: 80px;
+    z-index: 10;
+    filter: blur(2px);
+  }
+  span{
+    position: absolute;
+    border-radius: 50%;
+  }
+  span:nth-child(1){
+    border-left: 15px solid #0fb4ff;
+    inset: 10px;
+    filter: blur(8px);
+  }
+  span:nth-child(2){
+    border-right: 15px solid #ff4484;
+    inset: 10px;
+    filter: blur(8px);
+  }
+  span:nth-child(3){
+    border-top: 15px solid #ffeb3b;
+    inset: 20px;
+    filter: blur(8px);
+  }
+  span:nth-child(4){
+    border-left: 15px solid #ff4484;
+    inset: 30px;
+    filter: blur(12px);
+  }
+  span:nth-child(5){
+    inset: 10px;
+    border-bottom: 10px solid #fff;
+    filter: blur(8px);
+    transform: rotate(330deg);
+  }
+}
+/****************** Menuhoverani**************************************/ 
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+.menuhoverani{
+  font-family: 'Fjalla One', sans-serif;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(0, 0%, 15%);
+  li{
+    display: inline-block;
+    margin: 10px 15px;
+  }
+  a{
+    font-size: 20px;
+    text-decoration: none;
+    color: hsl(0, 50%, 60%);
+    text-transform: capitalize;
+    line-height: 1.2;
+  }
+  .word{
+    display: inline-flex;
+    overflow: hidden;
+  }
+  .char{
+    position: relative;
+    transition: transform .5s cubic-bezier(.27,.68,.25,1.4);
+    transition-delay: calc(0.02s * var(--i));
+  }
+  a:hover .char{
+    transform: translateY(-100%);
+  }
+  .char::after{
+    content: attr(data-text);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: hsl(247, 41%, 67%);
+  }
+}
+/************************* text Animaion Effect ********************/ 
+.textanimationcss{
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  background: #111;
+  h2{
+    position: relative;
+    font-size: 6em;
+    color: #222;
+  }
+  h2::before{
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    width: 100px;
+    border-right: 4px solid #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: aniTextCss 8s linear infinite;
+    filter: drop-shadow(0 0 50px #fff);
+  }
+  @keyframes aniTextCss{
+    0%,10%,100%{
+      width: 0;
+    }
+    70%,90%{
+      width: 100%;
+    }
+  }
+}
+
+/********************** Hoverbutton *********************************/ 
+.hoverbutton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 400px;
+  background: #000;
+  .hover-link{
+    margin: 0 auto;
+    border: none;
+    background: none;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,.2);
+    padding: 0 0 0.5rem;
+    font-family: consolas;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 3em;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+  }
+  .hover-link span{
+    overflow: hidden;
+    display: block;
+    position: relative;
+    pointer-events: none;
+  }
+  .hover-link span > span{
+    display: inline-block;
+  }
+  .hover-link span > span:nth-of-type(1){
+    transition: .4s ease all;
+  }
+  .hover-link span > span:nth-of-type(2){
+    transition: .4s ease all;
+    transition-delay: .07s;
+  }
+  .hover-link > span > span > span{
+    content: attr(data-text);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(200%);
+  }
+  .hover-link:focus > span > span,
+  .hover-link:hover > span > span{
+    transform: translateY(-200%);
+  }
+  #cursor{
+    pointer-events: none;
+    width: 3rem;
+    height: 3rem;
+    border: solid 1px rgba(255,255,255,.2);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: .35s ease width, 0.35s ease height, 0.35s ease border, 0.35s ease background;
+    transform: translate(-50%,-50%);
+  }
+  #cursor.button{
+    width: 5rem;
+    height: 5rem;
+    border: solid 1px transparent;
+    background: rgba(255,255,255,.5);
+  }
+}
+/********************* Gradient Bar ******************************/ 
+.gradientbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  background: #000;
+  .loader{
+    position: relative;
+    width: 300px;
+    height: 10px;
+    background: #fff;
+    -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+  }
+  .loader::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,#fb0094,#0000ff,#00ff00,#ffff00,#fb0094,#0000ff,#00ff00,#ffff00,#fb0094);
+    animation: aniGradientBar 20s linear infinite;
+    background-size: 500%;
+  }
+  .loader::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,#fb0094,#0000ff,#00ff00,#ffff00,#fb0094,#0000ff,#00ff00,#ffff00,#fb0094);
+    animation: aniGradientBar 20s linear infinite;
+    background-size: 500%;
+    filter: blur(20px);
+  }
+  @keyframes aniGradientBar{
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: 500% 0;
+    }
+  }
+}
+
+/******************* Custom Scrollbar**************************/ 
+.scrollbar{
+  background-color: #0d02c5;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1{
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #000 #fff;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 20px;
+  border: 3px solid #fff;
+}

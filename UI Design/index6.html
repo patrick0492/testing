@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+  <link rel="stylesheet" href="./css/style6.css">
+</head>
+<body>
+  <div class="imagegrid">
+    <div class="container">
+      <div class="item img1">
+        <img src="./img/0001.jpg" alt="">
+      </div>
+      <div class="item img2">
+        <img src="./img/0002.jpg" alt="">
+      </div>
+      <div class="item img3">
+        <img src="./img/0003.jpg" alt="">
+      </div>
+      <div class="item img4">
+        <img src="./img/0004.jpg" alt="">
+      </div>
+      <div class="item img5">
+        <img src="./img/0005.jpg" alt="">
+      </div>
+      <div class="item img6">
+        <img src="./img/0006.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="dslideshow">
+    <div class="slideshow">
+      <div class="slide" style="--i:0;">
+        <h2>01<span>Mr. Bounce</span></h2>
+        <img src="./img/23.jpg" alt="">
+      </div>
+      <div class="slide" style="--i:1;">
+        <h2>02<span>Mr. Clever</span></h2>
+        <img src="./img/30.jpg" alt="">
+      </div>
+      <div class="slide" style="--i:2;">
+        <h2>03<span>Mr. Grumble</span></h2>
+        <img src="./img/40.jpg" alt="">
+      </div>
+      <div class="slide" style="--i:3;">
+        <h2>04<span>Mr. Marvellous</span></h2>
+        <img src="./img/46.jpg" alt="">
+      </div>
+      <div class="slide" style="--i:4;">
+        <h2>05<span>Mr. Mean</span></h2>
+        <img src="./img/47.jpg" alt="">
+      </div>
+      <div class="slide" style="--i:5;">
+        <h2>06<span>Mr. Messy</span></h2>
+        <img src="./img/48.jpg" alt="">
+      </div>
+      <div class="slide" style="--i:6;">
+        <h2>07<span>Miss Dotty</span></h2>
+        <img src="./img/59.jpg" alt="">
+      </div>
+      <div class="slide" style="--i:7;">
+        <h2>08<span>Miss Fickle</span></h2>
+        <img src="./img/61.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="glowingcorner">
+    <div class="loader" style="--clr:#01e100;--i:1;"></div>
+    <div class="loader" style="--clr:#f50076;--i:2;"></div>
+    <div class="loader" style="--clr:#00e6fd;--i:3;"></div>
+    <div class="loader" style="--clr:#d0ff00;--i:4;"></div>
+  </div>
+
+  <div class="mailvalidation">
+    <div class="container">
+      <form action="" id="form" class="form">
+        <div class="form-field">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" placeholder="Write your email" required id="email" class="form-input">
+          <i class="ri-mail-line form-icon"></i>
+          <div class="form-error">
+            <i class="ri-information-fill"></i>
+            <span>Invalid email format.</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    const form = document.getElementById('form'),
+    email = document.getElementById('email'),
+    pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+
+    email.addEventListener('input', () => {
+      if (email.value.match(pattern)){
+        form.classList.add('valid')
+        form.classList.remove('invalid')
+      } else{
+        form.classList.add('invalid')
+        form.classList.remove('valid')
+      }
+      if(email.value ==''){
+        form.classList.remove('invalid')
+        form.classList.remove('valid')
+      }
+    })
+  </script>
+
+  <div class="infiscrollcss">
+    <div class="scroll" style="--t:20s">
+      <div>
+        <span>html</span>
+        <span>CSS</span>
+        <span>Javascript</span>
+        <span>ReactJS</span>
+        <span>Figma</span>
+        <span>Photoshop</span>
+        <span>Angular</span>
+      </div>
+      <div>
+        <span>html</span>
+        <span>CSS</span>
+        <span>Javascript</span>
+        <span>ReactJS</span>
+        <span>Figma</span>
+        <span>Photoshop</span>
+        <span>Angular</span>
+      </div>
+    </div>
+    <div class="scroll" style="--t:30s">
+      <div>
+        <span>html</span>
+        <span>CSS</span>
+        <span>Javascript</span>
+        <span>ReactJS</span>
+        <span>Figma</span>
+        <span>Photoshop</span>
+        <span>Angular</span>
+      </div>
+      <div>
+        <span>html</span>
+        <span>CSS</span>
+        <span>Javascript</span>
+        <span>ReactJS</span>
+        <span>Figma</span>
+        <span>Photoshop</span>
+        <span>Angular</span>
+      </div>
+    </div>
+    <div class="scroll" style="--t:10s">
+      <div>
+        <span>html</span>
+        <span>CSS</span>
+        <span>Javascript</span>
+        <span>ReactJS</span>
+        <span>Figma</span>
+        <span>Photoshop</span>
+        <span>Angular</span>
+      </div>
+      <div>
+        <span>html</span>
+        <span>CSS</span>
+        <span>Javascript</span>
+        <span>ReactJS</span>
+        <span>Figma</span>
+        <span>Photoshop</span>
+        <span>Angular</span>
+      </div>
+    </div>
+    <div class="scroll" style="--t:35s">
+      <div>
+        <span>html</span>
+        <span>CSS</span>
+        <span>Javascript</span>
+        <span>ReactJS</span>
+        <span>Figma</span>
+        <span>Photoshop</span>
+        <span>Angular</span>
+      </div>
+      <div>
+        <span>html</span>
+        <span>CSS</span>
+        <span>Javascript</span>
+        <span>ReactJS</span>
+        <span>Figma</span>
+        <span>Photoshop</span>
+        <span>Angular</span>
+      </div>
+    </div>
+    <div class="scroll imgbx" style="--t:25s">
+      <div>
+        <img src="./img/23.jpg" alt="">
+        <img src="./img/30.jpg" alt="">
+        <img src="./img/40.jpg" alt="">
+        <img src="./img/46.jpg" alt="">
+        <img src="./img/47.jpg" alt="">
+        <img src="./img/48.jpg" alt="">
+        <img src="./img/59.jpg" alt="">
+        <img src="./img/61.jpg" alt="">
+      </div>
+      <div>
+        <img src="./img/23.jpg" alt="">
+        <img src="./img/30.jpg" alt="">
+        <img src="./img/40.jpg" alt="">
+        <img src="./img/46.jpg" alt="">
+        <img src="./img/47.jpg" alt="">
+        <img src="./img/48.jpg" alt="">
+        <img src="./img/59.jpg" alt="">
+        <img src="./img/61.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="playingcards">
+    <div class="container">
+      <div class="card" style="--i:-4;">1</div>
+      <div class="card" style="--i:-3;">2</div>
+      <div class="card" style="--i:-2;">3</div>
+      <div class="card" style="--i:-1;">4</div>
+      <div class="card" style="--i:0;">5</div>
+      <div class="card" style="--i:1;">6</div>
+      <div class="card" style="--i:2;">7</div>
+      <div class="card" style="--i:3;">8</div>
+      <div class="card" style="--i:4;">9</div>
+    </div>
+  </div>
+
+  <div class="circletext">
+    <h2 class="text">Circle - Text - Effects</h2>
+  </div>
+  <script>
+    let text = document.querySelector('.text');
+
+    // split text into letters
+    text.innerHTML = text.textContent.replace(/\S/g,'<span class="circletextspan">$&</span>');
+
+    let element = document.querySelectorAll('.circletextspan');
+    for(let i=0; i<element.length; i++){
+      element[i].style.transform = 'rotate('+i*18+'deg)';
+    }
+
+    document.addEventListener('mousemove', function(e){
+      text.style.left = e.pageX + 'px';
+      text.style.top = e.pageY + 'px';
+      text.style.transform = `rotate(${e.pageX / 2}deg) rotate(${e.pageY / -2}deg)`;
+    })
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/style7.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="mouseslider">
+    <div class="box"></div>
+  </div>
+  <script>
+    let box = document.querySelector('.box');
+    for (let k=1; k<=50; k++){
+      let div = document.createElement('div');
+      div.className = 'item';
+      div.textContent = k;
+      box.appendChild(div);
+    }
+    function moveNext(){
+      let items = document.querySelectorAll('.item');
+      box.appendChild(items[0]);
+    }
+    function movePrev(){
+      let items = document.querySelectorAll('.item');
+      box.prepend(items[items.length - 1]);
+    }
+    window.addEventListener('wheel', function(event){
+      if(event.deltaY > 0){
+        moveNext();
+      } else{
+        movePrev();
+      }
+    })
+  </script>
+
+  <div class="cubesanimation">
+    <div class="container">
+
+    </div>
+  </div>
+  <script>
+    function cubes(){
+      let container = document.querySelector('.container');
+      let zValues = [-3,-2,-1,0,1,2,3];
+      zValues.forEach(z =>{
+        let cube = document.createElement('div');
+        cube.classList.add('cube');
+        cube.style.setProperty('--z',z);
+
+        for( let x = -3; x <=3; x++){
+          let div = document.createElement('div');
+          div.style.setProperty('--x',x);
+          div.style.setProperty('--y',0);
+
+          let span = document.createElement('span');
+          span.style.setProperty('--j',3);
+          div.appendChild(span);
+          cube.appendChild(div);
+        }
+        container.appendChild(cube);
+      })
+      activeRandomCube();
+    }
+    function activeRandomCube(){
+      let spans = document.querySelectorAll('.cube span');
+      setInterval(() =>{
+        let randomIndex = Math.floor(Math.random() * spans.length);
+        let randomSpan = spans[randomIndex];
+
+        randomSpan.classList.add('active');
+        setTimeout(() =>{
+          randomSpan.classList.remove('active');
+        },2000)
+      },500)
+    }
+    cubes();
+  </script>
+
+  <div class="ambientlight">
+    <div class="cube">
+      <div class="top">
+        <i class="ri-twitter-x-fill"></i>
+      </div>
+      <div class="box">
+        <span style="--i:0"></span>
+        <span style="--i:1"></span>
+        <span style="--i:2"></span>
+        <span style="--i:3"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="container">
+      <div class="card-content">
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0039.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 01</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0001.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 02</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0002.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 03</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0003.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 04</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0004.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 05</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0005.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 06</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0006.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 07</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0007.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 08</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0008.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 09</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0009.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 10</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0010.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 11</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0011.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 12</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0012.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 13</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0013.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 14</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0014.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 15</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0015.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 16</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0016.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 17</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0017.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 18</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0018.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 19</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0019.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 20</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0020.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 21</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0030.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 22</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0031.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 23</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0032.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 24</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0033.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 25</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0034.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 26</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0035.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 27</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0036.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 28</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0037.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 29</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/0038.jpg" alt="">
+          </div>
+          <div class="card-info">
+            <h3>Card 30</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis error libero!</p>
+          </div>
+        </div>
+      </div>
+      <div class="pagination-wrapper">
+        <!-- <li class="page-item previous-page disable">
+          <a href="#" class="page-link">Prev</a>
+        </li>
+        <li class="page-item current-page active">
+          <a href="#" class="page-link">1</a>
+        </li>
+        <li class="page-item dots">
+          <a href="#" class="page-link">...</a>
+        </li>
+        <li class="page-item current-page">
+          <a href="#" class="page-link">5</a>
+        </li>
+        <li class="page-item current-page">
+          <a href="#" class="page-link">6</a>
+        </li>
+        <li class="page-item dots">
+          <a href="#" class="page-link">...</a>
+        </li>
+        <li class="page-item current-page">
+          <a href="#" class="page-link">10</a>
+        </li>
+        <li class="page-item next-page">
+          <a href="#" class="page-link">Next</a>
+        </li> -->
+      </div>
+    </div>
+  </div>
+  <script>
+    function getPageList(totalPages, page, maxLength){
+      function range(start, end){
+        return Array.from(Array(end - start + 1), (_, i) => i + start);
+      }
+
+      var sideWidth = maxLength < 9 ? 1 : 2;
+      var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+      var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+
+      if(totalPages <= maxLength){
+        return range(1, totalPages);
+      }
+
+      if(page <= maxLength - sideWidth - 1 - rightWidth){
+        return range(1, maxLength - sideWidth - 1).concat(0, range(totalPages - sideWidth + 1, totalPages));
+      }
+      if(page >= totalPages - sideWidth - 1 - rightWidth){
+        return range(1, sideWidth).concat(0, range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages));
+      }
+
+      return range(1, sideWidth).concat(0, range(page - leftWidth, page + rightWidth), 0, range(totalPages - sideWidth + 1, totalPages));
+    }
+
+    $(function(){
+      var numberOfItems = $('.card-content .card').length;
+      var limitPerPage = 3; //how many cards visible per page
+      var totalPages = Math.ceil(numberOfItems / limitPerPage);
+      var paginationSize = 7; //how many page elements visible in the pagination
+      var currentPage;
+
+      function showPage(whichPage){
+        if(whichPage < 1 || whichPage > totalPages) return false;
+        
+        currentPage = whichPage;
+
+        $('.card-content .card').hide().slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage).show();
+
+        $('.pagination-wrapper li').slice(1, -1).remove();
+
+        getPageList(totalPages, currentPage, paginationSize).forEach(item =>{
+          $('<li>').addClass('page-item').addClass(item ? 'current-page' : 'dots').toggleClass('active', item === currentPage).append($('<a>').addClass('page-link').attr({href: 'javascript: void(0)'}).text(item || '...')).insertBefore('.next-page');
+        });
+
+        $('.previous-page').toggleClass('disable', currentPage === 1);
+        $('.next-page').toggleClass('disable', currentPage === totalPages);
+        return true;
+      }
+
+      $('.pagination-wrapper').append(
+        $('<li>').addClass('page-item').addClass('previous-page').append($('<a>').addClass('page-link').attr({href: 'javascript:void(0)'}).text('Prev')),
+        $('<li>').addClass('page-item').addClass('next-page').append($('<a>').addClass('page-link').attr({href: 'javascript:void(0)'}).text('Next')),
+      );
+
+      $('.card-content').show();
+      showPage(1);
+
+      $(document).on('click', '.pagination-wrapper li.current-page:not(.active)', function(){
+        return showPage(+$(this).text());
+      });
+
+      $('.next-page').on('click', function(){
+        return showPage(currentPage + 1);
+      });
+      $('.previous-page').on('click', function(){
+        return showPage(currentPage - 1);
+      });
+    });
+  </script>
+  
+  <div class="horislider">
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide">
+          <h4> Google</h4>
+          <p>Sundar Pichai (CEO)</p>
+          <div class="icon">
+            <i class="ri-google-fill"></i>
+          </div>
+        </div>
+        <div class="slide">
+          <h4> Apple</h4>
+          <p>Tim Cook (CEO)</p>
+          <div class="icon">
+            <i class="ri-apple-fill"></i>
+          </div>
+        </div>
+        <div class="slide">
+          <h4> Microsoft</h4>
+          <p>Satya Nadella (CEO)</p>
+          <div class="icon">
+            <i class="ri-microsoft-fill"></i>
+          </div>
+        </div>
+        <div class="slide">
+          <h4> Amazon</h4>
+          <p>Andy Jassy (CEO)</p>
+          <div class="icon">
+            <i class="ri-amazon-fill"></i>
+          </div>
+        </div>
+        <div class="slide">
+          <h4> Facebook</h4>
+          <p>Mark Zuckerberg (CEO)</p>
+          <div class="icon">
+            <i class="ri-facebook-fill"></i>
+          </div>
+        </div>
+        <div class="slide">
+          <h4> Twitter</h4>
+          <p>Elon Musk (CEO)</p>
+          <div class="icon">
+            <i class="ri-twitter-fill"></i>
+          </div>
+        </div>
+        <div class="slide">
+          <h4> Netflix</h4>
+          <p>Sundar Pichai (CEO)</p>
+          <div class="icon">
+            <i class="ri-netflix-fill"></i>
+          </div>
+        </div>
+        <div class="slide">
+          <h4> Spotify</h4>
+          <p>Daniel Ek (CEO)</p>
+          <div class="icon">
+            <i class="ri-spotify-fill"></i>
+          </div>
+        </div>
+        <div class="slide">
+          <h4> LinkedIn</h4>
+          <p>Ryan Raslansky (CEO)</p>
+          <div class="icon">
+            <i class="ri-linkedin-fill"></i>
+          </div>
+        </div>
+        <div class="slide">
+          <h4> Dribbble</h4>
+          <p>Zack Onisko (CEO)</p>
+          <div class="icon">
+            <i class="ri-dribbble-fill"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menuhover">
+    <ul>
+      <li><a href="#!">Men</a><img class="image" src="./img/0001.jpg" alt=""></li>
+      <li><a href="#!">Women</a><img class="image" src="./img/0002.jpg" alt=""></li>
+      <li><a href="#!">Kids</a><img class="image" src="./img/0003.jpg" alt=""></li>
+      <li><a href="#!">Mobiles</a><img class="image" src="./img/0004.jpg" alt=""></li>
+      <li><a href="#!">Watches</a><img class="image" src="./img/0005.jpg" alt=""></li>
+    </ul>
+  </div>
+  <script>
+    let image = document.querySelectorAll('.image');
+    function showImage(e){
+      for(var i = 0; i < image.length; i++){
+        x = e.pageX;
+        y = e.pageY;
+        image[i].style.transform = `translate(${x}px, ${y}px)`;
+      }
+    }
+    document.addEventListener('mousemove', showImage);
+  </script>
+  
+  <div class="menuhover2">
+    <div class="container">
+      <div class="navgation">
+        <li class="nav-item" data-color="aeccc6">
+          <a href="#!" class="nav-link">
+            C2 Montreal
+          </a>
+          <span>Design & Development</span>
+        </li>
+        <li class="nav-item" data-color="f5eee6">
+          <a href="#!" class="nav-link">
+            Office Studio
+          </a>
+          <span>Design & Development</span>
+        </li>
+        <li class="nav-item" data-color="ff6337">
+          <a href="#!" class="nav-link">
+            Silencio
+          </a>
+          <span>Design & Development</span>
+        </li>
+        <li class="nav-item" data-color="c86b85">
+          <a href="#!" class="nav-link">
+            Locomotive
+          </a>
+          <span>Design & Development</span>
+        </li>
+        <div class="gallery">
+          <div class="images">
+            <img src="./img/0001.jpg" alt="">
+            <img src="./img/0002.jpg" alt="">
+            <img src="./img/0003.jpg" alt="">
+            <img src="./img/0004.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const navItems = document.querySelectorAll('.nav-item');
+    const gallery = document.querySelector('.gallery');
+    const images = document.querySelector('.images');
+
+    navItems.forEach((navItem, i) =>{
+      navItem.addEventListener('mousemove', (e) =>{
+        images.style.transform = `translateY(-${i * 25}%)`;
+
+        const color = navItem.getAttribute('data-color')
+        gallery.style.backgroundColor = `#${color}`;
+
+        let top = e.clientY
+        let left = e.clientX
+
+        gallery.style.top = `${top}px`;
+        gallery.style.left = `${top}px`;
+
+        navItem.addEventListener('mouseover', (e) =>{
+          gallery.style.transform = 'translate(-50%,-50%) scale(1)';
+        });
+
+        navItem.addEventListener('mouseleave', (e) =>{
+          gallery.style.transform = 'translate(-50%,-50%) scale(0)';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

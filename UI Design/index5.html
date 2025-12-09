@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./css/style5.css">
+</head>
+<body>
+  <div class="swirlbg">
+    <div class="bg">
+      <span style="--i:0;"></span>
+      <span style="--i:1;"></span>
+      <span style="--i:2;"></span>
+      <span style="--i:3;"></span>
+      <span style="--i:4;"></span>
+      <span style="--i:5;"></span>
+      <span style="--i:6;"></span>
+      <span style="--i:7;"></span>
+      <span style="--i:8;"></span>
+      <span style="--i:9;"></span>
+      <span style="--i:10;"></span>
+      <span style="--i:11;"></span>
+    </div>
+  </div>
+
+  <div class="scrollspy">
+    <header>
+      <nav>
+        <a href="#home" style="--clr:#f3218b" class="active">
+          <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+          <span class="text">Home</span>
+        </a>
+        <a href="#profile" style="--clr:#2196f3">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <span class="text">Profile</span>
+        </a>
+        <a href="#messages" style="--clr:#008a1b">
+          <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+          <span class="text">Messages</span>
+        </a>
+        <a href="#photos" style="--clr:#dc1dff">
+          <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+          <span class="text">Photos</span>
+        </a>
+        <a href="#settings" style="--clr:#d56f1d">
+          <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+          <span class="text">Settings</span>
+        </a>
+        <div class="indicator"></div>
+      </nav>
+    </header>
+    <section id="home">Home</section>
+    <section id="profile">Profile</section>
+    <section id="messages">Messages</section>
+    <section id="photos">Photos</section>
+    <section id="settings">Settings</section>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    let sec = document.querySelectorAll('section');
+    let links = document.querySelectorAll('header nav a');
+
+    window.onscroll = () => {
+      sec.forEach(section => {
+        let top = window.scrollY;
+        let offset = section.offsetTop;
+        let height = section.offsetHeight;
+        let id = section.getAttribute('id');
+
+        if(top >= offset && top < offset + height){
+          links.forEach(link => {
+            link.classList.remove('active');
+            document.querySelector('header nav a[href*='+id+']').classList.add('active');
+          })
+        }
+      })
+    }
+  </script>
+
+  <div class="teamsection">
+    <div class="square">
+      <span></span>
+      <span></span>
+      <span></span>
+      <div class="content">
+        <div class="contentbx active" id="content1">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/avatar-1.png" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Someone Famous <br><b>Product Designer</b></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#!"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube-play"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentbx" id="content2">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/avatar-2.png" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Someone Famous <br><b>Product Designer</b></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#!"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube-play"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentbx" id="content3">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/avatar-3.png" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Someone Famous <br><b>Product Designer</b></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#!"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube-play"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentbx" id="content4">
+          <div class="card">
+            <div class="imgBx">
+              <img src="./img/avatar-4.png" alt="">
+            </div>
+            <div class="textBx">
+              <h2>Someone Famous <br><b>Product Designer</b></h2>
+              <ul class="sci">
+                <li><a href="#!"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#!"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#!"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a href="#!"><i class="fa fa-youtube-play"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <div class="icon">
+        <div class="imgbx active" data-id="content1">
+          <img src="./img/avatar-1.png" alt="">
+        </div>
+        <div class="imgbx" data-id="content2">
+          <img src="./img/avatar-2.png" alt="">
+        </div>
+        <div class="imgbx" data-id="content3">
+          <img src="./img/avatar-3.png" alt="">
+        </div>
+        <div class="imgbx" data-id="content4">
+          <img src="./img/avatar-4.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let imgBx = document.querySelectorAll('.imgbx');
+    let contentBx = document.querySelectorAll('.contentbx');
+
+    for (var i = 0; i < imgBx.length; i++){
+      imgBx[i].addEventListener('mouseover', function(){
+        for(var i = 0; i < contentBx.length; i++){
+          contentBx[i].className = 'contentbx';
+        }
+        document.getElementById(this.dataset.id).className = 'contentbx active' ;
+
+        for(var i = 0; i < imgBx.length; i++){
+          imgBx[i].className = 'imgbx';
+        }
+        this.className = 'imgbx active';
+      })
+    }
+  </script>
+  
+  <div class="swiperslider">
+    <section class="container">
+      <div class="card-container swiper">
+        <div class="card-content">
+          <div class="swiper-wrapper">
+            <article class="card-article swiper-slide">
+              <div class="card-image">
+                <img src="./img/avatar-5.png" alt="image" class="card-img">
+                <div class="card-shadow"></div>
+              </div>
+              <div class="card-data">
+                <h3 class="card-name">Kell Dawx</h3>
+                <p class="card-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus vel facilis totam, laudantium veritatis praesentium ipsam odit dicta!
+                </p>
+                <a href="#!" class="card-button">View More</a>
+              </div>
+            </article>
+            <article class="card-article swiper-slide">
+              <div class="card-image">
+                <img src="./img/avatar-4.png" alt="image" class="card-img">
+                <div class="card-shadow"></div>
+              </div>
+              <div class="card-data">
+                <h3 class="card-name">Lotw Fox</h3>
+                <p class="card-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque mollitia provident ab modi numquam voluptatibus maxime possimus error commodi!
+                </p>
+                <a href="#!" class="card-button">View More</a>
+              </div>
+            </article>
+            <article class="card-article swiper-slide">
+              <div class="card-image">
+                <img src="./img/avatar-1.png" alt="image" class="card-img">
+                <div class="card-shadow"></div>
+              </div>
+              <div class="card-data">
+                <h3 class="card-name">Sara Mit</h3>
+                <p class="card-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit consectetur earum rerum rem porro eum amet, quos laborum dolorem ipsa!
+                </p>
+                <a href="#!" class="card-button">View More</a>
+              </div>
+            </article>
+            <article class="card-article swiper-slide">
+              <div class="card-image">
+                <img src="./img/avatar-2.png" alt="image" class="card-img">
+                <div class="card-shadow"></div>
+              </div>
+              <div class="card-data">
+                <h3 class="card-name">Jenny Wert</h3>
+                <p class="card-description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id aut adipisci vitae, commodi ex natus.
+                </p>
+                <a href="#!" class="card-button">View More</a>
+              </div>
+            </article>
+            <article class="card-article swiper-slide">
+              <div class="card-image">
+                <img src="./img/avatar-3.png" alt="image" class="card-img">
+                <div class="card-shadow"></div>
+              </div>
+              <div class="card-data">
+                <h3 class="card-name">Lexa Kin</h3>
+                <p class="card-description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi ut ab, deleniti id quam corporis porro perferendis?
+                </p>
+                <a href="#!" class="card-button">View More</a>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="swiper-button-prev">
+          <i class="ri-arrow-left-s-line"></i>
+        </div>
+        <div class="swiper-button-next">
+          <i class="ri-arrow-right-s-line"></i>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+  </div>
+  <script src="./js/swiper-bundle.min.js"></script>
+  <script >
+    let swiperCards = new Swiper('.card-content',{
+      // direction: 'vertical',
+      loop:true,
+      spaceBetween: 32,
+      grabCursor: true,
+
+      pagination:{
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+      },
+
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      breakpoints:{
+        600:{
+          slidesPerView: 2,
+        },
+        968:{
+          slidesPerView: 3,
+        },
+      },
+
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      // },
+    });
+  </script>
+
+  <div class="bordercard">
+    <div class="card">
+      <div class="imgbox"></div>
+      <div class="content">
+        <span class="price">
+          <a href="#!">$1,000,000</a>
+        </span>
+        <ul>
+          <li>Somewhere</li>
+          <li>1200 sqm</li>
+          <li>House</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="wavyinput">
+    <div class="inputBox">
+      <input type="text" required>
+      <label>Wavy&nbsp;Input&nbsp;Text&nbsp;Animation</label>
+    </div>
+  </div>
+  <script>
+    let label = document.querySelector('label');
+    label.innerHTML = label.innerText.split('').map((letters, i) => `<span style="transition-delay: ${i*30}ms;filter: hue-rotate(${i*10}deg)">${letters}</span>`).join('');
+  </script>
+  
+</body>
+</html>

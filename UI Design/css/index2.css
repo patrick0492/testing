@@ -1,0 +1,640 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+}
+.cards .container {
+  display: flex;
+  width: 90vw;
+}
+.cards .panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+}
+.cards h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+.cards .panel.active {
+  flex: 5;
+}
+.cards .panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+@media (max-width: 480px) {
+  .cards .container {
+    width: 100vw;
+  }
+  .cards .panel:nth-of-type(4),
+  .cards .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+
+/**************************** Scroll Animation ********************/
+.scrollanimation {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  align-items: center;
+  background-color: #efedd6;
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+.scrollanimation h1 {
+  margin: 10px;
+}
+.scrollanimation .box {
+  background-color: steelblue;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(400%);
+  transition: transform 0.8s ease, opacity 0.8s ease 0.2s;
+  opacity: 0;
+}
+.scrollanimation .box:nth-of-type(even) {
+  transform: translateX(-400%);
+}
+.scrollanimation .box.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+@media (max-width: 990px) {
+  .scrollanimation .box {
+    transform: translateX(200%);
+  }
+  .scrollanimation .box:nth-of-type(even) {
+    transform: translateX(-200%);
+  }
+  .scrollanimation .box:nth-of-type(even).show {
+    transform: translateX(0);
+  }
+}
+.scrollanimation .box h2 {
+  font-size: 45px;
+}
+
+.verticalslider {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.verticalslider .slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+.verticalslider .left-slide {
+  height: 100%;
+  width: 35%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-in-out;
+}
+.verticalslider .left-slide > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.verticalslider .left-slide h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  margin-top: -30px;
+}
+.verticalslider .right-slide {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 35%;
+  width: 65%;
+  transition: transform 0.5s ease-in-out;
+}
+.verticalslider .right-slide > div {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+}
+.verticalslider button {
+  background-color: #fff;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 15px;
+}
+.verticalslider button:hover {
+  color: #222;
+}
+.verticalslider button:focus {
+  outline: none;
+}
+.verticalslider .slider-container .action-buttons button {
+  position: absolute;
+  left: 35%;
+  top: 50%;
+  z-index: 100;
+}
+.verticalslider .slider-container .down-button {
+  transform: translateX(-100%);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.verticalslider .slider-container .up-button {
+  transform: translateY(-100%);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.imagecarousel {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding-bottom: 100px;
+}
+.imagecarousel img {
+  width: 300px;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.imagecarousel .carousel {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  height: 530px;
+  width: 300px;
+  overflow: hidden;
+}
+.imagecarousel .image-container {
+  display: flex;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+.imagecarousel .buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+.imagecarousel .btn {
+  background-color: rebeccapurple;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 49.5%;
+}
+.imagecarousel .btn:hover {
+  opacity: 0.9;
+}
+.imagecarousel .btn:focus {
+  outline: none;
+}
+
+.nav {
+  font-family: "Roboto", sans-serif;
+}
+.nav .logo {
+  width: 150px;
+}
+
+.nav-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.open-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+}
+
+.nav.visible {
+  transform: translateX(0);
+}
+
+.nav-black {
+  background-color: rgb(34, 31, 31);
+  width: 60%;
+  max-width: 480px;
+  min-width: 320px;
+  transition-delay: 0.4s;
+}
+
+.nav-black.visible {
+  transition-delay: 0s;
+}
+
+.nav-red {
+  background-color: rgb(229, 9, 20);
+  width: 95%;
+  transition-delay: 0.2s;
+}
+
+.nav-red.visible {
+  transition-delay: 0.2s;
+}
+
+.nav-white {
+  background-color: #fff;
+  width: 95%;
+  padding: 40px;
+  position: relative;
+  transition-delay: 0s;
+}
+
+.nav-white.visible {
+  transition-delay: 0.4s;
+}
+
+.close-btn {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  opacity: 0.3;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  margin: 20px 0;
+}
+
+.list a {
+  color: rgb(34, 31, 31);
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.list ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.testimonialslider {
+  display: flex;
+  width: 100%;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  flex-direction: column;
+  background: #f4f4f4;
+  padding: 10px;
+}
+.testimonialslider .testimonial-container {
+  background-color: #476ce4;
+  color: #fff;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 50px 80px;
+  max-width: 768px;
+  position: relative;
+}
+.testimonialslider .fa-quote {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 20px;
+  position: absolute;
+  top: 70px;
+}
+.testimonialslider .fa-quote-right {
+  left: 40px;
+}
+.testimonialslider .fa-quote-left {
+  right: 40px;
+}
+.testimonialslider .testimonial {
+  line-height: 28px;
+  text-align: justify;
+}
+.testimonialslider .user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.testimonialslider .user-image {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.testimonialslider .user-details {
+  margin-left: 10px;
+}
+.testimonialslider .role {
+  font-weight: normal;
+  margin: 8px 0;
+}
+.testimonialslider .progress-bar {
+  background-color: #fff;
+  height: 4px;
+  width: 100%;
+  animation: grow 5s linear infinite;
+  margin-bottom: 20px;
+  transform-origin: left;
+}
+@keyframes grow {
+  0% {
+    transform: scaleX(0);
+  }
+}
+@media (max-width: 768px) {
+  .testimonialslider .fa-quote {
+    display: none;
+  }
+  .testimonialslider .testimonial-container {
+    padding: 20px 30px;
+  }
+}
+
+/************************Cookie Policy *****************************/
+.cookie-container {
+  background: linear-gradient(260deg, #9b6c50 0%, #4f2626 100%);
+  color: #fff;
+  display: flex;
+  width: 25rem;
+  height: 11rem;
+  border-radius: 1.2rem;
+  padding: 1rem;
+  font-family: "Roboto", sans-serif;
+  align-items: center;
+  justify-content: space-between;
+  margin: 200px auto;
+}
+
+.cookie-container .text {
+  width: 70%;
+}
+
+.cookie-container .cookie {
+  transform: scale(0.6);
+  overflow: visible;
+}
+
+.cookie-title {
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+.cookie-subtitle {
+  font-size: 0.8rem;
+  font-weight: regular;
+  padding: 1rem 0;
+}
+
+.cookie-container button {
+  border-style: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  border-radius: 0.3rem;
+  color: #4f2626;
+}
+
+/*************************** SVG Micro Animation **********************/
+.svgmicroanimation {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(260deg, #6a9eec, #65c0d3);
+  font-family: "Roboto", sans-serif;
+}
+.svgmicroanimation .container {
+  background-color: #fff;
+  color: #000;
+  padding: 5rem;
+  border-radius: 2rem;
+}
+.svgmicroanimation .home, .svgmicroanimation .notifications, .svgmicroanimation .messages {
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+}
+.svgmicroanimation .home-title, .svgmicroanimation .notification-title, .svgmicroanimation .messages-title {
+  padding-left: 2rem;
+}
+.svgmicroanimation .notification-svg, .svgmicroanimation .messages-svg, .svgmicroanimation .notification-svg {
+  overflow: visible;
+}
+
+/***************************Form Animation ****************************/
+.formanimation {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(90deg, #6190e8, #a7bfe8);
+}
+.formanimation form {
+  min-height: 40vh;
+  width: 50vw;
+  background: #fff;
+  color: #777474;
+  border-radius: 2rem;
+  padding: 3rem 3rem;
+  display: flex;
+  position: relative;
+}
+.formanimation .title {
+  color: #6190e8;
+  margin-bottom: 10px;
+}
+.formanimation .contact-right,
+.formanimation .contact-left {
+  flex: 1;
+}
+.formanimation .contact-right {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.formanimation .input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border: none;
+  color: #777474;
+  font-size: 0.7rem;
+  outline: none;
+}
+.formanimation .input-container {
+  position: relative;
+}
+.formanimation .placeholder {
+  position: relative;
+  z-index: 1;
+  padding: 0.3rem 0rem;
+  font-size: 0.7rem;
+  pointer-events: none;
+  opacity: 0.6;
+  transform-origin: left;
+}
+.formanimation .line-svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: visible;
+  opacity: 0.8;
+}
+.formanimation .checkbox-label {
+  font-size: 0.7rem;
+}
+.formanimation .promo-container {
+  position: relative;
+  display: flex;
+}
+.formanimation .checkbox {
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+.formanimation .checkbox-label {
+  padding-left: 0.5rem;
+}
+.formanimation .checkbox-container {
+  position: relative;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.formanimation .checkmark, .formanimation .checkbox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #c5c5c5;
+}
+.formanimation .checkbox-fill {
+  position: absolute;
+  background-color: #6190e8;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+}
+.formanimation .tick-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+.formanimation button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #fff;
+  border-radius: 0.2rem;
+  border-style: none;
+  padding: 0.5rem 2.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  background-color: #6190e8;
+  align-self: flex-start;
+}
+.formanimation #character {
+  position: absolute;
+  transform: scale(0.6) translate(0%, 30%);
+  bottom: 0;
+  transform-origin: bottom;
+  left: 0;
+}
+.formanimation .submitted {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #777474;
+  font-size: 1rem;
+  pointer-events: none;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.formanimation .line-svg {
+  width: 100%;
+}
+@media screen and (max-width: 812px) {
+  .formanimation form {
+    width: 90vw;
+    min-height: 80vh;
+    flex-direction: column;
+    padding: 8rem 3rem;
+  }
+  .formanimation .line-svg {
+    width: 100%;
+  }
+  .formanimation #character {
+    transform: scale(0.4) translate(0%, 30%);
+  }
+}

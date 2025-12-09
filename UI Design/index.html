@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navscroll">
+    <nav id="nav">
+      <a href="#!" class="brand">
+        <span><ion-icon name="logo-apple"></ion-icon></span>
+        <span>Apple</span>
+      </a>
+      <ul>
+        <li style="--i:1;">
+          <a href="#!">
+            <span>Home</span>
+            <span><ion-icon name="home-outline"></ion-icon></span>
+          </a>
+        </li>
+        <li style="--i:2;">
+          <a href="#!">
+            <span>Videos</span>
+            <span><ion-icon name="videocam-outline"></ion-icon></span>
+          </a>
+        </li>
+        <li style="--i:3;">
+          <a href="#!">
+            <span>Photos</span>
+            <span><ion-icon name="image-outline"></ion-icon></span>
+          </a>
+        </li>
+        <li style="--i:4;">
+          <a href="#!">
+            <span>Team</span>
+            <span><ion-icon name="people-outline"></ion-icon></span>
+          </a>
+        </li>
+        <li style="--i:05">
+          <a href="#!">
+            <span>Contact</span>
+            <span><ion-icon name="mail-outline"></ion-icon></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <script>
+    let lastScrollTop = 0;
+    navbar = document.getElementById('nav');
+    window.addEventListener('scroll', function(){
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop){
+        navbar.classList.add('icon');
+      } else{
+        navbar.classList.remove('icon');
+      }
+      lastScrollTop = scrollTop;;
+    })
+  </script>
+
+  <div class="isohovermenu2">
+    <ul>
+      <li style="--i:6;--clr:#1877f2"><a href="#!"><span><i class="fa fa-facebook"></i></span>facebook</a></li>
+      <li style="--i:5;--clr:#25d366"><a href="#!"><span><i class="fa fa-whatsapp"></i></span>Whatsapp</a></li>
+      <li style="--i:4;--clr:#1da1f2"><a href="#!"><span><i class="fa fa-twitter"></i></span>Twitter</a></li>
+      <li style="--i:3;--clr:#c32aa3"><a href="#!"><span><i class="fa fa-instagram"></i></span>Instagram</a></li>
+      <li style="--i:2;--clr:#ff0000"><a href="#!"><span><i class="fa fa-youtube"></i></span>Youtube</a></li>
+      <li style="--i:1;--clr:#0a66c2"><a href="#!"><span><i class="fa fa-linkedin"></i></span>Linkedin</a></li>
+    </ul>
+  </div>
+
+  <div class="energyball">
+    <div class="energy">
+      <span style="--clr:#fbad04;--i:18px;--d:2.5s;"></span>
+      <span style="--clr:#03a1d9;--i:13px;--d:5s;"></span>
+      <span style="--clr:#f7036d;--i:15px;--d:7.5s;"></span>
+      <span style="--clr:#93ff16;--i:20px;--d:10s;"></span>
+    </div>
+  </div>
+
+  <div class="progresscircle">
+    <div class="container">
+      <div class="card">
+        <div class="percent" style="--clr:#04fc43;--num:85;">
+          <div class="dot"></div>
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70"></circle>
+          </svg>
+          <div class="number">
+            <h2>85<span>%</span></h2>
+            <p>Html</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="percent" style="--clr:#06ccff;--num:60;">
+          <div class="dot"></div>
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70"></circle>
+          </svg>
+          <div class="number">
+            <h2>60<span>%</span></h2>
+            <p>Css</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button3d">
+    <ul>
+      <li><a href="#!"><i class="fa fa-thumbs-up"></i>  <span> Like </span></a></li>
+    </ul>
+  </div>
+
+  <div class="button01">
+    <a href="#!" style="--clr:#109bff"><span>Button</span><i></i></a>
+    <a href="#!" style="--clr:#ff1867"><span>Button</span><i></i></a>
+    <a href="#!" style="--clr:#6eff3e"><span>Button</span><i></i></a>
+  </div>
+
+  <div class="button02">
+    <a href="#!" style="--clr:#109bff"><span>Button</span><i></i></a>
+    <a href="#!" style="--clr:#ff1867"><span>Button</span><i></i></a>
+    <a href="#!" style="--clr:#6eff3e"><span>Button</span><i></i></a>
+  </div>
+
+  <div class="menuhovereffect">
+    <section>
+      <ul>
+        <li><a href="#!" data-text="Home">Home</a></li>
+        <li><a href="#!" data-text="About Us">About Us</a></li>
+        <li><a href="#!" data-text="Team">Team</a></li>
+        <li><a href="#!" data-text="Services">Services</a></li>
+        <li><a href="#!" data-text="Contact">Contact</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="isohovermenu">
+    <ul>
+      <li style="--i:6;"><a href="#!">Home</a></li>
+      <li style="--i:5;"><a href="#!">About Us</a></li>
+      <li style="--i:4;"><a href="#!">Team</a></li>
+      <li style="--i:3;"><a href="#!">Services</a></li>
+      <li style="--i:2;"><a href="#!">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="menuarrow">
+    <ul>
+      <span id="marker"></span>
+      <li><a href="#!">Home</a></li>
+      <li><a href="#!">About Us</a></li>
+      <li><a href="#!">Team</a></li>
+      <li><a href="#!">Services</a></li>
+      <li><a href="#!">Contact</a></li>
+    </ul>
+    <script>
+      let marker = document.querySelector('#marker');
+      let item = document.querySelectorAll('ul li a');
+
+      function indicator(e){
+        marker.style.top =e.offsetTop+'px';
+        marker.style.width =e.offsetWidth+'px';
+      }
+      item.forEach(link => {
+        link.addEventListener('mousemove',(e)=>{
+          indicator(e.target);
+        })
+      })
+    </script>
+  </div>
+
+  <div class="liquidloader">
+    <div class="container">
+      <h2>Liquid</h2>
+      <div class="loader">
+        <span style="--i:0"></span>
+        <span style="--i:1"></span>
+        <span style="--i:2"></span>
+        <span style="--i:3"></span>
+        <span style="--i:4"></span>
+        <span style="--i:5"></span>
+        <span style="--i:6"></span>
+        <span style="--i:7"></span>
+      </div>
+    </div>
+    <svg>
+      <filter id="Gooey">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+        <feColorMatrix Values="
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 20 -10
+        "></feColorMatrix>
+      </filter>
+    </svg>
+  </div>
+
+  <div class="isohover">
+    <div class="loader">
+      <span style="--i:10"></span>
+      <span style="--i:9"></span>
+      <span style="--i:8"></span>
+      <span style="--i:7"></span>
+      <span style="--i:6"></span>
+      <span style="--i:5"></span>
+      <span style="--i:4"></span>
+      <span style="--i:3"></span>
+      <span style="--i:2"></span>
+      <span style="--i:1"></span>
+    </div>
+  </div>
+
+  <div class="sheep">
+    <div class="container">
+      <div class="legs"></div>
+      <div class="sheepbody">
+        <div class="face">
+          <div class="ears"></div>
+          <div class="eyes"></div>
+          <div class="nose"></div>
+        </div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+  </div>
+
+  <div class="contactformJS">
+    <div class="container">
+      <form>
+        <h3>Get In Touch</h3>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Email id" required>
+        <input type="text" id="phone" placeholder="Phone no" required>
+        <textarea placeholder="How can we help you?" rows="4" id="message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
+  <script>
+
+  </script>
+
+  <div class="infinity">
+    <section>
+      <div class="container">
+        <div class="circle">
+          <span style="--i:0;"></span> 
+          <span style="--i:1;"></span> 
+          <span style="--i:2;"></span> 
+          <span style="--i:3;"></span> 
+          <span style="--i:4;"></span> 
+          <span style="--i:5;"></span> 
+          <span style="--i:6;"></span> 
+          <span style="--i:7;"></span> 
+          <span style="--i:8;"></span> 
+          <span style="--i:9;"></span> 
+          <span style="--i:10;"></span> 
+          <span style="--i:11;"></span> 
+          <span style="--i:12;"></span> 
+          <span style="--i:13;"></span> 
+          <span style="--i:14;"></span> 
+          <span style="--i:15;"></span> 
+          <span style="--i:16;"></span> 
+          <span style="--i:17;"></span> 
+          <span style="--i:18;"></span> 
+          <span style="--i:19;"></span> 
+          <span style="--i:20;"></span> 
+        </div>
+        <div class="circle">
+          <span style="--i:0;"></span> 
+          <span style="--i:1;"></span> 
+          <span style="--i:2;"></span> 
+          <span style="--i:3;"></span> 
+          <span style="--i:4;"></span> 
+          <span style="--i:5;"></span> 
+          <span style="--i:6;"></span> 
+          <span style="--i:7;"></span> 
+          <span style="--i:8;"></span> 
+          <span style="--i:9;"></span> 
+          <span style="--i:10;"></span> 
+          <span style="--i:11;"></span> 
+          <span style="--i:12;"></span> 
+          <span style="--i:13;"></span> 
+          <span style="--i:14;"></span> 
+          <span style="--i:15;"></span> 
+          <span style="--i:16;"></span> 
+          <span style="--i:17;"></span> 
+          <span style="--i:18;"></span> 
+          <span style="--i:19;"></span> 
+          <span style="--i:20;"></span> 
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <div class="animation">
+    <div class="loader">
+      <div class="circle" style="--clr:#04fc43"></div>
+      <div class="circle circle2" style="--clr:#fee800"></div>
+      <div class="circle circle3" style="--clr:#ff00be"></div>
+    </div>
+  </div>
+
+  <div class="dropcontainer">
+    <div class="drop">
+      <i class="fa fa-apple">
+
+      </i>
+    </div>
+  </div>
+
+  <!-- <div class="container" style="height:500px;"></div> -->
+
+  <div id="progress">
+    <span id="progress-value">&#x1F815;</span>
+  </div>
+  <script>
+    let calcScrollValue = () =>{
+      let scrollProgress = document.getElementById('progress');
+      let progressValue = document.getElementById('progress-value');
+      let pos = document.documentElement.scrollTop;
+      let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrollValue = Math.round((pos * 100) / calcHeight);
+      if(pos>100){
+        scrollProgress.style.display = 'grid';
+      } else{
+        scrollProgress.style.display = 'none';
+      }
+      scrollProgress.addEventListener('click', () =>{
+        document.documentElement.scrollTop = 0;
+      });
+      scrollProgress.style.background = `conic-gradient(#03cc65 ${scrollValue}%, #d7d7d7 ${scrollValue}%)`;
+    }
+    window.onscroll = calcScrollValue;
+    window.onload = calcScrollValue;
+  </script>
+
+  <p>Stuur een
+  <script language=javascript>
+
+  var contact = "email"
+  var email = "info"
+  var emailHost = "patrickonline.nl"
+  document.write("<a href=" + "mail" + "to:" + email + "@" + emailHost+ ">" + contact + "</a>" + ".")
+  </script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

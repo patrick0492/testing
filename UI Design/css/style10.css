@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.progress-bar {
+  height: 400px;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #363636;
+}
+.progress-bar .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.progress-bar .circle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  flex-direction: column;
+}
+.progress-bar .circle::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: #222;
+  opacity: 0.8;
+}
+.progress-bar .circle::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #222;
+  border: 15px solid #4d4c51;
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.75), 0 -2px 2px rgba(255, 255, 255, 0.5), inset 0 4px 2px rgba(0, 0, 0, 0.25), inset 0 -2px 2px rgba(255, 255, 255, 0.5);
+}
+.progress-bar .number {
+  position: relative;
+  color: #fff;
+  z-index: 10;
+  line-height: 1em;
+  font-size: 2em;
+}
+.progress-bar .number span {
+  font-size: 0.5em;
+  font-weight: 500;
+}
+.progress-bar h4 {
+  position: relative;
+  color: #fff;
+  z-index: 10;
+  font-weight: 500;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  line-height: 0.6em;
+}
+
+.clock {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: #2f363e;
+}
+.clock #clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+.clock #hrDots, .clock #secDots, .clock #minDots {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  rotate: 90deg;
+}
+.clock #hrDots::before, .clock #secDots::before, .clock #minDots::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25), 10px 10px 70px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.25), inset 5px 5px 20px rgba(255, 255, 255, 0.2), inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+.clock h2 {
+  color: #fff;
+}
+.clock #hrDots h2, .clock #secDots h2, .clock #minDots h2 {
+  position: absolute;
+  text-align: center;
+  transform: rotate(-90deg);
+  color: var(--clr);
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 4em;
+  font-weight: 500;
+}
+.clock #hrDots h2 span, .clock #secDots h2 span, .clock #minDots h2 span {
+  position: absolute;
+  font-size: 0.25em;
+  font-weight: 500;
+  bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.clock #minDots .dot,
+.clock #hrDots .dot,
+.clock #secDots .dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 3px;
+  background: var(--clr);
+  transform-origin: 100px;
+}
+.clock #secDots .active.dot,
+.clock #hrDots .active.dot,
+.clock #minDots .active.dot {
+  background: var(--clr);
+  box-shadow: 0 0 10px var(--clr), 0 0 20px var(--clr), 0 0 30px var(--clr);
+}
+.clock #secDots .active.dot ~ .dot,
+.clock #hrDots .active.dot ~ .dot,
+.clock #minDots .active.dot ~ .dot {
+  background: #555;
+}
+.clock #secDots .dot:nth-child(5n+5),
+.clock #minDots .dot:nth-child(5n+5) {
+  width: 20px;
+}
+.clock #hrDots .dot {
+  width: 20px;
+}
+.clock #hrDots .dot::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 4px;
+  height: 4px;
+  background: var(--clr);
+  border-top-right-radius: 4px;
+  box-shadow: 1.5px 9px var(--clr), 4px 18px var(--clr), 7px 27px var(--clr);
+}
+.clock #hrDots .dot.active ~ .dot::before {
+  background: #fff;
+  border-top-right-radius: 4px;
+  box-shadow: 1.5px 9px #555, 4px 18px #555, 7px 27px #555;
+}
+
+.colacard {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #151515;
+}
+.colacard .card {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+.colacard .card:hover {
+  width: 600px;
+  transition-delay: 0.5s;
+}
+.colacard .circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.colacard .circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: #191919;
+  border: 8px solid var(--clr);
+  filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+  transition: 0.5s, background 0.5s;
+  transition-delay: 0.75s, 1s;
+}
+.colacard .card:hover .circle::before {
+  transition-delay: 0.5s;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--clr);
+}
+.colacard .logo {
+  position: relative;
+  width: 250px;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+.colacard .card:hover .logo {
+  transform: scale(0);
+  transition-delay: 0s;
+}
+.colacard .product-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0) rotate(315deg);
+  height: 300px;
+  transition: 0.5s ease-in-out;
+}
+.colacard .card:hover .product-img {
+  transition-delay: 0.75s;
+  top: 25%;
+  left: 72%;
+  height: 500px;
+  transform: translate(-50%, -50%) scale(1) rotate(15deg);
+}
+.colacard .content {
+  position: absolute;
+  width: 50%;
+  left: 20%;
+  padding: 20px 20px 20px 40px;
+  opacity: 0;
+  transition: 0.5s;
+  visibility: hidden;
+}
+.colacard .content h2 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  line-height: 1em;
+}
+.colacard .content p {
+  color: #fff;
+}
+.colacard .content a {
+  position: relative;
+  color: #111;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.colacard .card:hover .content {
+  transition-delay: 0.75s;
+  visibility: visible;
+  opacity: 1;
+  left: 20px;
+}

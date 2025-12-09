@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+  <header class="respdropdownmenu">
+    <a href="#!" class="logo">My Logo</a>
+    <div class="menuToggle"></div>
+    <nav>
+      <ul>
+        <li><a href="#!">Home</a></li>
+        <li><a href="#!">About</a></li>
+        <li><a href="#!">Dropdown <b>&#9660;</b></a>
+          <ul>
+            <li><a href="#!">Product 01</a></li>
+            <li><a href="#!">Product 02</a></li>
+            <li><a href="#!">Product 03 <b>+</b></a>
+              <ul>
+                <li><a href="#!">Submenu 01</a></li>
+                <li><a href="#!">Submenu 02</a></li>
+                <li><a href="#!">Submenu 03</a></li>
+                <li><a href="#!">Submenu 04</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#!">Portfolio</a></li>
+        <li><a href="#!">Blog <b>&#9660;</b></a>
+          <ul>
+            <li><a href="#!">Post Link 01</a></li>
+            <li><a href="#!">Post Link 02</a></li>
+            <li><a href="#!">Post Link 03</a></li>
+          </ul>
+        </li>
+        <li><a href="#!">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script>
+    let menuToggle = document.querySelector('.menuToggle');
+    let header = document.querySelector('header');
+    menuToggle.onclick = function(){
+      header.classList.toggle('active');
+    }
+  </script>
+
+  <div class="gradientbar">
+    <div class="loader"></div>
+  </div>
+
+  <div class="scrollbar">
+    <div class="container">
+      <h1>Custom Scrollbar</h1>
+    </div>
+  </div>
+
+  <div class="hoverbutton">
+    <div id="cursor"></div>
+    <button class="hover-link" cursor-type="button">
+      <span>
+        <span>Hover<span>Hover</span></span>
+        <span>Me<span>Me</span></span>
+      </span>
+    </button>
+  </div>
+  <script>
+    let cursor = document.getElementById('cursor');
+    const onMouseMove = (event) =>{
+      cursor.style.left = event.pageX + 'px';
+      cursor.style.top = event.pageY + 'px';
+
+      if (event.target.hasAttribute('cursor-type')){
+        let cursorSize = event.target.getAttribute('cursor-type');
+        cursor.classList.add(cursorSize);
+      } else{
+        cursor.classList = "";
+      }
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
+  </script>
+
+  <div class="textanimationcss">
+    <h2 data-text="&nbsp;CSS Only&nbsp;">&nbsp;CSS Only&nbsp;</h2>
+  </div>
+
+  <div class="menuhoverani">
+    <nav class="nav">
+      <ul>
+        <li><a href="#!">Home</a></li>
+        <li><a href="#!">About us</a></li>
+        <li><a href="#!">What we do</a></li>
+        <li><a href="#!">Portfolio</a></li>
+        <li><a href="#!">Contact us</a></li>
+      </ul>
+    </nav>
+  </div>
+  <script>
+    function menuAnimation(){
+      const navLi = document.querySelectorAll('.nav li');
+
+      navLi.forEach((li) =>{
+        const a = li.querySelector('a');
+        const text = a.innerHTML;
+        const words = text.split(' ');
+        const wordsArr = [];
+        let chars = 0;
+        a.innerHTML = '';
+
+        words.forEach((word) =>{
+          let html = '';
+          [...word].forEach((char) =>{
+            html += `<span class="char" data-text="${char}" style="--i: ${chars}">${char}</span>`;
+            chars++;
+          });
+          wordsArr.push(`<span class="word">${html}</span>`);
+        });
+        a.innerHTML = wordsArr.join(" ");
+      });
+    }
+    menuAnimation();
+  </script>
+
+  <div class="soapbubble">
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="iconhover">
+    <ul>
+      <li style="--clr:#1da1f2"><i class="fa fa-twitter"></i></li>
+      <li style="--clr:#dd2a7b"><i class="fa fa-instagram"></i></li>
+      <li style="--clr:#ff0000"><i class="fa fa-whatsapp"></i></li>
+      <li style="--clr:#25d366"><i class="fa fa-youtube-play"></i></li>
+    </ul>
+  </div>
+
+  <div class="textanimation">
+    <div class="box">
+      <div>
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:4;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:8;"></span>
+        <span style="--i:9;"></span>
+        <span style="--i:10;"></span>
+        <span style="--i:11;"></span>
+        <span style="--i:12;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:14;"></span>
+        <span style="--i:15;"></span>
+        <span style="--i:16;"></span>
+        <span style="--i:17;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:19;"></span>
+        <span style="--i:20;"></span>
+        <span style="--i:21;"></span>
+        <span style="--i:22;"></span>
+        <span style="--i:23;"></span>
+        <span style="--i:24;"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="container">
+      <h1>Frequently asked questions</h1>
+      <div class="tab">
+        <input type="radio" name="acc" id="acc1">
+        <label for="acc1">
+          <h2>01</h2>
+          <h3>How do I apply?</h3>
+        </label>
+        <div class="content">
+          <p>Aliquam tempore tempora. Perspiciatis nam, at adipisci sit qui quaerat possimus. Eius quidem tempore dignissimos consectetur voluptas eaque facere veniam optio blanditiis cupiditate alias velit quia sed molestiae eos obcaecati mollitia rerum fuga, officiis magnam laborum! Ab reiciendis quo omnis ut ullam! Eveniet voluptas ex aliquid enim.</p>
+        </div>
+      </div>
+      <div class="tab">
+        <input type="radio" name="acc" id="acc2">
+        <label for="acc2">
+          <h2>02</h2>
+          <h3>Lost or forgotten your password?</h3>
+        </label>
+        <div class="content">
+          <p>Quidem tempore dignissimos consectetur voluptas eaque facere veniam optio blanditiis cupiditate alias velit quia sed molestiae eos obcaecati mollitia rerum fuga, officiis magnam laborum! Ab reiciendis quo omnis ut ullam! Eveniet voluptas ex aliquid enim.</p>
+        </div>
+      </div>
+      <div class="tab">
+        <input type="radio" name="acc" id="acc3">
+        <label for="acc3">
+          <h2>03</h2>
+          <h3>How can I make changes to my application?</h3>
+        </label>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptatem possimus optio. Omnis, voluptas eos necessitatibus qui obcaecati corporis doloribus et at, adipisci atque quibusdam enim voluptates est quod ab? Possimus esse provident.</p>
+        </div>
+      </div>
+      <div class="tab">
+        <input type="radio" name="acc" id="acc4">
+        <label for="acc4">
+          <h2>04</h2>
+          <h3>How can I update my name?</h3>
+        </label>
+        <div class="content">
+          <p>Eius quidem tempore dignissimos consectetur voluptas eaque facere veniam optio blanditiis cupiditate alias velit quia sed molestiae eos obcaecati mollitia rerum fuga, officiis magnam laborum.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gradientcircle">
+    <div class="circle">
+      <ul>
+        <li style="--i:-4;"><span>p</span></li>
+        <li style="--i:-3;"><span>a</span></li>
+        <li style="--i:-2;"><span>t</span></li>
+        <li style="--i:-1;"><span>r</span></li>
+        <li style="--i:0;"><span>i</span></li>
+        <li style="--i:1;"><span>c</span></li>
+        <li style="--i:2;"><span>k</span></li>
+        <li style="--i:3;"><span>p</span></li>
+        <li style="--i:4;"><span>a</span></li>
+        <li style="--i:5;"><span>t</span></li>
+        <li style="--i:6;"><span>r</span></li>
+        <li style="--i:7;"><span>i</span></li>
+        <li style="--i:8;"><span>c</span></li>
+        <li style="--i:9;"><span>k</span></li>
+        <li style="--i:10;"><span>p</span></li>
+        <li style="--i:11;"><span>a</span></li>
+        <li style="--i:12;"><span>t</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fieldanimation">
+    <div class="inputBox">
+      <input type="text" required="required">
+      <span>First Name</span>
+    </div>
+    <div class="inputBox">
+      <input type="text" required="required">
+      <span>Last Name</span>
+    </div>
+  </div>
+
+  <div class="mobilenav">
+    <div class="container">
+      <div class="navbar">
+        <div class="link active">
+          <i class="fa fa-home"></i>
+          <p>Home</p>
+        </div>
+        <div class="link">
+          <i class="fa fa-search"></i>
+          <p>Search</p>
+        </div>
+        <div class="link">
+          <i class="fa fa-heart"></i>
+          <p>Likes</p>
+        </div>
+        <div class="link">
+          <i class="fa fa-address-book"></i>
+          <p>Profile</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let links=document.getElementsByClassName('link');
+    function removeActive(){
+      for (link of links){
+        link.classList.remove('active');
+      }
+    }
+    for(link of links){
+      link.onclick = function(){
+        removeActive();
+        this.classList.add('active');
+      }
+    }
+  </script>
+
+
+</body>
+</html>
