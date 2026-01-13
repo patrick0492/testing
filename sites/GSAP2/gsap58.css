@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Genos:wght@200;300;400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+  font-family: 'Genos', sans-serif;
+  background: #0f0f0f;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+.menu{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 0 2em;
+}
+.row{
+  position: relative;
+  display: flex;
+}
+.row-1{
+  justify-content: flex-end;
+  font-size: 125px;
+  left: -110%;
+}
+.row-2{
+  left: 110%;
+  justify-content: flex-end;
+  font-size: 100px;
+  padding-right: 2em;
+}
+.row-3{
+  font-size: 150px;
+  left: -110%;
+}
+.row-4{
+  left: 110%;
+  justify-content: space-between;
+  font-size: 125px;
+  padding-left: 1em;
+  line-height: 1;
+}
+.row-5{
+  justify-content: space-between;
+  font-size: 100px;
+  padding-left: .5em;
+  left: -110%;
+}
+.website-content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  background: url(./img/image005.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  transform: scale(1);
+}
+h1{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1;
+  text-align: center;
+  padding: 1em;
+}
+nav{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+  font-size: 20px;
+  mix-blend-mode: difference;
+}
+.logo{
+  background: #fff;
+  color: #000;
+  padding: .35em .5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: .25em;
+}
+button.toggle{
+  color: #fff;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+@media (max-width: 900px){
+  h1{
+    font-size: 40px;
+  }
+  .row-1{
+    font-size: 75px;
+  }
+  .row-2{
+    font-size: 50px;
+  }
+  .row-3{
+    font-size: 50px;
+  }
+  .row-4{
+    font-size: 50px;
+  }
+  .row-5{
+    font-size: 75px;
+  }
+}

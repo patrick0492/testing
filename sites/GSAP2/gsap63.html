@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Landing Page</title>
+    <link rel="stylesheet" href="gsap63.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="loader">
+        <div class="loader-imgs">
+          <div class="img">
+            <img src="./img/0038.jpg" alt="">
+          </div>
+          <div class="img">
+            <img src="./img/0039.jpg" alt="">
+          </div>
+          <div class="img">
+            <img src="./img/0040.jpg" alt="">
+          </div>
+          <div class="img" id="loader-logo">
+            <h2>Lo</h2>
+            <h2>go</h2>
+          </div>
+          <div class="img">
+            <img src="./img/0042.jpg" alt="">
+          </div>
+          <div class="img">
+            <img src="./img/0043.jpg" alt="">
+          </div>
+          <div class="img">
+            <img src="./img/0044.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="website-content">
+        <nav>
+          <div class="nav-item">
+            <a href="#!">( menu )</a>
+          </div>
+          <div class="nav-item" id="logo">
+            <a href="#!">EliteWebsites</a>
+          </div>
+          <div class="nav-item">
+            <a href="#!">( work )</a>
+          </div>
+        </nav>
+
+        <div class="hero">
+          <div class="h1">
+            <h1>we believe</h1>
+          </div>
+          <div class="h1">
+            <h1>websites shape the</h1>
+          </div>
+          <div class="h1">
+            <h1><span>future</span></h1>
+          </div>
+        </div>
+
+        <footer>
+          <div class="item">
+            <img src="./img/0030.jpg" alt="">
+          </div>
+          <div class="item">
+            <img src="./img/0031.jpg" alt="">
+          </div>
+          <div class="item">
+            <img src="./img/0032.jpg" alt="">
+          </div>
+          <div class="item">
+            <img src="./img/0033.jpg" alt="">
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+      document,addEventListener('DOMContentLoaded', function (){
+        gsap.set('.img', {y: 500});
+        gsap.set('.loader-imgs', {x: 500});
+        gsap.set('.nav-item', {y:25, opacity: 0});
+        gsap.set('h1, .item, footer', {y:200});
+
+        const tl = gsap.timeline({delay: 1});
+
+        tl.to('.img', {
+          y: 0,
+          duration: 1.5,
+          ease: 'power3.inOut',
+          stagger: 0.05,
+        }).to('.loader-imgs',{
+          x: 0,
+          duration: 3,
+          ease: 'power3.inOut'
+        },'-=2.5')
+        .to('.img:not(#loader-logo',{
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+        duration: 1,
+        stagger: 0.1,
+        ease: 'power3in.Out',
+      }).to('.loader',{
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+        duration: 1,
+        ease: 'power3in.Out',
+      },'-=0.5').to('.nav-item, h1, footer, .item',{
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.1,
+        ease: 'power3.inOut'
+      },'-=0.5')
+      });
+    </script>
+  </body>
+</html>

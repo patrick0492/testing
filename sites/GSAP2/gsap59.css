@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Genos:wght@200;300;400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body{
+  width: 100%;
+  height: 100vh;
+  font-family: 'Genos', sans-serif;
+  overflow: hidden;
+}
+.website-content{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+nav{
+  position: relative;
+  top: -100px;
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.header{
+  width: 100%;
+  padding: 2em;
+  display: flex;
+}
+.col:nth-child(1){
+  flex: 3;
+}
+.col:nth-child(2){
+  flex: 2;
+  margin-top: 2em;
+}
+.col p{
+  position: relative;
+  left: 20px;
+  opacity: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 1em;
+}
+.ml12{
+  padding-right: .5em;
+  font-size: 4em;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.letter{
+  display: inline-block;
+  line-height: 100%;
+}
+.hero-img{
+  width: 100%;
+  padding: 2em;
+  height: 700px;
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+.loader{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.finder-container{
+  width: 80%;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.finder-container img{
+  position: absolute;
+  transform: scale(0);
+}
+.bar{
+  flex: 1;
+  width: 100%;
+  background: rgb(211,211,211);
+  padding: 1.5em 0;
+  margin-top: -1px;
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+.bar.bar5{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.marquee{
+  position: relative;
+  left: 100vw;
+  width: 300vw;
+  display: flex;
+  gap: 5em;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.marquee p span{
+  position: relative;
+  top: .08em;
+  font-size: 20px;
+  padding-right: 0.25em;
+}
+@media(max-width: 900px){
+  .header{
+    flex-direction: column;
+  }
+  .header h1{
+    font-size: 2em;
+  }
+  .marquee{
+    width: 500vw;
+    gap: 2em;
+  }
+  .marquee p{
+    font-size: 12px;
+  }
+}
+.menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  clip-path: polygon(49.75% 49.75%, 50.25% 49.75%, 50.25% 49.75%, 49.75% 50.25%);
+  background: #000;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 102;
+  padding: 2em;
+}
+.menulogo{
+  color: #fff;
+}
+.close-btn{
+  position: relative;
+}
+.menu-container p,
+.close-btn{
+  color: #fff;
+}
+.menucol{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.menucol a{
+  transition: .5s;
+}
+.link{
+  position: relative;
+}
+.link img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  translate: 0% -50%;
+  pointer-events: none;
+  z-index: -1;
+  width: 0px;
+  height: auto;
+  object-fit: contain;
+  transition: .3s;
+}
+.link:hover img{
+  width: 150px;
+}
+.menucol a:hover{
+  opacity: .7;
+}
+.menucol .link
+.menucol .tagline,
+.menucol .logo{
+  flex: 2;
+}
+.menucol .tagline{
+  display: flex;
+  gap: 7em;
+  padding: .75em 0;
+}
+.menucol .links{
+  flex: 3;
+}
+.menucol .links.flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menucol a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 60px;
+}
+.toggle, .close-btn{
+  cursor: pointer;
+}
+.divider{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 1.5px;
+  height: 0%;
+  background: #fff;
+}
