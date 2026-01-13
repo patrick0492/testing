@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Intro / Text Effect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gsap79.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button id="toggle-btn">[ Drop / Raise ]</button>
+      <div class="item item-1"><img src="./img/0032.jpg" alt=""></div>
+      <div class="item item-2"><img src="./img/0033.jpg" alt=""></div>
+      <div class="item item-3"><img src="./img/0036.jpg" alt=""></div>
+      <div class="item item-4"><img src="./img/0035.jpg" alt=""></div>
+      <div class="item item-5"><img src="./img/0037.jpg" alt=""></div>
+      <div class="item item-6"><img src="./img/0038.jpg" alt=""></div>
+      <div class="item item-7"><img src="./img/0039.jpg" alt=""></div>
+      <div class="item item-8"><img src="./img/0040.jpg" alt=""></div>
+      <div class="item item-9"><img src="./img/0041.jpg" alt=""></div>
+      <div class="item item-10"><img src="./img/0042.jpg" alt=""></div>
+      <div class="item item-11"><img src="./img/0043.jpg" alt=""></div>
+      <div class="item item-12"><img src="./img/0044.jpg" alt=""></div>
+    </div>
+
+    <div class="overlay"><h1>Codegrid</h1></div>
+
+    <div class="content">
+      <div class="col">
+        <div class="line">
+          <p>About Us</p>
+        </div>
+        <div class="line">
+          <p>Our Team</p>
+        </div>
+        <div class="line">
+          <p>Our Mission</p>
+        </div>
+        <div class="line">
+          <p>Careers</p>
+        </div>
+        <div class="line">
+          <p>Contact</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="line">
+          <p>Services</p>
+        </div>
+        <div class="line">
+          <p>Web Development</p>
+        </div>
+        <div class="line">
+          <p>Mobile Apps</p>
+        </div>
+        <div class="line">
+          <p>UI/UX Design</p>
+        </div>
+        <div class="line">
+          <p>SEO Optimization</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="line">
+          <p>Projects</p>
+        </div>
+        <div class="line">
+          <p>E-Commerce</p>
+        </div>
+        <div class="line">
+          <p>Portfolio</p>
+        </div>
+        <div class="line">
+          <p>Blog</p>
+        </div>
+        <div class="line">
+          <p>Landing Page</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="line">
+          <p>Resources</p>
+        </div>
+        <div class="line">
+          <p>Tutorials</p>
+        </div>
+        <div class="line">
+          <p>Documentation</p>
+        </div>
+        <div class="line">
+          <p>Community</p>
+        </div>
+        <div class="line">
+          <p>Support</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
+    <script>
+      function splitTextIntoSpans(selector) {
+  let elements = document.querySelectorAll(selector);
+  elements.forEach((element) => {
+    let text = element.innerText;
+    let splitText = text
+      .split("")
+      .map(function (char) {
+        return `<span>${char === " " ? "&nbsp;&nbsp;" : char}</span>`;
+      })
+      .join("");
+    element.innerHTML = splitText;
+  });
+}
+
+splitTextIntoSpans("h1");
+const { Engine, Runner, World, Bodies, Body, Events } = Matter;
+
+const engine = Engine.create({
+  gravity: { x: 0, y: 0 },
+});
+
+const runner = Runner.create();
+Runner.run(runner, engine);
+
+const items = document.querySelectorAll(".item");
+const initialPositions = Array.from(items).map((item) => ({
+  x: item.offsetLeft,
+  y: item.offsetTop,
+  angle: 0,
+}));
+
+const bodies = Array.from(items).map((item, index) => {
+  const body = Bodies.rectangle(
+    initialPositions[index].x + item.offsetWidth / 2,
+    initialPositions[index].y + item.offsetHeight / 2,
+    item.offsetWidth,
+    item.offsetHeight,
+    {
+      restitution: 0.75,
+      friction: 0.5,
+      frictionAir: 0.0175,
+      isStatic: true,
+    }
+  );
+  World.add(engine.world, body);
+  return body;
+});
+
+const floor = Bodies.rectangle(
+  window.innerWidth / 2,
+  window.innerHeight + 5,
+  window.innerWidth,
+  20,
+  { isStatic: true }
+);
+World.add(engine.world, floor);
+
+let gravityEnabled = false;
+let animationFrame;
+let isAnimating = false;
+
+const duration = 0.75;
+const easeOutQuad = (t) => t * (2 - t);
+
+const overlay = document.querySelector(".overlay");
+const toggleClipPath = () => {
+  const overlayProps = {
+    clipPath: gravityEnabled
+      ? "polygon(5% 60%, 95% 60%, 95% 100%, 5% 100%)"
+      : "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    duration: 1.5,
+    ease: "power3.inOut",
+  };
+
+  const buttonProps = {
+    color: gravityEnabled ? "#fff" : "#000",
+    delay: 0.5,
+    duration: 1,
+  };
+
+  const textProps = {
+    y: gravityEnabled ? 0 : 30,
+    delay: gravityEnabled ? 0.75 : 0,
+    duration: 1,
+    ease: "power3.out",
+    stagger: 0.1 * (gravityEnabled ? 1 : -1),
+  };
+
+  const h1Props = {
+    fontSize: gravityEnabled ? "20vw" : "10vw",
+    duration: 1,
+    ease: "power4.inOut",
+    stagger: gravityEnabled ? -0.035 : 0.035,
+  };
+
+  const h1PosProps = {
+    left: gravityEnabled ? "32.5%" : "0%",
+    duration: 1,
+    ease: "power4.inOut",
+  };
+
+  gsap.to(overlay, overlayProps);
+  gsap.to("#toggle-btn", buttonProps);
+
+  gsap.to(".overlay h1", h1PosProps);
+  gsap.to(".overlay h1 span", h1Props);
+  document.querySelectorAll(".col").forEach((col) => {
+    gsap.to(col.querySelectorAll(".line p"), textProps);
+  });
+};
+
+document.getElementById("toggle-btn").addEventListener("click", () => {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  if (!gravityEnabled) {
+    engine.world.gravity.y = 1;
+    bodies.forEach((body) => {
+      Body.setStatic(body, false);
+      Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.25);
+    });
+    gravityEnabled = true;
+  } else {
+    engine.world.gravity.y = 0;
+    bodies.forEach((body, index) => {
+      Body.setStatic(body, true);
+      const startPos = { x: body.position.x, y: body.position.y };
+      const startAngle = body.angle;
+      const endPos = {
+        x: initialPositions[index].x + items[index].offsetWidth / 2,
+        y: initialPositions[index].y + items[index].offsetHeight / 2,
+      };
+      const endAngle = 0;
+      const startTime = performance.now();
+
+      const animateBack = (currentTime) => {
+        const elapsedTime = (currentTime - startTime) / 1000;
+        const t = Math.min(elapsedTime / duration, 1);
+        const easedT = easeOutQuad(t);
+
+        const x = startPos.x + easedT * (endPos.x - startPos.x);
+        const y = startPos.y + easedT * (endPos.y - startPos.y);
+        const angle = startAngle + easedT * (endAngle - startAngle);
+
+        setTimeout(() => {
+          Body.setPosition(body, { x, y });
+          Body.setAngle(body, angle);
+        }, 750);
+
+        if (t < 1) {
+          animationFrame = requestAnimationFrame(animateBack);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animateBack);
+    });
+    gravityEnabled = false;
+  }
+
+  toggleClipPath();
+
+  setTimeout(() => {
+    isAnimating = false;
+  }, 2000);
+});
+
+Events.on(engine, "afterUpdate", () => {
+  bodies.forEach((body, index) => {
+    const item = items[index];
+    item.style.top = `${body.position.y - item.offsetHeight / 2}px`;
+    item.style.left = `${body.position.x - item.offsetWidth / 2}px`;
+    item.style.transform = `rotate(${body.angle}rad)`;
+  });
+});
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP ScrollTrigger</title>
+    <link rel="stylesheet" href="gsap85.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero">
+        <div class="hero-wrapper">
+          <div class="hero-col">
+            <div class="hero-col-text">
+              <h2>Still Life</h2>
+              <h1>Capturing the Mundane</h1>
+            </div>
+          </div>
+          <div class="hero-col">
+            <div class="hero-col-slider">
+              <div class="hero-col-slider-item">
+                <figure>
+                  <img src="./img/0030.jpg" alt="">
+                </figure>
+                <h2>Serene Whiskey</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente provident quo, voluptatibus earum minima unde nam delectus voluptates nemo, neque vitae asperiores maxime vero distinctio soluta ullam quas!</p>
+              </div>
+              <div class="hero-col-slider-item">
+                <figure>
+                  <img src="./img/0031.jpg" alt="">
+                </figure>
+                <h2>Poolside Leisure</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente provident quo, voluptatibus earum minima unde nam delectus voluptates nemo, neque vitae asperiores maxime!</p>
+              </div>
+              <div class="hero-col-slider-item">
+                <figure>
+                  <img src="./img/0032.jpg" alt="">
+                </figure>
+                <h2>Elegant Citrus</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente voluptatibus earum minima unde nam delectus voluptates nemo, neque vitae asperiores maxime vero distinctio soluta ullam quas!</p>
+              </div>
+              <div class="hero-col-slider-item">
+                <figure>
+                  <img src="./img/0033.jpg" alt="">
+                </figure>
+                <h2>Orange Compo</h2>
+                <p>Dolor sit amet consectetur, adipisicing elit. Sapiente provident quo, voluptatibus earum minima unde nam delectus voluptates nemo, neque vitae asperiores maxime vero distinctio soluta ullam quas!</p>
+              </div>
+            </div>
+          </div> 
+        </div> 
+      </section>
+    </main>
+    <div class="menu">      
+      <button class="menu-btn">
+        <div>
+          <span data-text="Menu">Menu</span>
+        </div>
+        <div>
+          <span data-text="Close">Close</span>
+        </div>
+      </button>
+      <nav class="nav">
+        <ul class="navigation">
+          <li class="nav-item">
+            <a href="#!" class="nav-link" style="--i:1.1s">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="#!" class="nav-link" style="--i:1.2s">Agency</a>
+          </li>
+          <li class="nav-item">
+            <a href="#!" class="nav-link" style="--i:1.3s">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a href="#!" class="nav-link" style="--i:1.4s">Careers</a>
+          </li>
+          <li class="nav-item">
+            <a href="#!" class="nav-link" style="--i:1.5s">Contact</a>
+          </li>
+        </ul>
+        <div class="social-media">
+          <div class="social-media-group">
+            <a href="#!" class="nav-link" style="--i:1.7s">Facebook</a>
+            <a href="#!" class="nav-link" style="--i:1.8s">Instagram</a>
+          </div>
+          <div class="social-media-group">
+            <a href="#!" class="nav-link" style="--i:1.9s">Linkedin</a>
+            <a href="#!" class="nav-link" style="--i:2s">Twitter</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const slider = {
+        item: document.querySelectorAll('.hero-col-slider-item'),
+        figure: document.querySelectorAll('.hero-col-slider-item figure'),
+        title: document.querySelectorAll('.hero-col-slider-item h2'),
+        paragraph: document.querySelectorAll('.hero-col-slider-item p'),
+      };
+
+      const init = () =>{
+        for (let i = 1; i < slider.item.length; i++){
+          gsap.set([slider.figure[i], slider.title[i], slider.paragraph[i]],{
+            xPercent: 120,
+            y: '10rem',
+            rotate: 30,
+            autoAlpha: 0,
+          });
+        }
+
+        sliderAnimation();
+      };
+
+      const sliderAnimation = () => {
+        const timeline = gsap.timeline({
+          defaults: {stagger: 0.1, ease: 'expo.inOut'},
+          scrollTrigger:{
+            trigger: '.hero',
+            start: 'top top',
+            end: '+=4000 bottom',
+            scrub: 3.2,
+            pin: true,
+          },
+        });
+
+        const settingIn = {
+          xPercent: 0,
+          y: '0rem',
+          rotate: 0,
+          autoAlpha: 1,
+        };
+        const settingOut = {
+          xPercent: -120,
+          y: '-10rem',
+          rotate: -30,
+          autoAlpha: 0,
+        };
+
+        for (let i = 0; i < slider.item.length; i++){
+          if (i=== slider.item.length - 1){
+            // last element animate in only not out
+            timeline.to([slider.figure[i], slider.title[i], slider.paragraph[i]], {...settingIn});
+          } else{
+            timeline
+            .to([slider.figure[i], slider.title[i], slider.paragraph[i]], {...settingIn})
+            .to([slider.figure[i], slider.title[i], slider.paragraph[i]], {...settingOut});
+          }
+        }
+      };
+
+      window.addEventListener('DOMContentLoaded', () =>{
+        // responsive
+        if(window.innerWidth > 769) init();
+      })
+    </script>
+
+    <script>
+      const menuBtn = document.querySelector('.menu-btn')
+      const menu = document.querySelector('.menu')
+
+      menuBtn.addEventListener('click', () =>{
+        menu.classList.toggle('change')
+      })
+
+      const navLinks = [...document.querySelectorAll('.nav-link')]
+
+      navLinks.forEach((link, i) =>{
+        link.textContent.split('').forEach((letter) =>{
+          const span = document.createElement('span')
+          span.classList.add('letter')
+          span. textContent = letter
+          link.append(span)
+        })
+        link.removeChild(link.childNodes[0])
+      })
+    </script>
+  </body>
+</html>

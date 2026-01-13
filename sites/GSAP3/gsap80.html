@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery / Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gsap80.css">
+</head>
+<body>
+  <div class="container">
+    <div class="menu">
+      <div class="row r-1">
+        <div class="link"><a href="#!">Realities</a></div>
+      </div>
+      <div class="row r-2">
+        <div class="link"><a href="#!">Artists</a></div>
+      </div>
+      <div class="row r-3">
+        <div class="link"><a href="#!">Film</a></div>
+      </div>
+      <div class="row r-4">
+        <div class="link"><a href="#!">Over Ones</a></div>
+        <div class="link"><a href="#!">Publications</a></div>
+      </div>
+      <div class="row r-5">
+        <div class="link"><a href="#!">Team</a></div>
+        <div class="link"><a href="#!">Inspirations</a></div>
+      </div>
+    </div>
+    <div class="website-content">
+      <div class="carousel-container">
+        <div class="carousel-items">
+          
+        </div>
+        <div class="active-item">
+  
+        </div>
+      </div>
+      <footer>
+        <div class="footer-item">
+          <p>Portfolio Work</p>
+          <p>Creative direction and design</p>
+        </div>
+        <div class="footer-item">
+          <p>Showcase</p>
+          <p>Contact</p>
+        </div>
+      </footer>
+    </div>
+    <nav>
+      <div class="logo">OffCanvas</div>
+      <button class="toggle">Menu</button>
+    </nav>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const toggleButton = document.querySelector('.toggle')
+      let isOpen = false;
+
+      const timeline = gsap.timeline({paused: true});
+
+      timeline.to('.website-content',{
+        duration: 2,
+        ease: 'power4.inOut',
+        clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
+        scale: 0.5,
+      });
+
+      timeline.to('.row',{
+        duration: 3,
+        left: '0%',
+        ease: 'power4.inOut',
+        stagger: 0.1,
+      }, '-=2.5');
+
+      toggleButton.addEventListener('click', function() {
+        if(isOpen) {
+          timeline.reverse();
+        } else{
+          timeline.play();
+        }
+        isOpen = !isOpen;
+      })
+    });
+
+    // gallery
+    const carouselItems = document.querySelector('.carousel-items');
+    const activeItem = document.querySelector('.active-item');
+    const activeItemImage = document.createElement('img');
+    activeItem.appendChild(activeItemImage);
+
+    for (let i = 1; i <= 44; i++){
+      const carouselItem = document.createElement('div');
+      carouselItem.className = 'carousel-item';
+
+      const img = document.createElement('img');
+      img.src = `./img/00${i}.jpg`;
+
+      carouselItem.appendChild(img);
+      carouselItems.appendChild(carouselItem);
+    }
+
+    function lerp(start, end, t){
+      return start * (1 - t) + end * t;
+    }
+
+    let currentX = 0;
+    let lastScrollY = 0;
+
+    window.addEventListener('wheel', (e) =>{
+      lastScrollY += e.deltaY;
+      const maxScroll = carouselItems.scrollWidth - window.innerWidth;
+      lastScrollY = Math.min(Math.max(lastScrollY, 0), maxScroll);
+    });
+
+    let lastActive = null;
+    let currentLeftMostItem = null;
+
+    function checkAndUpdateActiveItem(){
+      let allItems = document.querySelectorAll('.carousel-item');
+      for (let item of allItems){
+        const rect = item.getBoundingClientRect();
+        if(rect.left >= 0 && rect.left < 10){
+          if (currentLeftMostItem !== item){
+            if (lastActive){
+              lastActive.classList.remove('active');
+            }
+            item.classList.add('active');
+            const src = item.querySelector('img').src;
+            activeItemImage.src = src;
+            lastActive = item;
+            currentLeftMostItem = item;
+          }
+          break;
+        }
+      }
+    }
+    function animate(){
+      currentX = lerp(currentX, lastScrollY, 0.075);
+      carouselItems.style.transform = `translateX(-${currentX}px)`;
+      checkAndUpdateActiveItem();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>

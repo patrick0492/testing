@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Hover Effect / Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gsap74.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="preview">
+      <div class="preview-img preview-img-1"></div>
+      <div class="preview-img preview-img-2"></div>
+    </div>
+    <div class="menu">
+      <div class="menu-item">
+        <div class="info">
+          <p>Puma POV</p>
+        </div>
+        <div class="name">
+          <p>Breathing Video Experience</p>
+        </div>
+        <div class="tag">
+          <p>Creative Design</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="info">
+          <p>Jaarvic</p>
+        </div>
+        <div class="name">
+          <p>Jaarvis Noir Show</p>
+        </div>
+        <div class="tag">
+          <p>Event</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="info">
+          <p>Puma</p>
+        </div>
+        <div class="name">
+          <p>DPSC x Puma</p>
+        </div>
+        <div class="tag">
+          <p>Creative Concept</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="info">
+          <p>Grid</p>
+        </div>
+        <div class="name">
+          <p>Grid 7 Years</p>
+        </div>
+        <div class="tag">
+          <p>Art Direction</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="info">
+          <p>Puma</p>
+        </div>
+        <div class="name">
+          <p>Puma Music Battle</p>
+        </div>
+        <div class="tag">
+          <p>Direction</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee" id="marquee">
+      <a href="#!">
+        <span>Oceanic</span>
+        <div class="img-wrapper">
+          <img src="./img/0035.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Luminous</span>
+        <div class="img-wrapper">
+          <img src="./img/0040.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Tranquil</span>
+        <div class="img-wrapper">
+          <img src="./img/0041.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Vibrant</span>
+        <div class="img-wrapper">
+          <img src="./img/0042.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Hacyon</span>
+        <div class="img-wrapper">
+          <img src="./img/0043.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Dreamy</span>
+        <div class="img-wrapper">
+          <img src="./img/0044.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Auroral</span>
+        <div class="img-wrapper">
+          <img src="./img/0039.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Oasis</span>
+        <div class="img-wrapper">
+          <img src="./img/0038.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Vibrant</span>
+        <div class="img-wrapper">
+          <img src="./img/0037.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Utopian</span>
+        <div class="img-wrapper">
+          <img src="./img/0036.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Oceanic</span>
+        <div class="img-wrapper">
+          <img src="./img/0035.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Luminous</span>
+        <div class="img-wrapper">
+          <img src="./img/0040.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Tranquil</span>
+        <div class="img-wrapper">
+          <img src="./img/0041.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Vibrant</span>
+        <div class="img-wrapper">
+          <img src="./img/0042.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Hacyon</span>
+        <div class="img-wrapper">
+          <img src="./img/0043.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Dreamy</span>
+        <div class="img-wrapper">
+          <img src="./img/0044.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Auroral</span>
+        <div class="img-wrapper">
+          <img src="./img/0039.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Oasis</span>
+        <div class="img-wrapper">
+          <img src="./img/0038.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Vibrant</span>
+        <div class="img-wrapper">
+          <img src="./img/0037.jpg" alt="">
+        </div>
+      </a>
+      <a href="#!">
+        <span>Utopian</span>
+        <div class="img-wrapper">
+          <img src="./img/0036.jpg" alt="">
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <nav>
+    <div class="logo">Elite <br>Web<br> Design<br>2024</div>
+    <div class="logo-main">Elite Web Design 2024</div>
+    <div class="toggle-btn">
+      <button class="burger" onclick="this.classList.toggle('active')"></button>
+    </div> 
+  </nav>
+  <div class="overlay">
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+  </div>
+  <div class="overlay-menu">
+    <div class="menu-title">
+      <p>[menu]</p>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item-year">
+        <p>2024</p>
+      </div>
+      <div class="menu-item-name">
+        <p>Digital Art Collecting</p>
+      </div>
+      <div class="menu-item-link">
+        <a href="#!">[Explore]</a>
+      </div>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item-year">
+        <p>2022</p>
+      </div>
+      <div class="menu-item-name">
+        <p>Art net collecting</p>
+      </div>
+      <div class="menu-item-link">
+        <a href="#!">[Explore]</a>
+      </div>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item-year">
+        <p>2023</p>
+      </div>
+      <div class="menu-item-name">
+        <p>collectors edition</p>
+      </div>
+      <div class="menu-item-link">
+        <a href="#!">[Explore]</a>
+      </div>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item-year">
+        <p>learn More</p>
+      </div>
+      <div class="menu-item-name">
+        <p>about</p>
+      </div>
+      <div class="menu-item-link">
+        <a href="#!">[Explore]</a>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const imageSources = [
+        './img/0032.jpg',
+        './img/0033.jpg',
+        './img/0034.jpg',
+        './img/0035.jpg',
+        './img/0044.jpg',
+      ];
+
+      const menuItems = document.querySelectorAll('.menu-item');
+
+      menuItems.forEach((item) =>{
+        const copyElements = item.querySelectorAll('.info, .name, .tag');
+
+        copyElements.forEach((div) =>{
+          const copy = div.querySelector('p');
+
+          if (copy){
+            const duplicateCopy = document.createElement('p');
+            duplicateCopy.textContent = copy.textContent;
+            div.appendChild(duplicateCopy);
+          }
+        });
+      });
+
+      const appendImages = (src) =>{
+        const preview1 = document.querySelector('.preview-img-1');
+        const preview2 = document.querySelector('.preview-img-2');
+
+        const img1 = document.createElement('img');
+        const img2 = document.createElement('img');
+
+        img1.src = src;
+        img1.style.clipPath = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)';
+        img2.src = src;
+        img2.style.clipPath = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)';
+
+        preview1.appendChild(img1);
+        preview2.appendChild(img2);
+
+        gsap.to([img1, img2],{
+          clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
+          duration: 1,
+          ease: 'power3.out',
+          onComplete: function(){
+            removeExtraImages(preview1);
+            removeExtraImages(preview2);
+          },
+        });
+      };
+
+      function removeExtraImages(container){
+        while (container.children.length > 10){
+          container.removeChild(container.firstChild);
+        }
+      }
+
+      document.querySelectorAll('.menu-item').forEach((item, index) =>{
+        item.addEventListener('mouseover', () =>{
+          mouseOverAnimation(item);
+          appendImages(imageSources[index]);
+        });
+
+        item.addEventListener('mouseout', () =>{
+          mouseOutAnimation(item);
+        });
+      });
+      const mouseOverAnimation = (elem) =>{
+        gsap.to(elem.querySelectorAll('p:nth-child(1)'),{
+          top: '-100%',
+          duration: .3,
+        });
+        gsap.to(elem.querySelectorAll('p:nth-child(2)'),{
+          top: '0%',
+          duration: .3,
+        });
+      };
+      const mouseOutAnimation = (elem) =>{
+        gsap.to(elem.querySelectorAll('p:nth-child(1)'),{
+          top: '0%',
+          duration: .3,
+        });
+        gsap.to(elem.querySelectorAll('p:nth-child(2)'),{
+          top: '100%',
+          duration: .3,
+        });
+      };
+
+      document.querySelector('.menu').addEventListener('mouseout', function(){
+        gsap.to('.preview-img img',{
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+          duration: 1,
+          ease: 'power3.out',
+        });
+      });
+
+      document.addEventListener('mousemove', function(e){
+        const preview = document.querySelector('.preview');
+
+        gsap.to(preview,{
+          x: e.clientX + 300,
+          y: e.clientY,
+          duration: 1,
+          ease: 'power3.out',
+        });
+      });
+    });
+
+    // Menu *************************************************
+    document.addEventListener('DOMContentLoaded', function(){
+      const toggleBtn = document.querySelector('.burger');
+      let isOpen = false;
+
+      const timeline = gsap.timeline({paused: true});
+
+      timeline.to('.block',{
+        duration: 1,
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        stagger: 0.075,
+        ease: 'power3.inOut',
+        visibility: 'visible'
+      });
+
+      timeline.to('.overlay, .overlay-menu',{
+        visibility: 'visible',
+      })
+
+      timeline.to(
+        '.menu-title, .menu-items',
+        {
+          duration: 0.3,
+          opacity: 1,
+          stagger: 0.05,
+        }, '-=0.5'
+      );
+      toggleBtn.addEventListener('click', function() {
+        if (isOpen){
+          timeline.reverse();
+        } else{
+          timeline.play();
+        }
+        isOpen = !isOpen;
+      });
+    });
+
+    // marque
+    const marquee = document.getElementById('marquee');
+
+    window.onmousemove = (e) =>{
+      const percent = e.clientX / window.innerWidth;
+
+      marquee.animate({
+        transform: `translateX(${percent * marquee.offsetWidth * -1}px)`,
+      },{
+        fill: 'forwards',
+        duration: 4000,
+      })
+    }
+  </script>
+</body>
+</html>
