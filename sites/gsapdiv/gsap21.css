@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,900&family=WindSong:wght@400;500&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  width: 100%;
+  /* height: 100vh; */
+  background-color: #ebdcc2;
+  font-family: 'Poppins', sans-serif;
+  /* overflow: hidden; */
+}
+body ul li {
+  list-style: none;
+}
+
+body a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 22px;
+}
+header .logo span {
+  font-size: 35px;
+  font-family: infected;
+  padding: 0px 20px;
+}
+header nav ul li {
+  display: inline-block;
+}
+header nav ul li a {
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #000;
+}
+header .menu {
+  padding: 10px 30px;
+  cursor: pointer;
+}
+header .menu span {
+  width: 45px;
+  height: 4px;
+  border-radius: 3px;
+  display: block;
+  background-color: #000;
+  margin: 4px 0px;
+}
+header .menu span:nth-child(2) {
+  width: 35px;
+}
+
+.container {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  margin: 4% auto;
+  grid-gap: 10px;
+}
+.container p {
+  font-weight: 600;
+  font-family: "WindSong", cursive;
+  font-size: 25px;
+}
+.container .img {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+.container .img img {
+  width: 80%;
+  height: auto;
+}
+.container .middle {
+  width: 95%;
+  height: 70vh;
+  background: url(img/bg07.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container .middle .animate {
+  width: 300px;
+  height: 300px;
+  margin-top: 187%;
+  margin-left: -52%;
+  background-color: #fd7314;
+  padding: 13px;
+  font-size: 21px;
+  text-transform: capitalize;
+}
+
+.imgdiv {
+  position: relative;
+  overflow: hidden;
+}
+.imgdiv .overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #ebdcc2;
+  z-index: 999;
+}
+
+.humburger {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  -webkit-clip-path: circle(0%);
+          clip-path: circle(0%);
+  z-index: 99999;
+}
+
+.overlayMenu {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 3fr));
+  -webkit-clip-path: circle(0%);
+          clip-path: circle(0%);
+  background: #fff;
+}
+
+.overlayMenu .nav {
+  margin: 50% 5%;
+  opacity: 0;
+}
+
+.overlayMenu .nav ul li > p {
+  padding: 20px 0px;
+  font-size: 30px;
+}
+
+.overlayMenu .nav ul li a {
+  padding: 5px 20px;
+  display: block;
+  color: black;
+}
+
+.humburger > a {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  color: black;
+  font-size: 28px;
+  z-index: 1;
+}
+.img-container{
+  width: 90%;
+  margin: 4% auto;
+  padding-top: 100px;
+}
+.image{
+  width: 350px;
+  height: 500px;
+}
+.image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: left;
+}
+.image:nth-child(odd){
+  margin-right: 0;
+  margin-left: auto;
+}
+.mask{
+  visibility: hidden;
+  position: relative;
+  width: 80%;
+  height: 80%;
+  overflow: hidden;
+}

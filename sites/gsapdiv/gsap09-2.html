@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href="gsap09.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+</head>
+<body class="body2">
+  <div class="menu">
+    <div class="logo">
+      <a href="gsap09.html">LOGO</a>
+    </div>
+    <ul class="ul">
+      <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+  </div>
+  <div class="project" id="project">
+    <div class="big-text">
+      Mix tape 
+    </div>
+    <div class="big-img">
+
+    </div>
+    <div class="big-desc">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero porro labore sit inventore quo dolore iure dolores quos laudantium consequatur explicabo, quisquam ut sed provident repudiandae ipsum ducimus quas dolorum reiciendis vitae ex. Sed, aspernatur quo dolore alias sit ipsam tempora mollitia aliquid voluptate rem rerum dolor quam eum beatae nostrum ipsum labore inventore, accusantium ex deserunt molestiae, eaque sapiente! Necessitatibus neque deserunt officiis maxime ipsa labore numquam enim eaque in quis minima, cupiditate saepe mollitia ut accusamus placeat impedit doloribus magni dicta vero maiores ab dignissimos. Assumenda mollitia tenetur ea ipsam dicta ab est! Necessitatibus modi nihil repudiandae amet.</p><br>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste commodi eligendi, similique dolorum blanditiis earum doloremque beatae debitis excepturi consequatur explicabo nostrum quos dolores, quod incidunt sit quidem voluptatibus odit qui magni? Assumenda optio tempora quod dolore consequatur dignissimos expedita laudantium hic possimus quia nesciunt accusamus animi aliquam consequuntur velit, cumque repellat aut modi, cupiditate nulla beatae odit non minima. Veniam tenetur atque architecto corporis voluptatum consectetur. Velit ducimus porro illum nostrum aspernatur inventore quae atque officiis delectus facilis, at molestiae voluptatum dolorem harum consectetur a. Omnis, vel inventore porro aliquam ratione perspiciatis iste veritatis expedita magni non impedit dolore accusantium assumenda aut modi unde optio quisquam harum sed at delectus et? Natus rem quis similique aliquid soluta vero hic quasi reiciendis ab facilis! Fugit eius voluptates praesentium, reiciendis amet hic laborum necessitatibus veniam autem eaque magnam aperiam optio cupiditate est exercitationem ducimus vero harum aliquam. Quisquam nihil obcaecati ullam.</p>
+      <br>
+    </div>
+  </div>
+  
+  <script>
+    const tlp = gsap.timeline();
+    tlp.to('.body2', .5,{
+      backgroundColor: '#161616',
+      color: '#c9c9c9'
+    })
+    tlp.from('.big-text', 1.8,{
+      delay: 1,
+      y: '-100%',
+      opacity: 0
+    })
+    tlp.from('.big-img, .big-desc',1.5,{
+      opacity: 0,
+      stagger:{
+        amount: .5
+      }
+    },'-=.6')
+    tlp.to('.logo a, ul li a', .5,{
+      color: '#c9c9c9'
+    })
+
+  </script>
+</body>
+</html>

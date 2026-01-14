@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="gsap07.css">
+</head>
+<body>
+  <div class="nav">
+    <div class="logo">
+      <p>the</p>
+      <p><span>ocean</span></p>
+      <p>agency</p>
+    </div>
+    <div class="menu">
+      <ul>
+        <li>projects</li>
+        <li>programs</li>
+        <li>resources</li>
+        <li>about</li>
+        <li>contact</li>
+        <li>image bank</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="text text1"><h1>creative</h1></div>
+  <div class="text text2"><h1>agency</h1></div>
+  <div class="text text3"><h1>for</h1></div>
+  <div class="text text4"><h1>the</h1></div>
+  <div class="text text5"><h1>ocean</h1></div>
+
+  <div class="slide">
+    <div class="tag">
+      <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa necessitatibus dignissimos nulla <span>distinctio expedita fuga corrupti</span> quasi maiores.</h2>
+    </div>
+  </div>
+
+  
+  <!-- .li$.li*4>a.a$ voor vier li met opvolgende classnummers plus links met hetzelfde -->
+  <!-- divname>divname>flexone+.flextwo -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script>
+    gsap.to('.text h1', .5,{
+      top: 0
+    })
+    gsap.to('.slide', 2,{
+      width: '100%',
+      delay: 1
+    })
+    gsap.to('.text1', 2,{
+      x: '90%',
+      delay: 1
+    })
+    gsap.to('.text2', 2,{
+      x: '-50%',
+      delay: 1
+    })
+    gsap.to('.text3', 2,{
+      x: '30%',
+      delay: 1
+    })
+    gsap.to('.text4', 2,{
+      x: '-30%',
+      delay: 1
+    })
+    gsap.to('.text5', 2,{
+      x: '-130%',
+      delay: 1
+    })
+    gsap.to('.nav', .5,{
+      opacity: 1,
+      delay: 2
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.top{
+  width: 90%;
+  height: 70px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul{
+  list-style: none;
+  display: flex;
+}
+li{
+  margin: 0 10px;
+}
+a{
+  text-decoration: none;
+  color: #1c1c1c;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+.logo a{
+  font-size: 25px;
+}
+.circle{
+  width: 500px;
+  height: 500px;
+  border: 1px solid #1c1c1c;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 83%;
+}
+.sm{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-color: #1c1c1c;
+  background-blend-mode: multiply;
+}
+.sm1{
+  left: 80px;
+  top: 47px;
+  background-image: url(img/BGpics022.jpg);
+}
+.sm2{
+  top: 50%;
+  left: -2%;
+  transform: scale(8);
+  background-image: url(img/BGpics064.jpg);
+  background-color: transparent;
+}
+.sm3{
+  top: 88%;
+  left: 18%;
+  background-image: url(img/BGpics066.jpg);
+}
+.img-box{
+  width: 400px;
+  left: 42%;
+  position: absolute;
+  z-index: 22;
+  top: 40%;
+}
+.img{
+  width: 100%;
+  position: absolute;
+}
+.img img{
+  width: 100%;
+}
+.img1, .img3{
+  transform: scale(0);
+}
+.content{
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 30px;
+  border-left: 2px solid #1c1c1c;
+}
+.index{
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dd111c;
+  margin: 30px 0;
+}
+.index p{
+  color: #fff;
+  font-size: 30px;
+}
+h1{
+  font-size: 80px;
+  text-transform: uppercase;
+  color: #1c1c1c;
+}
+span{
+  font-weight: 100;
+  text-transform: capitalize;
+}
+p{
+  text-transform: capitalize;
+  font-size: 30px;
+  color: #1c1c1c;
+}

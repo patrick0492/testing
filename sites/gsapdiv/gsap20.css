@@ -1,0 +1,59 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Heebo', sans-serif;
+  overflow-x: hidden;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 5rem;
+  background: #fff;
+}
+h2{
+  font-size: 5rem;
+}
+ul{
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+a{
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #000;
+  margin-left: 5rem;
+}
+.logo{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(6);
+  font-size: 1.5rem;
+}
+.home{
+  height: 100vh;
+}
+.first-page{
+  height: 100vh;
+  background-color: rgb(21,21,21);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.first-page img{
+  height: 100%;
+  object-fit: cover;
+}
+.square{
+  width: 10rem;
+  height: 10rem;
+  background: rgb(52,140,199);
+  position: absolute;
+  top: 70%;
+  left: 70%;
+}

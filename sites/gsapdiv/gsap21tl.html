@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+  <title>Gsap Animation</title>
+  <link rel="stylesheet" href="gsap21.css">
+</head>
+<body>
+  <div class="humburger">
+    <a href="#" class="exit"><i class="fas fa-times"></i></a>
+    <div class="overlayMenu">
+      <div class="nav">
+        <ul>
+          <li><p>Category</p></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav">
+        <ul>
+          <li><p>Category</p></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav">
+        <ul>
+          <li><p>Category</p></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav">
+        <ul>
+          <li><p>Category</p></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <header>
+    <div class="logo">
+      <span>logo</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </nav>
+    <div class="menu">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <div class="container">
+      <div class="img left">
+        <div class="imgdiv">
+          <div class="overlay"></div>
+          <img src="img/bg05.png" alt="">
+        </div>
+        <p>Allure Hotel</p>
+      </div>
+      <div class="img middle">
+        <div class="animate"><h2>See the beauty <br>of gastronomy</h2></div>
+      </div>
+      <div class="img right">
+        <div class="imgdiv">
+          <div class="overlay"></div>
+          <img src="img/bg06.png" alt="">
+        </div>
+        <p>Lonely Suite</p>
+    </div>
+  </div>
+  <div class="img-container">
+    <div class="image">
+      <div class="mask">
+        <img src="img/bg05.png" alt="">
+      </div>
+    </div>
+    <div class="image">
+      <div class="mask">
+        <img src="img/bg06.png" alt="">
+      </div>
+    </div>
+    <div class="image">
+      <div class="mask">
+        <img src="img/bg07.png" alt="">
+      </div>
+    </div>
+  </div>
+
+
+  
+  <script>
+    gsap.from('.img.middle', 2, {
+      scale: 0,
+    })
+    gsap.from('.logo', 1,{
+      x: -300,
+    });
+    gsap.from('nav a', 1,{
+      y: -300,
+      stagger: 0.2
+    });
+    gsap.to('.overlay', 6,{
+      x: innerWidth * -0.5,
+    });
+    gsap.from('.imgdiv img', 2, {
+      scale: 2,
+    })
+    gsap.from('.animate',1,{
+      scale: 0,
+      delay: 3,
+    });
+
+    var btnClick = document.querySelector('.menu');
+    var humburger = document.querySelector('.humburger');
+    var exit = document.querySelector('.exit');
+    var tl = gsap.timeline({defaults: { ease: Back.easeOut}});
+    tl.paused (true);
+    tl.to(
+      '.humburger', 2,{clipPath: 'circle(200% at top right)',},'-=0.003'
+    );
+    tl.to(
+      '.overlayMenu', 1.6,{clipPath: 'circle(200% at top right)',}, '-=1.2'
+    );
+    tl.to('.nav',{opacity: 1, y: '30px', stagger: 0.1}, '-=1');
+    btnClick.addEventListener('click', () =>{
+      tl.play();
+    });
+    exit.addEventListener('click', () =>{
+      tl.reverse();
+    })
+    
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    let masks = document.querySelectorAll('.mask');
+    masks.forEach(mask =>{
+      let image = mask.querySelector('img');
+
+      let tl2 = gsap.timeline({
+        scrollTrigger:{
+          trigger: mask,
+          toggleActions: 'restart none none reset'
+        }
+      });
+
+      tl2.set(mask, {autoAlpha: 1});
+
+      tl2.from(mask, 1.5,{
+        xPercent: -100,
+        ease: Power2.out
+      });
+      tl2.from(image, 1.5,{
+        xPercent: 100,
+        scale: 1.3,
+        delay: -1.5,
+        ease: Power2.out
+      })
+    })
+  </script>
+</body>
+</html>

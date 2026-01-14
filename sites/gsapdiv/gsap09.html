@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href="gsap09.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+</head>
+<body class="body">
+  <div class="menu">
+    <div class="logo">
+      <a href="gsap09.html">LOGO</a>
+    </div>
+    <ul class="ul">
+      <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+  </div>
+  <div class="container" id="home">
+    <div class="main-text">
+      <div class="line line1">
+        <p><a href="gsap09-2.html">Mouthwash</a></p>
+      </div>
+      <div class="line line2">
+        <p><a href="gsap09-2.html">Brutal</a></p>
+      </div>
+      <div class="line line3">
+        <p><a href="gsap09-2.html">Fatality</a></p>
+      </div>
+      <div class="line line4">
+        <p><a href="gsap09-2.html">Aesthetic</a></p>
+      </div>
+      <div class="cursor-follow1 cursor"></div>
+      <div class="cursor-follow2 cursor"></div>
+      <div class="cursor-follow3 cursor"></div>
+      <div class="cursor-follow4 cursor"></div>
+    </div>
+  </div>
+  
+  <script>
+    const tl = gsap.timeline();
+    tl.from('.line p', 2.8,{
+      delay: 1,
+      ease: 'power4.out',
+      y: 275,
+      skewY: 15,
+      stagger:{
+        amount: .8
+      }
+    });
+    tl.to('.body',1.8,{
+      backgroundColor: '#c9c9c9'
+    })
+    tl.to('.line p a', 1.5,{
+      color: 'black'
+    },'-=1.8')
+    tl.from('.logo, ul li', 1.2,{
+      opacity: 0,
+      y: '-100%',
+      stagger:{
+        amount: .4
+      }
+    })
+
+    follower = document.querySelectorAll('.cursor');
+    posX = 0;
+    posY = 0;
+    mouseX = 0;
+    mouseY = 0;
+
+    TweenMax.to({},0.016,{
+      repeat: -2,
+      onRepeat:function(){
+        posX +=(mouseX - posX) / 10;
+        posY +=(mouseY - posY) / 10;
+
+        TweenMax.set(follower,{
+          css: {
+            left: posX - 80,
+            top: posY - 80,
+          }
+        });
+      }
+    })
+
+    document.addEventListener("mousemove", 
+    function(e){
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    });
+  </script>
+</body>
+</html>

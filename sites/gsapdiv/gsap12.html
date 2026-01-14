@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href="gsap12.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+  <!-- ionicons  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="header">
+      <div class="logo">
+          Logo
+      </div>
+      <div class="menu">
+        <div class="menu-item menu-item1">About</div>
+        <div class="menu-item menu-item2">Journal</div>
+        <div class="menu-item menu-item3">Contact</div>
+      </div>
+    </div> 
+
+    <div class="images">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+
+    <div class="content">
+        <h1 class="content-inner-bold">
+            <div>Hard work beats talent</div>
+            <br />
+            <div>when talent doesn't work hard.</div>
+        </h1>
+        <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eius quo quibusdam maxime tenetur laborum hic officia aliquid quaerat facere.
+
+        </p>
+        <button class="btn">
+            Explore
+        </button>
+    </div>
+
+  
+  <script>
+    const timeline = gsap.timeline();
+      timeline.from('.logo', 1, {
+      opacity: 0,
+      y: '100'
+    })
+    .from('.menu-item1, .menu-item2, .menu-item3', 2 ,{
+      opacity: 0,
+      y: -200,
+      stagger: {
+          amount: .4
+      },
+      ease: Power3.easeInOut
+    },"-=1")
+
+    timeline.from('.content-inner-bold div, .text, .btn', 1,{
+      opacity: 0,
+      y: "100",
+      skewY: 10,
+      stagger: {
+          amount: .4
+        }
+    })
+
+    timeline.from('.box1', 1.2, {
+        y: 1200,
+        ease: Power3.easeInOut,
+        opacity: 0
+    },"-=1")
+    .from('.box1', 2, {
+        scale: 1.6,
+        ease: Power3.easeInOut
+    }, "-=1.2");
+    timeline.from('.box2', 1.2, {
+        y: 1200,
+        ease: Power3.easeInOut,
+        opacity: 0
+    },"-=1")
+    .from('.box2', 2, {
+        scale: 1.6,
+        ease: Power3.easeInOut
+    }, "-=1");
+    timeline.from('.box3', 1.2, {
+        y: 1200,
+        ease: Power3.easeInOut,
+        opacity: 0
+    },"-=1")
+    .from('.box3', 2, {
+        scale: 1.6,
+        ease: Power3.easeInOut
+    }, "-=1");
+
+  </script>
+</body>
+</html>
