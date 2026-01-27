@@ -65,6 +65,7 @@ html.lenis{
   justify-content: center;
   padding-top: 24rem;
   height: 100vh;
+  height: 100svh;
 }
 .scroll-text-subtitle{
   text-align: center;
@@ -163,4 +164,50 @@ html.lenis{
     width: 18rem;
     height: 24rem;
   }
+}
+@media screen and (max-width: 540px){
+  .scroll{
+    height: 300vh;
+  }
+  html{
+    font-size: calc(100vw / 769 * 10);
+  }
+  .scroll-text span{
+    font-size: 6.4rem;
+  }
+  .scroll-gallery-container{
+    gap: 24rem
+  }
+.scroll-gallery-row:nth-child(1){
+  display: flex;
+  justify-content: center;
+}
+.scroll-gallery-row:nth-child(2),
+.scroll-gallery-row:nth-child(3){
+  display: flex;
+  justify-content: space-between;
+}
+.scroll-gallery-row:nth-child(3){
+  padding-top: 32rem;
+}
+.scroll-gallery-row:nth-child(1) .scroll-gallery-row-image:nth-child(1){
+  width: 56rem;
+  height: 56rem;
+}
+.scroll-gallery-row:nth-child(2) .scroll-gallery-row-image:nth-child(1){
+  width: 40rem;
+  height: 24rem;
+}
+.scroll-gallery-row:nth-child(2) .scroll-gallery-row-image:nth-child(2){
+  width: 20rem;
+  height: 45rem;
+}
+.scroll-gallery-row:nth-child(3) .scroll-gallery-row-image:nth-child(1){
+  width: 40rem;
+  height: 32rem;
+}
+.scroll-gallery-row:nth-child(3) .scroll-gallery-row-image:nth-child(2){
+  width: 40rem;
+  height: 40rem;
+}
 }
