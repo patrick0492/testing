@@ -123,10 +123,10 @@ svg{
     transform: translateX(-50%) rotate(-90deg);
     left: 100px;
     position: absolute;
-    top: 30%;
+    top: 10%;
   }
   .title h1{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 900;
     letter-spacing: -2px;
   }
