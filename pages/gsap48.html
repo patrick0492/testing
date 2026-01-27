@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Animation</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="gsap48.css">
+</head>
+<body>
+  <div class="nav">
+    <p>Nanotech</p>
+    <p>Showreel</p>
+  </div>
+  <div class="footer">
+    <p>Codegrid 2023 &copy;</p>
+  </div>
+  <div class="overlay">
+    <div class="overlay-header">
+      <div class="col">
+        <h1 id="item-name">Item 1</h1>
+        <p id="item-category">Item Category</p>
+      </div>
+      <div class="col">
+        <p id="close-btn">Close</p>
+      </div>
+    </div>
+    <div class="item-details">
+      <p>
+        <a href="#!" id="item-link"><i class="ph-bold ph-arrow-up-right"></i> View Site</a>
+      </p>
+      <p id="item-copy">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati vero officia adipisci veritatis pariatur praesentium maiores possimus ut, in neque!</p>
+    </div>
+    <div class="img-container">
+      <img src="../gsapdiv/img/0014.jpg" alt="" id="item-img">
+    </div>
+  </div>
+  <div class="container">
+    <div class="items">
+      <div class="item">
+        <div class="item-index">01</div>
+        <div class="item-name">Advanced Nanotech Fabrics</div>
+        <div class="item-year">2023</div>
+      </div>
+      <div class="item">
+        <div class="item-index">02</div>
+        <div class="item-name">Natural Bio-luminescent Accents</div>
+        <div class="item-year">2022</div>
+      </div>
+      <div class="item">
+        <div class="item-index">03</div>
+        <div class="item-name">Integrated Electronic Wearables</div>
+        <div class="item-year">2022</div>
+      </div>
+      <div class="item">
+        <div class="item-index">04</div>
+        <div class="item-name">Dynamic Morphing Clothing</div>
+        <div class="item-year">2021</div>
+      </div>
+      <div class="item">
+        <div class="item-index">05</div>
+        <div class="item-name">3D Holographic Prints</div>
+        <div class="item-year">2020</div>
+      </div>
+      <div class="item">
+        <div class="item-index">06</div>
+        <div class="item-name">Atmospheric Aero-adaptable Garments</div>
+        <div class="item-year">2020</div>
+      </div>
+      <div class="item">
+        <div class="item-index">07</div>
+        <div class="item-name">Responsive Skinsync Attire</div>
+        <div class="item-year">2020</div>
+      </div>
+      <div class="item">
+        <div class="item-index">08</div>
+        <div class="item-name">Sustainable Zero-waste Weavings</div>
+        <div class="item-year">2023</div>
+      </div>
+      <div class="item">
+        <div class="item-index">09</div>
+        <div class="item-name">Lab-crafted Synthetic Leather</div>
+        <div class="item-year">2022</div>
+      </div>
+      <div class="item">
+        <div class="item-index">10</div>
+        <div class="item-name">Neuro-responsive Fashion Gear</div>
+        <div class="item-year">2023</div> 
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script>
+    const data = [
+      {
+        itemName: 'Advanced Nanotech Fabrics',
+        itemCategory: 'Galactic Glam',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Saepe, ipsam et quibusdam ipsa animi provident commodi placeat non adipisci aperiam facilis, nisi quaerat doloribus enim pariatur minus at vero vitae maxime. Odio quisquam possimus sapiente eius, in pariatur unde repudiandae autem vitae dignissimos atque quas perferendis, nesciunt expedita debitis, perspiciatis a reiciendis. Nulla animi quis eos facilis quisquam. ',
+        itemImg: '../gsapdiv/img/0014.jpg',
+      },
+      {
+        itemName: 'Natural Bio-luminescent Accents',
+        itemCategory: 'Eco Futurism Line',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Consequatur qui sapiente quisquam eveniet omnis quidem voluptatibus vero eius temporibus? Modi, amet? Asperiores sunt quibusdam error quaerat itaque nostrum similique! Sapiente corrupti illum minus deleniti, fugit harum unde incidunt perferendis quisquam hic officia id quod natus nostrum, impedit sunt. Cumque, debitis. Voluptatum reprehenderit tempora laborum modi deleniti cupiditate doloribus sequi ab sapiente et repellendus tenetur delectus necessitatibus, quae debitis eum voluptatem ea tempore nulla quibusdam nam! Sequi perferendis dignissimos obcaecati modi placeat, eius amet, eaque iste reprehenderit perspiciatis sint eveniet.',
+        itemImg: '../gsapdiv/img/0013.jpg',
+      },
+      {
+        itemName: 'Integrated Electronic Wearables',
+        itemCategory: 'Digital Elegance',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Itaque eius commodi perspiciatis animi molestias reprehenderit. Blanditiis, aliquam! Officiis, porro, pariatur enim nihil velit inventore sint libero laboriosam eaque vel dicta. Eum explicabo ullam libero consequatur, quam a, adipisci odio ex laudantium quae exercitationem vel voluptatibus tempora nostrum perspiciatis amet perferendis numquam alias. Eligendi blanditiis esse, quae quod, et quibusdam, laudantium eveniet asperiores facilis accusantium nam. Reiciendis, fugiat blanditiis ipsam doloribus quae ipsa atque ipsum ab incidunt. ',
+        itemImg: '../gsapdiv/img/0012.jpg',
+      },
+      {
+        itemName: 'Dynamic Morphing Clothing',
+        itemCategory: 'Galactic Glam',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Dolore placeat mollitia earum! Eaque magnam cum excepturi mollitia, qui quam ab tempora id rem aperiam esse laboriosam quas praesentium consequatur iste voluptatum, voluptas perferendis cumque nobis. Minus enim dicta vero vitae quia provident ullam veritatis voluptas sunt repudiandae id deserunt magnam illum modi, dolor explicabo incidunt dolorum molestias nostrum cupiditate amet veniam delectus. Consequatur sunt id corporis. ',
+        itemImg: '../gsapdiv/img/0011.jpg',
+      },
+      {
+        itemName: '3D Holographic Prints',
+        itemCategory: 'Digital Elegance',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Quam dolorem non deserunt doloremque dolores atque, quaerat consequatur dolorum tenetur molestias culpa maiores voluptatem temporibus inventore eius porro numquam! Omnis consequuntur quo, sunt adipisci expedita eius nobis magnam mollitia maxime reiciendis quas porro! Iure inventore, aut magni nisi delectus tempora! Soluta beatae iusto saepe id ut hic mollitia error autem modi. Asperiores, debitis. Voluptas, facere odio? Quam eligendi nobis, delectus ex animi a velit mollitia! Culpa vero voluptatum id harum magni quam neque voluptatibus obcaecati aliquam aut. ',
+        itemImg: '../gsapdiv/img/0010.jpg',
+      },
+      {
+        itemName: 'Atmospheric Aero-adaptable Garments',
+        itemCategory: 'Galactic Glam',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Excepturi ipsum nesciunt culpa deserunt illo voluptatum reiciendis nam non ullam, veniam ut blanditiis quo doloremque porro eius aspernatur veritatis odit necessitatibus facilis adipisci nostrum saepe, modi qui. Doloremque iure aliquid eveniet sed veritatis rerum nesciunt deleniti molestias? ',
+        itemImg: '../gsapdiv/img/0009.jpg',
+      },
+      {
+        itemName: 'Responsive Skinsync Attire',
+        itemCategory: 'Digital Elegance',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Ipsum quas numquam fugiat repudiandae laudantium ab, similique velit, vitae repellat cum minus quam rerum iste suscipit cumque quis modi ullam provident soluta non? Nemo maiores excepturi maxime aperiam nobis quasi fuga obcaecati non minus repellat molestias, tempore rem aliquid voluptas recusandae. ',
+        itemImg: '../gsapdiv/img/0008.jpg',
+      },
+      {
+        itemName: 'Sustainable Zero-waste Weavings',
+        itemCategory: 'Digital Elegance',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Doloremque eos sed fugiat quasi explicabo possimus distinctio molestiae, sint quidem! Aliquid, reprehenderit obcaecati iure dolore, dolor tenetur officia at ducimus blanditiis nobis deserunt temporibus, rem eaque illo cum soluta? Molestiae asperiores voluptates aliquid culpa sequi doloribus sit consectetur dolore at ducimus numquam sint quibusdam aperiam veritatis libero, perferendis doloremque ea laudantium repudiandae minima! ',
+        itemImg: '../gsapdiv/img/0007.jpg',
+      },
+      {
+        itemName: 'Lab-crafted Synthetic Leather',
+        itemCategory: 'Eco Futurism Line',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Esse magnam ipsum culpa nemo error modi sapiente libero! Obcaecati ratione est harum eveniet ipsa cumque sint in voluptate sequi blanditiis odio quisquam inventore cum itaque esse, saepe iusto dicta quia facere quo mollitia placeat! Assumenda hic corrupti autem eligendi odio veritatis suscipit nisi libero illum, in quo. ',
+        itemImg: '../gsapdiv/img/0006.jpg',
+      },
+      {
+        itemName: 'Neuro-responsive Fashion Gear',
+        itemCategory: 'Eco Futurism Line',
+        itemLink: 'www.youtube.com',
+        itemCopy: 'Excepturi ipsam numquam exercitationem totam repellendus voluptate deserunt, corrupti natus atque provident corporis saepe dolorum accusantium ducimus inventore optio, aut incidunt dolorem voluptatum similique ratione. Quisquam sapiente numquam voluptas commodi quaerat sint et, ad voluptatum laborum ratione asperiores dolores deserunt excepturi aspernatur id iusto modi similique alias eveniet provident aperiam accusamus maxime ipsam eligendi. Expedita.',
+        itemImg: '../gsapdiv/img/0005.jpg',
+      },
+    ];
+
+    const overlay = document.querySelector('.overlay');
+    const closeBtn = document.querySelector('#close-btn');
+
+    const tl = gsap.timeline({paused: true, overwrite: 'auto'});
+
+    tl.to(overlay, {
+      duration: 0.5,
+      bottom: '0px',
+      rotation: 0,
+      transformOrigin: 'bottom center',
+      ease: 'power3.inOut',
+    });
+
+    const items = document.querySelectorAll('.item');
+    items.forEach((item, index) => {
+      item.addEventListener('click', () =>{
+        updateOverlay(data[index]);
+
+        tl.play();
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      tl.reverse();
+    })
+
+    function updateOverlay(dataItem){
+      const itemName = document.querySelector('#item-category').previousElementSibling;
+      const itemCategory = document.querySelector('#item-category');
+      const itemLink = document.querySelector('#item-link');
+      const itemCopy = document.querySelector('#item-copy');
+      const itemImg = document.querySelector('#item-img');
+
+      itemName.textContent = dataItem.itemName;
+      itemCategory.textContent = dataItem.itemCategory;
+      itemLink.href = dataItem.itemLink;
+      itemCopy.textContent = dataItem.itemCopy;
+      itemImg.src = dataItem.itemImg;
+    }
+
+    document.addEventListener('click', (e) =>{
+      if(!overlay.contains(e.target) && !isItem(e.target)){
+        tl.reverse();
+      }
+    });
+
+    function isItem(target){
+      return target.closest('.item');
+    }
+  </script>
+</body>
+</html>

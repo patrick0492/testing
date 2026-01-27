@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Scroll Trigger</title>
+    <link rel="stylesheet" href="gsap70.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="#!">Wasteland Couture</a>
+      <a href="#!">Shop</a>
+    </nav>
+
+    <section class="hero">
+      <h1>Wasteland Couture</h1>
+    </section>
+    <section class="info">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum facilis ut tenetur voluptatibus, asperiores, voluptates incidunt repudiandae at cupiditate consectetur placeat quibusdam unde dolores adipisci.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sapiente illum dolor, vitae est eius perferendis odit quos.</p>
+    </section>
+    <section class="hero-imgs">
+      <div class="row">
+        <div class="img img-1"></div>
+        <div class="img img-2"></div>
+      </div>
+    </section>
+    <section class="clients">
+      <div class="col">
+        <p>Selected Clients</p>
+      </div>
+      <div class="col">
+        <div class="clients-list">
+          <p>Ames</p>
+          <p>Billiani</p>
+          <p>Botteganove</p>
+          <p>Budri</p>
+          <p>CC-Tapis</p>
+          <p>Cedit</p>
+          <p>Esperia</p>
+          <p>Experimental Group</p>
+          <p>Fendi</p>
+          <p>Ames</p>
+          <p>Fornace Brioni</p>
+          <p>Etel</p>
+          <p>Giovani De Maio</p>
+          <p>Kaldewei</p>
+          <p>Margraf</p>
+          <p>Kundalini</p>
+          <p>Wonderglass</p>
+        </div>
+        <div class="clients-list">
+          <p>Fendi</p>
+          <p>Ames</p>
+          <p>Fornace Brioni</p>
+          <p>Etel</p>
+          <p>Giovani De Maio</p>
+          <p>Kaldewei</p>
+          <p>Margraf</p>
+          <p>Kundalini</p>
+          <p>Wonderglass</p>
+          <p>Ames</p>
+          <p>Fornace Brioni</p>
+          <p>Etel</p>
+          <p>Giovani De Maio</p>
+          <p>Kaldewei</p>
+          <p>Margraf</p>
+          <p>Kundalini</p>
+          <p>Wonderglass</p>
+        </div>
+      </div>
+    </section>
+    <section class="clients-imgs">
+      <div class="row">
+        <div class="img img-3"></div>
+      </div>
+    </section>
+    <section class="product-filters">
+      <div class="col">
+        <p>All</p>
+        <p>Lighting</p>
+        <p>Textiles</p>
+        <p>Furniture</p>
+        <p>Accessoires</p>
+        <p>Surfaces</p>
+      </div>
+      <div class="col"></div>
+    </section>
+    <section class="products">
+      <div class="row">
+        <div class="img"></div>
+        <div class="img img-4"></div>
+        <div class="img img-5"></div>
+        <div class="img"></div>
+      </div>
+      <div class="row">
+        <div class="img img-6"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img img-7"></div>
+      </div>
+      <div class="row">
+        <div class="img"></div>
+        <div class="img img-8"></div>
+        <div class="img"></div>
+        <div class="img img-9"></div>
+      </div>
+      <div class="row">
+        <div class="img img-10"></div>
+        <div class="img"></div>
+        <div class="img img-11"></div>
+        <div class="img img-12"></div>
+      </div>
+    </section>
+
+    <section class="about">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam vero porro quibusdam dolore at dolorem illum, minima fuga exercitationem quas itaque fugit ipsum tenetur aut maxime repellat. Eos commodi tempore quia architecto, ea quibusdam eius, et mollitia esse magni fugiat.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, a autem porro molestias mollitia impedit possimus saepe recusandae dicta aliquid optio, cum accusamus iste, voluptatum perferendis nesciunt esse. Quam, non.</p>
+    </section>
+    <section class="about-img">
+      <div class="row">
+        <div class="img img-13"></div>
+        <div class="img img-14"></div>
+      </div>
+    </section>
+    <section class="outro">
+      <div class="row">
+        <div class="img img-15"></div>
+        <div class="img img-16"></div>
+        <div class="img img-17"></div>
+      </div>
+    </section>
+    <footer>
+      <p>Unlock the source code</p>
+      <p>Link in description</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+      const lenis = new Lenis();
+
+      lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) =>{
+        lenis.raf(time * 1000);
+      });
+
+      gsap.ticker.lagSmoothing(0);
+
+      const initialClipPaths = [
+        'polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%)',
+        'polygon(33% 0%, 33% 0%, 33% 0%, 33% 0%)',
+        'polygon(66% 0%, 66% 0%, 66% 0%, 66% 0%)',
+        'polygon(0% 33%, 0% 33%, 0% 33%, 0% 33%)',
+        'polygon(33% 33%, 33% 33%, 33% 33%, 33% 33%)',
+        'polygon(66% 33%, 66% 33%, 66% 33%, 66% 33%)',
+        'polygon(0% 66%, 0% 66%, 0% 66%, 0% 66%)',
+        'polygon(33% 66%, 33% 66%, 33% 66%, 33% 66%)',
+        'polygon(66% 66%, 66% 66%, 66% 66%, 66% 66%)',
+      ];
+
+      const finalClipPaths = [
+        'polygon(0% 0%, 33.5% 0%, 33.5% 33%, 0% 33.5%)',
+        'polygon(33% 0%, 66.5% 0%, 66.5% 33%, 33% 33.5%)',
+        'polygon(66% 0%, 100% 0%, 100% 33%, 66% 33.5%)',
+        'polygon(0% 33%, 33.5% 33%, 33.5% 66%, 0% 66.5%)',
+        'polygon(33% 33%, 66.5% 33%, 66.5% 66%, 33% 66.5%)',
+        'polygon(66% 33%, 100% 33%, 100% 66%, 66% 66.5%)',
+        'polygon(0% 66%, 33.5% 66%, 33.5% 100%, 0% 100%)',
+        'polygon(33% 66%, 66.5% 66%, 66.5% 100%, 33% 100%)',
+        'polygon(66% 66%, 100% 66%, 100% 100%, 66% 100%)',
+      ];
+
+      function createMasks(){
+        const imgs = document.querySelectorAll('.img');
+        imgs.forEach((img, imgIndex) =>{
+          for (let i = 1; i <= 9; i++){
+            const mask = document.createElement('div');
+            mask.classList.add('mask', `m-${i}`);
+            img.appendChild(mask);
+          }
+        });
+      }
+      createMasks();
+
+      const rows = gsap.utils.toArray('.row');
+
+      rows.forEach((row) =>{
+        const imgs = row.querySelectorAll('.img');
+
+        imgs.forEach((img) =>{
+          const masks = img.querySelectorAll('.mask');
+
+          masks.forEach((mask, index) =>{
+            gsap.set(mask,{
+              clipPath: initialClipPaths[index],
+            });
+          });
+
+          const tl = gsap.timeline({
+            scrollTrigger:{
+              trigger: row,
+              start: 'top 75%',
+            },
+          });
+
+
+          const animationOrder = [
+            ['.m-1'],
+            ['.m-2', '.m-4'],
+            ['.m-3', '.m-5', '.m-7'],
+            ['.m-6', '.m-8'],
+            ['.m-9'],
+          ];
+
+          animationOrder.forEach((targets, index) =>{
+            tl.to(
+              targets.map((cls) => img.querySelector(cls)),{
+                clipPath: (i, el) => finalClipPaths[Array.from(masks).indexOf(el)],
+                duration: 0.5,
+                ease: 'power2.out',
+                stagger: 0.1,
+              },
+              index * 0.125
+            );
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

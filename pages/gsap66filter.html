@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Gallery Filter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gsap66.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="filters">
+        <div class="filter active" data-filter="all">
+          <p>(24)</p>
+          <h1>All</h1>
+        </div>
+        <div class="filter" data-filter="mix">
+          <p>(8)</p>
+          <h1>Remixes</h1>
+        </div>
+        <div class="filter" data-filter="design">
+          <p>(6)</p>
+          <h1>Sound Designing</h1>
+        </div>
+        <div class="filter" data-filter="music">
+          <p>(10)</p>
+          <h1>Productions</h1>
+        </div>
+      </div>
+
+      <div class="items">
+        <div class="items-col"></div>
+        <div class="items-col"></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+      const items = [
+        {title: 'Echoes Of Silence', tag: ['mix'], img: './img/0030.jpg'},
+        {title: 'Melodic Horizon', tag: ['music'], img: './img/0016.jpg'},
+        {title: 'Temporal Visions', tag: ['music'], img: './img/0013.jpg'},
+        {title: 'Rhythm And Space', tag: ['design'], img: './img/0041.jpg'},
+        {title: 'Colorful Serenity', tag: ['mix'], img: './img/0034.jpg'},
+        {title: 'Dream Weaver', tag: ['mix'], img: './img/0035.jpg'},
+        {title: 'Soni Bloom', tag: ['mix'], img: './img/0037.jpg'},
+        {title: 'Temporal Visions', tag: ['music'], img: './img/ls005.jpg'},
+        {title: 'Celestial Nights', tag: ['design'], img: './img/0038.jpg'},
+        {title: 'Midnight Canvas', tag: ['mix'], img: './img/0031.jpg'},
+        {title: 'Ethereal Echoes', tag: ['design'], img: './img/0042.jpg'},
+        {title: 'Mosaic Of Dreams', tag: ['music'], img: './img/0044.jpg'},
+        {title: 'Glimpse Of Eternity', tag: ['music'], img: './img/ls001.jpg'},
+        {title: 'Infinite Pallet', tag: ['music'], img: './img/ls002.jpg'},
+        {title: 'Soul Resonance', tag: ['music'], img: './img/ls003.jpg'},
+        {title: 'Vibrant Rhythms', tag: ['mix'], img: './img/0032.jpg'},
+        {title: 'Spectral Designs', tag: ['music'], img: './img/ls004.jpg'},
+        {title: 'Whispers Of Twilight', tag: ['design'], img: './img/0043.jpg'},
+        {title: 'Spectral Designs', tag: ['music'], img: './img/ls006.jpg'},
+        {title: 'Abstract Harmony', tag: ['design'], img: './img/0040.jpg'},
+        {title: 'Shadow Dance', tag: ['mix'], img: './img/0033.jpg'},
+        {title: 'Urban Mirage', tag: ['mix'], img: './img/0036.jpg'},
+        {title: 'Harmony Quest', tag: ['design'], img: './img/0039.jpg'},
+        {title: 'Canvas Of Sound', tag: ['music'], img: './img/0014.jpg'},
+      ];
+
+      document.addEventListener('DOMContentLoaded', () =>{
+        const itemsContainer = document.querySelector('.items');
+        const itemCols = document.querySelectorAll('.items-col');
+        const filters = document.querySelectorAll('.filter');
+        const defaultFontSize = '75px';
+        const activeFontSize = '250px';
+
+        function splitTextIntoSpans(selector){
+          const elements = document.querySelectorAll(selector);
+          elements.forEach((element) =>{
+            const text = element.innerText;
+            element.innerHTML = text
+            .split('')
+            .map((char) => `<span>${char}</span>`)
+            .join('');
+          });
+        }
+        function animateFontSize(target, fontSize){
+          const spans = target.querySelectorAll('span');
+          gsap.to(spans,{
+            fontSize: fontSize,
+            stagger: 0.025,
+            duration: 0.5,
+            ease: 'power2.out',
+          });
+        }
+
+        function clearItems(){
+          itemCols.forEach((col) =>{
+            col.innerHTML = '';
+          });
+        }
+
+        function addItemsToCols(filter = 'all') {
+          let colIndex = 0;
+          const filteredItems = items.filter(
+            (item) => filter === 'all' || item.tag.includes(filter)
+          );
+
+          filteredItems.forEach((item) =>{
+            const itemElement = document.createElement('div');
+            itemElement.className = 'item';
+            itemElement.innerHTML = `<div class='item-img'>
+                                      <img src="${item.img}" alt="">
+                                     </div>
+                                     <div class='item-copy'><p>${item.title}</p></div> 
+                                    `;
+            itemCols[colIndex % itemCols.length].appendChild(itemElement); 
+            colIndex++;                       
+          });
+        }
+
+        function animateItems(filter){
+          gsap.to(itemsContainer, {
+            opacity: 0,
+            duration: 0.25,
+            onComplete: () =>{
+              clearItems();
+              addItemsToCols(filter);
+              gsap.to(itemsContainer,{
+                opacity: 1,
+                duration: 0.25,
+              });
+            },
+          });
+        }
+        splitTextIntoSpans('.filter h1');
+        animateFontSize(document.querySelector('.filter.active h1'), '300px');
+        addItemsToCols();
+
+        filters.forEach((filter) =>{
+          filter.addEventListener('click', function(){
+            if (this.classList.contains('active')){
+              return;
+            }
+
+            const previousActiveFilterH1 = document.querySelector('.filter.active h1');
+            animateFontSize(previousActiveFilterH1, defaultFontSize);
+
+            filters.forEach((f) => f.classList.remove('active'));
+            this.classList.add('active');
+
+            const newActiveFilterH1 = this.querySelector('h1');
+            animateFontSize(newActiveFilterH1, activeFontSize);
+
+            const filterValue = this.getAttribute('data-filter');
+            animateItems(filterValue);
+          });
+
+        });
+      });
+    </script>
+  </body>
+</html>

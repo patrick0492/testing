@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Slider</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gsap67.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="#!">Codegrid</a>
+      <p>Unlock Source Code</p>
+    </nav>
+    <footer>
+      <div class="links">
+        <a href="#!">Subscribe</a>
+        <a href="#!">Instagram</a>
+        <a href="#!">Twitter</a>
+      </div>
+      <p>Link in description</p>
+    </footer>
+
+    <div class="slider">
+      <div class="slide-titles">
+        <div class="title">
+          <h1>Neo Forge Towers</h1>
+        </div>
+        <div class="title">
+          <h1>Arcadian Complex</h1>
+        </div>
+        <div class="title">
+          <h1>Shadowline Spire</h1>
+        </div>
+        <div class="title">
+          <h1>Echo Nexus Habitat</h1>
+        </div>
+        <div class="title">
+          <h1>Cascade Enclave</h1>
+        </div>
+        <div class="title">
+          <h1>Prism Sector</h1>
+        </div>
+        <div class="title">
+          <h1>Iron Eden Colony</h1>
+        </div>
+        <div class="title">
+          <h1>Neo Forge Twower</h1>
+        </div>
+        <!-- <div class="title">
+          <h1>Arcadian Complex</h1>
+        </div> -->
+      </div>
+      <div class="slide-images">
+        <div class="img-top">
+
+        </div>
+        <div class="img-bottom">
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+      let currentIndex = 1;
+      let totalSlides = 6;
+
+      const updateActiveSlide = () =>{
+        document.querySelectorAll('.title').forEach((el, index) =>{
+          if (index === currentIndex){
+            el.classList.add('active');
+          } else{
+            el.classList.remove('active');
+          }
+        });
+      };
+
+      const handleSlider = () =>{
+        if (currentIndex < totalSlides){
+          currentIndex++;
+        } else{
+          currentIndex = 1;
+        }
+
+        gsap.to('.slide-titles',{
+          onStart: () =>{
+            setTimeout(() =>{
+              updateActiveSlide();
+            }, 100);
+
+            updateImages(currentIndex + 1);
+          },
+          x: `-${(currentIndex - 1) * 11.1111}%`,
+          duration: 2,
+          ease: 'power4.out',
+        });
+      };
+
+      const updateImages = () =>{
+        const imgSrc = `./img/ls00${currentIndex}.jpg`;
+        const imgTop = document.createElement('img');
+        const imgBottom = document.createElement('img');
+
+        imgTop.src = imgSrc;
+        imgBottom.src = imgSrc;
+
+        imgTop.style.clipPath = 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)';
+        imgBottom.style.clipPath = 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)';
+        imgTop.style.transform = 'scale(2)';
+        imgBottom.style.transform = 'scale(2)';
+
+        document.querySelector('.img-top').appendChild(imgTop);
+        document.querySelector('.img-bottom').appendChild(imgBottom);
+
+        gsap.to([imgTop, imgBottom],{
+          clipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)',
+          scale: 1,
+          duration: 2,
+          ease: 'power4.out',
+          stagger: 0.15,
+          onComplete: trimExcessImages,
+        });
+      };
+
+      const trimExcessImages = () =>{
+        const selectors = ['.img-top', '.img-bottom'];
+
+        selectors.forEach((selector) =>{
+          const container = document.querySelector(selector);
+          const images = Array.from(container.querySelectorAll('img'));
+          const exessCount = images.length - 5;
+
+          if (exessCount > 0){
+            images
+            .slice(0, exessCount)
+            .forEach((image) => container.removeChild(image))
+          }
+        });
+      };
+
+      document.addEventListener('DOMContentLoaded', () =>{
+        document.addEventListener('click', handleSlider);
+
+        updateImages(2);
+        updateActiveSlide();
+      })
+    </script>
+  </body>
+</html>

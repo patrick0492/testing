@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Menu</title>
+    <link rel="stylesheet" href="gsap60.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2 class="nav-heading">navigation</h2>
+      <div class="nav">
+        <a href="#!" style="--i: 1">Home</a>
+        <a href="#!" style="--i: 2">Info</a>
+        <a href="#!" style="--i: 3">Products</a>
+        <a href="#!" style="--i: 4">Shop</a>
+      </div>
+      <div class="social-media">
+        <a href="#!">awwwards</a>
+        <a href="#!">instagram</a>
+        <a href="#!">dribble</a>
+        <a href="#!">linkedin</a>
+      </div>
+    </div>
+    <nav>
+      <div class="contact">
+        <a href="#!">Contact</a>
+      </div>
+      <div class="nav-items">
+        <a href="#!">Home</a>
+        <a href="#!">Info</a>
+        <a href="#!">Products</a>
+        <a href="#!">Shop</a>
+      </div>
+      <div class="logo">
+        <a href="#!">Nork Wood</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="items">
+        <div class="items-col">
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Scandinavian Chair</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>(Living Room)</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="./img/0030.jpg" alt="">
+            </div>
+          </div>
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Minimal Lamp</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>(Lighting)</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="./img/0031.jpg" alt="">
+            </div>
+          </div>
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Modern Desk</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>(Office)</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="./img/0032.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="items-col">
+          <div class="item-main">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Elegant Sofa</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>(Living Room)</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="./img/0033.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="items-col">
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Compact Shelf</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>(Storage)</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="./img/0034.jpg" alt="">
+            </div>
+          </div>
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Ornate Mirror</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>(Decor)</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="./img/0035.jpg" alt="">
+            </div>
+          </div>
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Sleek Table</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>(Dining)</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="./img/0036.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header">
+        <div class="header-item header-item-1">
+          <div class="letter"><div class="letter-wrapper">N</div></div>
+          <div class="letter"><div class="letter-wrapper">O</div></div>
+          <div class="letter"><div class="letter-wrapper">R</div></div>
+          <div class="letter"><div class="letter-wrapper">K</div></div>
+        </div>
+        <div class="header-item header-item-2">
+          <div class="letter"><div class="letter-wrapper">W</div></div>
+          <div class="letter"><div class="letter-wrapper">O</div></div>
+          <div class="letter"><div class="letter-wrapper">O</div></div>
+          <div class="letter"><div class="letter-wrapper">D</div></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        gsap.set('nav',{y: -100});
+        gsap.set('.letter-wrapper', {y:400});
+        gsap.set('.item-copy-wrapper p',{y: 50});
+
+        gsap.defaults({duration: 1, ease: 'power3.out'});
+        const tl = gsap.timeline({pause: true, delay: 0.5});
+
+        tl.to('.letter-wrapper',{
+          y: 0,
+          stagger: 0.1,
+        }).to('.header-item-1',{
+          left: '12vw',
+        })
+        .to('.header-item-2',{
+          right: '12vw',
+        },'<').to('.item-main .item-img img',{
+          clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
+        },'<')
+        .to('.header-item-1',{
+          left: 0,
+          scale: 1,
+        })
+        .to('.header-item-2',{
+          right: 0,
+          scale: 1,
+        },'<')
+        .to('.item-main .item-img img',{
+          scale: 1,
+        }, '<')
+        .to('.item-side .item-img',{
+          clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
+          stagger: 0.1,
+        },'<')
+        .to('.header',{
+          bottom: '-2em',
+        },'<')
+        .to('.item-copy-wrapper p',{
+          y: 0,
+          stagger: 0.05,
+        },'<')
+        .to('nav',{
+          y: 0,
+        },'<')
+      });
+
+      const menu = document.querySelector('.contact a');
+      const sidebar = document.querySelector('.sidebar');
+      menu.addEventListener('click', e =>{
+        e.target.classList.toggle('active');
+        sidebar.classList.toggle('active');
+      });
+    </script>
+  </body>
+</html>

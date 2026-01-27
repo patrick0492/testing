@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rolling Text</title>
+  <link rel="stylesheet" href="gsap52.css">
+</head>
+<body>
+   <main class="app">
+    <section class="nav">
+      <div class="nav-wrapper">
+        <ul class="nav-list">
+          <li class="nav-list-item">Home</li>
+          <li class="nav-list-item">About</li>
+          <li class="nav-list-item">Gallery</li>
+          <li class="nav-list-item">Contact</li>
+        </ul>
+      </div>
+    </section>
+    <section class="transition">
+      <div class="transition-wrapper">
+        <div class="transition-element">
+          <h1>W</h1>
+          <h1>A</h1>
+          <h1>D</h1>
+          <h1>M</h1>
+        </div>
+        <div class="transition-columns">
+          <div class="transition-column">
+            <div class="transition-column-text">
+              <span>We</span>
+              <span>W</span>
+            </div>
+          </div>
+          <div class="transition-column">
+            <div class="transition-column-text">
+              <span>Are</span>
+              <span>A</span>
+            </div>
+          </div>
+          <div class="transition-column"></div>
+          <div class="transition-column">
+            <div class="transition-column-text">
+              <span>Digital</span>
+              <span>D</span>
+            </div>
+          </div>
+          <div class="transition-column">
+            <div class="transition-column-text">
+              <span>Makers</span>
+              <span>M</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   </main>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    const nav = document.querySelector('.nav'),
+          navItem = nav.querySelectorAll('.nav-list-item');
+
+    const transition = document.querySelector('.transition'),
+          transitionCol = transition.querySelectorAll('.transition-column'),
+          transitionColText = transition.querySelectorAll('.transition-column-text > span'),
+          transitionElementText = transition.querySelectorAll('.transition-element > h1');
+    
+    const initTransition = () =>{
+      gsap.set(transition, {display: 'none', autoAlpha: 0});
+      gsap.set(transitionCol, {y: '-101%'});
+      gsap.set(transitionColText, {autoAlpha: 0, y: '-101%'});
+      gsap.set(transitionElementText, {autoAlpha: 0});
+    };
+
+    const show= () => {
+      gsap.timeline({defaults: {ease: 'expo.inOut'}}).to(
+        transition,
+        {
+          duration: 0.2,
+          display: 'block',
+          autoAlpha: 1,
+        },0
+      )
+      .to(transitionCol,{
+        duration: 1.25,
+        y: 0,
+        stagger: {
+          each: 0.045,
+          from: 'random',
+          grid: 'auto',
+        },
+      },0.05)
+      .to(transitionColText,{
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+      }, 0.5)
+      .to(transitionColText,{
+        duration: 1,
+        autoAlpha: 0,
+        y: '101%',
+      }, 2.75)
+      .to(transitionElementText,{
+        duration: 1,
+        autoAlpha: 1,
+        stagger:{
+          each: 0.055,
+          from: 'random',
+        },
+        onComplete:() =>{
+          hide();
+        },
+      }, 0.75);
+    };
+
+    const hide = () => {
+      gsap.timeline({defaults: { ease: 'expo.inOut'}})
+      .to(transitionElementText,{
+        duration: 1,
+        autoAlpha: 0,
+        stagger: 0.055,
+      }, 0)
+      .to(transitionCol,{
+        duration: 1.25,
+        y: '101%',
+        stagger: {
+          each: 0.045,
+          from: 'random',
+          grid: 'auto',
+        }
+      }, 0.75)
+      .to(transition,{
+        duration: 0.2,
+        display: 'none',
+        autoAlpha: 0,
+        onComplete: initTransition
+      });
+    };
+
+    navItem.forEach((el) => {
+      el.addEventListener('click', show);
+    })
+
+    window.onload = () =>{
+      initTransition();
+    };
+  </script>
+</body>
+</html>
