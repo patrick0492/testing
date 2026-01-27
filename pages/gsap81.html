@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP / ScrollTrigger</title>
+  <script nomodule type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="gsap81.css">
+</head>
+<body>
+
+  <div class="ScrollTrigger-wrapper">
+    <div class="container">
+      <nav>
+        <div class="nav-1">
+          <p class="logo">WA</p>
+          <p class="title">history <br>artists</p>
+        </div>
+        <div class="nav-2">
+          <p class="menu-btn">menu</p>
+          <p class="pattern">X</p>
+        </div>
+        <div class="nav-3">
+          <p class="intro">intro</p>
+          <p class="pattern-2">XX</p>
+        </div>
+      </nav>
+  
+      <div class="content-wrapper">
+        <div class="coll coll-1">
+          <div class="header">
+            <h1>salvador <br>dali</h1>
+          </div>
+          <div class="numbers">
+            <p>05 / 1904</p>
+            <div class="hr"></div>
+            <p>01 / 1989</p>
+          </div>
+          <div class="hero-img">
+            <img src="./img/image002.jpg" alt="">
+          </div>
+          <div class="hero-img-info">
+            <p>nationality: spanish, catalan</p>
+            <p>feild: painting, drawing, sculpture, photography</p>
+            <p>pupils: carlos quizpeiz asin</p>
+          </div>
+          <div class="cta">
+            <div class="cta-btn">
+              <h3>next artist <ion-icon name="arrow-forward-sharp"></ion-icon></h3>
+            </div>
+          </div>
+        </div>
+        <div class="coll coll-2">
+          <div class="p-info">
+            <p>1929 / 1940</p>
+            <p>110x150.7cm</p>
+          </div>
+          <div class="p-img">
+            <div class="p-img-wrapper">
+              <img src="./img/bg02.jpg" alt="">
+            </div>
+            <div class="p-img-border"></div>
+          </div>
+          <div class="img">
+            <div class="img-data">
+              <div class="img-name">
+                <p>the persistence <br>of memory</p>
+              </div>
+              <div class="img-info">
+                <p>date: 1941</p>
+                <p>style: surrealism</p>
+                <p>genre: symbolic painting</p>
+                <p>media: oil, canvas</p>
+              </div>
+            </div>
+            <div class="hr"></div>
+            <div class="price">
+              <p>price</p>
+              <p id="amount">$18.650</p>
+            </div>
+          </div>
+          <div class="carousel">
+            <div class="arrow">
+              <ion-icon name="chevron-back-sharp"></ion-icon>
+            </div>
+            <p>168</p>
+            <div class="arrow">
+              <ion-icon name="chevron-forward-sharp"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="services">
+      <div class="services-header">
+        <div class="col">
+  
+        </div>
+        <div class="col">
+          <h1>All Services</h1>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-info">
+          <h1>Custom Web Development</h1>
+          <p>Expert IT consultancy services to guide your business through digital transformation. Optimize your IT infrastructure with our insights. </p>
+        </div>
+        <div class="service-img">
+          <div class="imgg">
+            <img src="./img/image002.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-info">
+          <h1>Mobile App Development</h1>
+          <p>We provide bespoke web development solutions tailored to your business needs. Our team ensures top-notch performance and scalability. </p>
+        </div>
+        <div class="service-img">
+          <div class="imgg">
+            <img src="./img/image003.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-info">
+          <h1>Digital Marketing</h1>
+          <p>Crafting intuitive and engaging mobile applications for both Android and iOS platforms. Enhance your user experience with our expert team. </p>
+        </div>
+        <div class="service-img">
+          <div class="imgg">
+            <img src="./img/image004.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-info">
+          <h1>Cloud Solutions</h1>
+          <p>Comprehensive digital marketing services to boost your online presence. From SEO to social media campaigns, we cover it all. </p>
+        </div>
+        <div class="service-img">
+          <div class="imgg">
+            <img src="./img/image005.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-info">
+          <h1>IT Consultancy</h1>
+          <p>Reliable and secure cloud solutions to streamline your business operations. Leverage the power of the cloud with our expertise. </p>
+        </div>
+        <div class="service-img">
+          <div class="imgg">
+            <img src="./img/image001.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <p>Step into a surreal and immersive experience with our Dreamy 3D World Dystopian series. This captivating realm invites you to explore a world where reality and fantasy intertwine, creating a unique blend of striking visuals and thought-provoking narratives.</p> 
+    </div>
+  </div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Second part  -->
+   <script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.1/dist/lenis.min.js"></script>
+  <script>
+   
+    // Landing Page  
+    gsap.from("nav > div, .coll", 2, {
+      delay: 1,
+      scale: 0,
+      ease: "power3.inOut",
+      stagger: {
+        amount: 0.3
+      }
+    });
+
+    // Lenis
+    document.addEventListener('DOMContentLoaded', function(){
+      const lenis = new Lenis();
+
+      lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) =>{
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      const services = gsap.utils.toArray('.service');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+      };
+
+      const observerCallback = (entries, observer) =>{
+        entries.forEach((entry) =>{
+          if (entry.isIntersecting){
+            const service = entry.target;
+            const imgContainer = service.querySelector('.imgg');
+
+            ScrollTrigger.create({
+              trigger: service,
+              start: 'bottom bottom',
+              end: 'top top',
+              scrub: true,
+              onUpdate: (self) =>{
+                let progress = self.progress;
+                let newwWidth = 30 + 70 * progress;
+                gsap.to(imgContainer,{
+                  width: newwWidth + '%',
+                  duration: .1,
+                  ease: 'none'
+                });
+              },
+            });
+
+            ScrollTrigger.create({
+              trigger: service,
+              start: 'top bottom',
+              end: 'top top',
+              scrub: true,
+              onUpdate: (self) =>{
+                let progress = self.progress;
+                let newHeight = 150 + 300 *  progress;
+                gsap.to(service,{
+                  height: newHeight + 'px',
+                  duration: 0.1,
+                  ease: 'none',
+                });
+              },
+            });
+            observer.unobserve(service);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      services.forEach((service) =>{
+        observer.observe(service);
+      })
+    });
+
+   
+  </script>
+</body>
+</html>

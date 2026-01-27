@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #b2b8c3;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #c97164;
+  text-align: center;
+  z-index: 200;
+}
+.load-text span{
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 50px;
+  margin-left: 8px;
+  display: inline-block;
+  font-family: 'Antic Didone', serif;
+}
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  width: 100%;
+}
+.logo{
+  margin-left: 50px;
+  font-size: 30px;
+  font-family: 'Antic Didone', serif;
+  letter-spacing: 1.5;
+  text-transform: uppercase;
+}
+.main-section{
+  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  top: 0;
+  height: 300vh;
+  flex-direction: column;
+  width: 100%;
+}
+.section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+.reel{
+  margin-bottom: 100px;
+  display: flex;
+  width: auto;
+  height: 300px;
+  align-items: center;
+  overflow: hidden;
+  animation: reel 80s linear infinite;
+}
+.main-text, .main-text-2{
+  font-size: 55px;
+  font-family: 'Antic Didone', serif;
+  text-align: center;
+}
+@keyframes reel{
+  from{
+    transform: translateX(30%);
+  }
+  to{
+    transform: translateX(-30%);
+  }
+}
+.reel .pic{
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 220px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.reel .pic0{
+  background-image: url(img/BGpics018.jpg);
+}
+.reel .pic2{
+  background-image: url(img/012.jpg);
+}
+.reel .pic3{
+  background-image: url(img/BGpics074.jpg);
+}
+.reel .pic4{
+  background-image: url(img/013.jpg);
+}
+.reel .pic5{
+  background-image: url(img/BGpics018.jpg);
+}
+.reel .pic6{
+  background-image: url(img/016.jpg);
+}
+.reel .pic7{
+  background-image: url(img/BGpics064.jpg);
+}
+.reel .pic8{
+  background-image: url(img/BGpics075.jpg);
+}
+.reel .pic9{
+  background-image: url(img/BGpics018.jpg);
+}
+.reel .pic1{
+  background-image: url(img/BGpics066.jpg);
+}
+.about{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 100vh;
+  width: 100%;
+}
+.about-content{
+  width: 40vw;
+}
+.about-text{
+  font-family: 'Antic Didone', serif;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.about-desc p{
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: lighter;
+  margin-bottom: 15px;
+}
+.getintouch{
+  margin-top: 50px;
+  width: 150px;
+  font-family: 'Antic Didone', serif;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 50%;
+  border: .5px solid #000;
+  transition: all .2s ease-in;
+  cursor: pointer;
+}
+.getintouch:hover{
+  transition: all .2s ease-in;
+  color: #c97164;
+  border: .5px solid #c97164;
+}
+.about-hero{
+  width: 30vw;
+  height: 50vh;
+  background: url(img/BGpics076.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  border-radius: 30% 30% 0 0;
+}
+.reel2{
+  margin-bottom: 100px;
+  display: flex;
+  width: auto;
+  height: 450px;
+  align-items: center;
+  overflow: hidden;
+  animation: reel2 70s linear infinite;
+}
+@keyframes reel2{
+  from{
+    transform: translateX(40%);
+  }
+  to{
+    transform: translateX(-40%);
+  }
+}
+.reel2 .pic{
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 400px;
+  margin-left: 20px;
+  margin-right: 20px;
+  filter: grayscale(1);
+  transition: all .4s ease-in-out;
+}
+.reel2 .pic:hover{
+  transition: all .4s ease-in-out;
+  transform: scale(1.12);
+  filter: grayscale(0);
+}
+
+.reel2 .pic0{
+  background-image: url(img/BGpics056.jpg);
+}
+.reel2 .pic2{
+  background-image: url(img/BGpics061.jpg);
+}
+.reel2 .pic3{
+  background-image: url(img/BGpics057.jpg);
+}
+.reel2 .pic4{
+  background-image: url(img/BGpics062.jpg);
+}
+.reel2 .pic5{
+  background-image: url(img/BGpics058.jpg);
+}
+.reel2 .pic6{
+  background-image: url(img/BGpics063.jpg);
+}
+.reel2 .pic7{
+  background-image: url(img/BGpics060.jpg);
+}
+.reel2 .pic8{
+  background-image: url(img/BGpics073.jpg);
+}
+.reel2 .pic9{
+  background-image: url(img/BGpics059.jpg);
+}
+.reel2 .pic1{
+  background-image: url(img/BGpics063.jpg);
+}

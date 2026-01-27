@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky Section On Scroll</title>
+  <link rel="stylesheet" href="./sticky.css">
+</head>
+<body>
+  <div class="container">
+    <div class="map">
+      <div class="s-1">
+        <p>01</p>
+        <p>Raw Materials</p>
+      </div>
+      <div class="s-2">
+        <p>02</p>
+        <p>Hello</p>
+      </div>
+      <div class="s-3">
+        <p>03</p>
+        <p>Approach</p>
+      </div>
+      <div class="s-4">
+        <p>04</p>
+        <p>Work</p>
+      </div>
+      <div class="s-5">
+        <p>05</p>
+        <p>Talent</p>
+      </div>
+      <div class="s-6">
+        <p>06</p>
+        <p>Careers</p>
+      </div>
+      <div class="s-7">
+        <p>07</p>
+        <p>Contact</p>
+      </div>
+      <div class="s-8">
+        <p>08</p>
+        <p>Unusual Index</p>
+      </div>
+    </div>
+    <div class="sections">
+      <div class="section-1 sec">
+        <div class="header">
+          <p>01</p>
+          <p>Raw Materials</p>
+        </div>
+        <div class="copy">
+          <h1>Collaboration through advanced technlogy punter, but back to the drawing-board.</h1>
+        </div>
+      </div>
+      <div class="section-2 sec">
+        <div class="header">
+          <p>02</p>
+          <p>Hello</p>
+        </div>
+        <div class="copy">
+          <h1>Driving the initiative forward ladder up / ladder back to the strategy run it up the flag pole</h1>
+          <br><br><br><br><br><br>
+          <h1>Translating our vision of having a market leading platfrom enough to wash.</h1>
+        </div>
+      </div>
+      <div class="section-3 sec">
+        <div class="header">
+          <p>03</p>
+          <p>Approach</p>
+        </div>
+        <div class="copy">
+          <h1>Let's circle back to that pixel pushing, or iâ€™ve been doing some research this morning and we need to better,</h1>
+        </div>
+      </div>
+      <div class="section-4 sec">
+        <div class="header">
+          <p>04</p>
+          <p>Work</p>
+        </div>
+        <div class="copy">
+          <h1> Please use "solutionise" instead of solution ideas! :) deep dive, yet meeting assassin.</h1>
+          <br><br><br><br><br>
+          <h1>Turd polishing put in in a deck for our standup today, or focus on the customer journey helicopter view drink the Kool-aid.</h1>
+        </div>
+      </div>
+      <div class="section-5 sec">
+        <div class="header">
+          <p>05</p>
+          <p>Talent</p>
+        </div>
+        <div class="copy">
+          <h1>A tentative event rundown is attached for your reference, including other happenings on the day you are most welcome.</h1>
+        </div>
+      </div>
+      <div class="section-6 sec">
+        <div class="header">
+          <p>06</p>
+          <p>Careers</p>
+        </div>
+        <div class="copy">
+          <h1>Timeframe good optics reinvent the wheel at the end of the day (let's not try to) boil the ocean (here/there/everywhere).</h1>
+        </div>
+      </div>
+      <div class="section-7 sec">
+        <div class="header">
+          <p>07</p>
+          <p>Contact</p>
+        </div>
+        <div class="copy">
+          <h1>Low-hanging fruit what are the expectations, nor value prop big data.</h1>
+        </div>
+      </div>
+      <div class="section-8 sec">
+        <div class="header">
+          <p>08</p>
+          <p>Unusual Index</p>
+        </div>
+        <div class="copy">
+          <h1>Blue sky tiger team due diligence. That's mint, well done don't over think it big data</h1>
+          <br><br><br><br><br><br><br><br>
+          <h1>Sea change are we in agreeance, for marketing, illustration, yet screw the pooch</h1>
+        </div>
+      </div>
+      <div class="whitespace"></div>
+    </div>
+  </div>
+
+  <script>
+    const mapDivs = document.querySelectorAll('.map > div');
+    const sectionDivs = document.querySelectorAll('.sections > .sec');
+    const sectionHeights = [];
+    const accumulatedHeights = [];
+    const RATIO = 0.5;
+
+    let accumulatedHeight = 0;
+    sectionDivs.forEach((section) =>{
+      const height = section.clientHeight;
+      sectionHeights.push(height * RATIO);
+      accumulatedHeight += height;
+      accumulatedHeights.push(accumulatedHeight);
+    });
+
+    let lastActiveIndex = -1;
+
+    function updateMapHeights(scrollPos){
+      for(let i = 0; i < accumulatedHeights.length; i++){
+        if(i === 0 && scrollPos < accumulatedHeights[i]){
+          if(lastActiveIndex !== i){
+            if(lastActiveIndex >= 0){
+              mapDivs[lastActiveIndex].style.height = '100px';
+            }
+            mapDivs[i].style.height = `${sectionHeights[i]}px`;
+            lastActiveIndex = i;
+          }
+
+          break;
+        } else if(
+          i > 0 && scrollPos >= accumulatedHeights[i - 1] && scrollPos < accumulatedHeights[i]
+        ){
+          if(lastActiveIndex !== i){
+            if(lastActiveIndex >= 0){
+              mapDivs[lastActiveIndex].style.height = '100px';
+            }
+            mapDivs[i].style.height = `${sectionHeights[i]}px`;
+            lastActiveIndex = i;
+          }
+
+          break;
+        }
+      }
+    }
+    
+    const sectionsTotalHeight = [...sectionDivs].reduce((sum, section) => sum + section.clientHeight, 0);
+
+    const mapTotalHeight = [...mapDivs].reduce((sum, mapDiv) => sum + mapDiv.clientHeight, 0) + (mapDivs.length - 1) * 75;
+
+    const sectionsScrollableHeight = sectionsTotalHeight - window.innerHeight;
+    const mapScrollableHeight = mapTotalHeight - window.innerHeight;
+
+    const scrollRatio = mapScrollableHeight / sectionsScrollableHeight;
+
+    window.addEventListener('scroll', () =>{
+      const scrollPos = window.scrollY;
+
+      const mapTranslateY = scrollPos * scrollRatio;
+      document.querySelector('.map').style.transform = `translateY(-${mapTranslateY}px)`;
+
+      updateMapHeights(scrollPos);
+      updateMapHeights(scrollPos);
+    });
+  </script>
+  
+</body>
+</html>

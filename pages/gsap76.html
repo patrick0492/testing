@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Landing Page / menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gsap76.css" />
+  </head>
+  <body>
+    <div class="overlay">
+      <svg viewBox="0 0 1000 1000">
+        <path d="M0 2S175 1 500 1s500 1 500 1V0H0Z"></path>
+      </svg>
+    </div>
+    <div class="menu">
+      <div class="primary-menu">
+        <div class="menu-container">
+          <div class="wrapper">
+            <div class="menu-item">
+              <a href="#!"><span>I</span>Index</a>
+              <div class="menu-item-revealer"></div>
+            </div>
+            <div class="menu-item">
+              <a href="#!"><span>II</span>Work</a>
+              <div class="menu-item-revealer"></div>
+            </div>
+            <div class="menu-item">
+              <a href="#!"><span>III</span>About</a>
+              <div class="menu-item-revealer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seconary-menu">
+        <div class="menu-container">
+          <div class="wrapper">
+            <div class="menu-item">
+              <a href="#!">Speaker</a>
+              <div class="menu-item-revealer"></div>
+            </div>
+            <div class="menu-item">
+              <a href="#!">Blog</a>
+              <div class="menu-item-revealer"></div>
+            </div>
+            <div class="menu-item">
+              <a href="#!">Contact</a>
+              <div class="menu-item-revealer"></div>
+            </div>
+          </div>
+          <div class="wrapper">
+            <div class="menu-item">
+              <a href="#!">Credits</a>
+              <div class="menu-item-revealer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="nav-container">
+        <div class="nav">
+          <div class="nav-cta nav-item">
+            <a href="#!">Connect with us</a>
+          </div>
+          <div class="nav-links nav-item">
+            <a href="#!">Photographers</a>
+            <a href="#!">Directors</a>
+            <a href="#!">Clients</a>
+            <a href="#!">About us</a>
+          </div>
+          <div class="nav-item">
+            <div class="btn" id="toggle-btn">
+              <div class="btn-outline btn-outline-1"></div>
+              <div class="btn-outline btn-outline-2"></div>
+              <div id="hamburger">
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-container">
+        <div class="hero">
+          <div class="bg-gradient">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 500 500"
+              width="100%"
+              id="blobSvg"
+              filter="blur(20px)"
+              style="opacity: 1"
+            >
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color: rgb(248, 121, 21)"></stop>
+                  <stop offset="100%" style="stop-color: rgb(255, 201, 69)"></stop>
+                </linearGradient>
+              </defs>
+              <path id="blob" fill="url(#gradient)" style="opacity: 1">
+                <animate
+                  attributeName="d"
+                  dur="4s"
+                  repeatCount="indefinite"
+                  values="M421.63508,307.39005Q364.7801,364.7801,307.39005,427.43403Q250,490.08796,191.6822,428.36178Q133.3644,366.6356,70.9089,308.3178Q8.4534,250,54.21728,174.99058Q99.98115,99.98115,174.99058,81.49686Q250,63.01257,330.66021,75.84607Q411.32042,88.67958,444.90524,169.33979Q478.49006,250,421.63508,307.39005Z;M395.5,320Q390,390,320,400Q250,410,172,408Q94,406,59,328Q24,250,70.5,183.5Q117,117,183.5,108Q250,99,335,89.5Q420,80,410.5,165Q401,250,395.5,320Z;M408.24461,332.63257Q415.26513,415.26513,332.63257,434.71568Q250,454.16622,179.33614,422.74697Q108.67228,391.32772,65.87585,320.66386Q23.07942,250,63.27221,176.73251Q103.46501,103.46501,176.73251,63.02288Q250,22.58075,311.86507,74.4253Q373.73015,126.26985,387.47712,188.13493Q401.22409,250,408.24461,332.63257Z;M418.08664,320.33435Q390.6687,390.6687,320.33435,427.91946Q250,465.17023,188.27506,419.31005Q126.55013,373.44987,106.38448,311.72494Q86.21883,250,84.09726,165.98785Q81.9757,81.9757,165.98785,53.98938Q250,26.00305,311.1687,76.83282Q372.3374,127.6626,408.92099,188.8313Q445.50458,250,418.08664,320.33435Z;M421.63508,307.39005Q364.7801,364.7801,307.39005,427.43403Q250,490.08796,191.6822,428.36178Q133.3644,366.6356,70.9089,308.3178Q8.4534,250,54.21728,174.99058Q99.98115,99.98115,174.99058,81.49686Q250,63.01257,330.66021,75.84607Q411.32042,88.67958,444.90524,169.33979Q478.49006,250,421.63508,307.39005Z"
+                ></animate>
+              </path>
+            </svg>
+          </div>
+          <h1>*The art <br />inspired <br />by your <br />story.</h1>
+          <div class="cta"><button>Write us a letter</button></div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
+            voluptates enim expedita, esse laboriosam veniam! Officiis, harum?
+            Velit, mollitia vero.
+          </p>
+        </div>
+      </div>
+      <div class="blob-1 blob"></div>
+      <div class="blob-2 blob"></div>
+      <div class="blob-3 blob">+</div>
+
+      <footer>
+        <a class="nav-logo nav-item" href="#!">JBY London</a>
+      </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/CSSRulePlugin.min.js"></script>
+    <script>
+      gsap.from('.nav-container', 2, {
+        opacity: 0,
+        y: -60,
+        ease: 'power3.inOut',
+        delay: 0.5,
+      });
+      gsap.from('.nav > div, footer >*', 1, {
+        opacity: 0,
+        y: -60,
+        ease: 'power3.inOut',
+        delay: 1,
+        stagger:{
+          amount: .5,
+        }
+      });
+      gsap.from('.hero > *', 2, {
+        opacity: 0,
+        y: 60,
+        ease: 'power3.inOut',
+        delay: 1.5,
+        stagger:{
+          amount: 0.5,
+        },
+      });
+      gsap.from('.blob', 2, {
+        scale: 0,
+        ease: 'power3.inOut',
+        delay: 1.5,
+        stagger:{
+          amount: 0.5,
+        },
+      });
+      gsap.from('.bg-gradient', 2, {
+        scale: 0,
+        ease: 'power3.inOut',
+        delay: 1.5,
+      });
+
+      // Menu
+      const tl = gsap.timeline({paused: true});
+      let path = document.querySelector('path');
+      let spanBefore = CSSRulePlugin.getRule('#hamburger span:before');
+
+      gsap.set(spanBefore, {background: '#000'});
+      gsap.set('.menu', {visibility: 'hidden'});
+
+      function revealMenu() {
+        revealMenuItems();
+
+        const hamburger = document.getElementById('hamburger');
+        const toggleBtn = document.getElementById('toggle-btn');
+
+        toggleBtn.onclick = function (e) {
+          hamburger.classList.toggle('active');
+          tl.reversed(!tl.reversed());
+        };
+      }
+
+      revealMenu();
+
+      function revealMenuItems(){
+        const start = 'M0 502S175 272 500 272s500 230 500 20V0H0Z';
+        const end = 'M0,1005S175,995,500,995s500,5,500,5V0H0Z';
+
+        const power2 = 'power2.inOut';
+        const power4 = 'power4.inOut';
+
+        tl.to('#hamburger', 1.25,{
+          marginTop: '-5px',
+          x: -40,
+          y: 40,
+          ease: power4,
+        });
+
+        tl.to('#hamburger span',1,{
+          background: '#e9e1c5',
+          ease: power2,
+        }, '<');
+
+        tl.to(spanBefore,1,{
+          background: '#e9e1c5',
+          ease: power2
+        }, '<');
+
+        tl.to('.btn .btn-outline', 1.25,{
+          x: -40,
+          y: 40,
+          width: '140px',
+          height: '140px',
+          border: '1px solid #e9e1c5',
+          ease: power4,
+        }, '<');
+
+        tl.to(path,0.8,{
+          attr:{
+            d: start,
+          },
+          ease: Power2.easeIn,
+        },'<').to(path,0.8,{
+          attr: {
+            d: end,
+          },
+          ease: Power2.easeIn,
+        },'-=0.5');
+
+        tl.to('.menu',1,{
+          visibility: 'visible',
+        },'-=0.5');
+
+        tl.to('.menu-item > a',1,{
+          top: 0,
+          ease: 'power3.out',
+          stagger: {
+            amount: 0.5
+          }
+        }, '-=1').reverse();
+      }
+
+    </script>
+  </body>
+</html>
