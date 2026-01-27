@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="gsap02.css">
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <div class="logo">
+        <a href="#!">decor</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#!">product</a></li>
+          <li><a href="#!">home decor</a></li>
+          <li><a href="#!">how it works</a></li>
+          <li><a href="#!"><i class="fa fa-bars"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="content">
+      <div class="index">
+        <p>02</p>
+      </div>
+      <div class="heading">
+        <h1><span>beang at </span><br>home</h1>
+        <p>meet your new comfort zone</p>
+      </div>
+    </div>
+    <div class="img-box">
+      <div class="img img1">
+        <img src="img/BGpics022.jpg" alt="">
+      </div>
+      <div class="img img2">
+        <img src="img/BGpics064.jpg" alt="">
+      </div>
+      <div class="img img3">
+        <img src="img/BGpics066.jpg" alt="">
+      </div>
+    </div>
+    <div class="circle">
+      <div class="sm sm1"></div>
+      <div class="sm sm2"></div>
+      <div class="sm sm3"></div>
+    </div>
+  </div>
+  <!-- .li$.li*4>a.a$ voor vier li met opvolgende classnummers plus links met hetzelfde -->
+  <!-- divname>divname>flexone+.flextwo -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script>
+   document.querySelector('.sm3').addEventListener('click', () =>{
+     gsap.to('.circle', {
+       rotate: '50deg',
+       duration: .5
+     })
+     gsap.to('.sm2',{
+       scale: 1,
+       backgroundColor: '#1c1c1c',
+       duration: .5
+     })
+     gsap.to('.sm3',{
+       scale: 8,
+       backgroundColor: 'transparent',
+       rotate: '-50deg',
+       duration: .5
+     })
+     gsap.to('.sm1',{
+       scale: 1,
+       backgroundColor: '#1c1c1c',
+       rotate: '-50deg',
+       duration: .5
+     })
+     gsap.to('.img',{
+       scale: 0,
+       duration: .5
+     })
+     gsap.to('.img3',{
+       scale: 1,
+       duration: .5,
+       delay: .2
+     })
+     document.querySelector('.index p').textContent = '03';
+   })
+
+   document.querySelector('.sm2').addEventListener('click', () =>{
+     gsap.to('.circle', {
+       rotate: '0',
+       duration: .5
+     })
+     gsap.to('.sm2',{
+       scale: 8,
+       backgroundColor: 'transparent',
+       duration: .5
+     })
+     gsap.to('.sm3',{
+       scale: 1,
+       backgroundColor: '#1c1c1c',
+       rotate: '-50deg',
+       duration: .5
+     })
+     gsap.to('.sm1',{
+       scale: 1,
+       backgroundColor: '#1c1c1c',
+       rotate: '-50deg',
+       duration: .5
+     })
+     gsap.to('.img',{
+       scale: 0,
+       duration: .5
+     })
+     gsap.to('.img2',{
+       scale: 1,
+       duration: .5,
+       delay: .2
+     })
+     document.querySelector('.index p').textContent = '02';
+   })
+
+   document.querySelector('.sm1').addEventListener('click', () =>{
+     gsap.to('.circle', {
+       rotate: '-50deg',
+       duration: .5
+     })
+     gsap.to('.sm1',{
+       scale: 8,
+       rotate: '50deg',
+       backgroundColor: 'transparent',
+       duration: .5
+     })
+     gsap.to('.sm2',{
+       scale: 1,
+       backgroundColor: '#1c1c1c',
+       duration: .5
+     })
+     gsap.to('.img',{
+       scale: 0,
+       duration: .5
+     })
+     gsap.to('.img1',{
+       scale: 1,
+       duration: .5,
+       delay: .2
+     })
+     document.querySelector('.index p').textContent = '01';
+   })
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href="gsap17.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Parallax</h1>
+  </header>
+
+  <section class="about">
+    <div class="about-title">
+      <h2>About Me</h2>
+    </div>
+    <div class="about-pages">
+      <div class="sub-page-1">
+        <h2>Project 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius accusantium iusto ab magni nesciunt in quia, ipsa aliquid natus dolor voluptatibus nisi et consequatur magnam aperiam laboriosam itaque officia! Praesentium distinctio, numquam omnis explicabo autem sequi fugiat ipsa modi tenetur aliquam, nemo accusantium dicta rem tempora illum possimus nihil doloribus.</p>
+      </div>
+      <div class="sub-page-2">
+        <h2>Project 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius accusantium iusto ab magni nesciunt in quia, ipsa aliquid natus dolor voluptatibus nisi et consequatur magnam aperiam laboriosam itaque officia! Praesentium distinctio, numquam omnis explicabo autem sequi fugiat ipsa modi tenetur aliquam, nemo accusantium dicta rem tempora illum possimus nihil doloribus.</p>
+      </div>
+      <div class="sub-page-3">
+        <h2>Project 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius accusantium iusto ab magni nesciunt in quia, ipsa aliquid natus dolor voluptatibus nisi et consequatur magnam aperiam laboriosam itaque officia! Praesentium distinctio, numquam omnis explicabo autem sequi fugiat ipsa modi tenetur aliquam, nemo accusantium dicta rem tempora illum possimus nihil doloribus.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h2>Pretty cool right?</h2>
+  </footer>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to('.about-title',{
+      scrollTrigger:{
+        trigger: '.about-pages',
+        start: 'top 0%',
+        end: 'bottom 100%',
+        pin: '.about-title',
+      },
+    });
+    ScrollTrigger.create({
+        trigger: '.sub-page-1',
+        start: "top top", 
+        end: 'bottom 50%',
+        pin: true, 
+        pinSpacing: false 
+      });
+    ScrollTrigger.create({
+      trigger: '.sub-page-2',
+      start: "top top", 
+      pin: true, 
+      pinSpacing: false 
+    });
+    ScrollTrigger.create({
+      trigger: '.sub-page-3',
+      start: "top top", 
+      end: 'top bottom',
+      pin: true, 
+      pinSpacing: false,
+    });
+
+  </script>
+</body>
+</html>

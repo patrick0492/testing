@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+  <link rel="stylesheet" href="gsap04.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-container">
+      <div class="logo">INFNT</div>
+      <div class="info"><a href="#!">FAQ</a><a href="#!">Help</a></div>
+    </div>
+    <div class="right-container">
+      <div class="first-block"></div>
+      <div class="menu-container">
+        <div class="menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="story">
+        <h1>Our Story</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae repellat sunt beatae.</p>
+        <p>Read More</p>
+      </div>
+      <div class="social-container">
+        <ul class="social">
+          <li>Facebook</li>
+          <li>Instagram</li>
+          <li>Twitter</li>
+        </ul>
+      </div>
+    </div>
+    <div class="center-container">
+
+    </div>
+  </div>
+
+  <!-- .li$.li*4>a.a$ voor vier li met opvolgende classnummers plus links met hetzelfde -->
+  <!-- divname>divname>flexone+.flextwo -->
+
+  <script>
+    TweenMax.from('.left-container', 2,{
+      width: '0',
+      ease: Expo.easeInOut
+    });
+    TweenMax.from('.right-container', 2,{
+      delay: 1.5,
+      opacity: 0,
+      width: '0',
+      ease: Expo.easeInOut
+    });
+    TweenMax.from('.center-container', 2,{
+      delay: 3,
+      width: '0',
+      x: -20,
+      ease: Expo.easeInOut
+    });
+    TweenMax.from('.logo', 2,{
+      delay: 1.5,
+      opacity: 0,
+      y: 20,
+      ease: Expo.easeInOut
+    });
+    TweenMax.from('.info', 2,{
+      delay: 1.5,
+      opacity: 0,
+      scale: 2.5,
+      ease: Expo.easeInOut
+    });
+    TweenMax.from('.story', 2,{
+      delay: 2.5,
+      opacity: 0,
+      y: 20,
+      ease: Expo.easeInOut
+    });
+    TweenMax.from('.menu', 2,{
+      delay: 3.5,
+      opacity: 0,
+      rotation: 90,
+      y: 20,
+      ease: Expo.easeInOut
+    });
+    TweenMax.staggerFrom('.social li', 2,{
+      delay: 3.8,
+      opacity: 0,
+      y: 20,
+      ease: Expo.easeInOut
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gsap28.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <div class="textcontainer">
+    <h1>
+      <div data-char=".">C</div>
+      <div data-char="R">A</div>
+      <div data-char="E">F</div>
+      <div data-char=".">A</div>
+      <div data-char="T">S</div>
+      <div data-char=".">I</div>
+      <div data-char="V">R</div>
+      <div data-char=".">E</div>
+    </h1>
+    <h1>
+      <div data-char=".">S</div>
+      <div data-char="C">A</div>
+      <div data-char="R">P</div>
+      <div data-char=".">O</div>
+      <div data-char=".">L</div>
+      <div data-char="L">F</div>
+    </h1>
+  </div>
+
+  <div class="imgcontainer"></div>
+
+  <div class="bottomcontainer">
+    <h1>
+      <div data-char=".">C</div>
+      <div data-char="R">A</div>
+      <div data-char="E">F</div>
+      <div data-char=".">A</div>
+      <div data-char="T">S</div>
+      <div data-char=".">I</div>
+      <div data-char="V">R</div>
+      <div data-char=".">E</div>
+    </h1>
+    <h1>
+      <div data-char=".">S</div>
+      <div data-char="C">A</div>
+      <div data-char="R">P</div>
+      <div data-char=".">O</div>
+      <div data-char=".">L</div>
+      <div data-char="L">F</div>
+    </h1>
+  </div>
+
+  <script>
+    gsap.set('h1 div',{yPercent:-103})
+    gsap.set('h1',{autoAlpha:1})
+    const tl = gsap.timeline()
+    tl.to('h1 div', {duration:1,yPercent:0,stagger:0.05, ease:'expo.inOut'})
+
+    .to("h1 div:not([data-char='.'])",{duration:1.5,yPercent:103, stagger:0.2, ease: 'expo'})
+
+    let bgImage = document.querySelector('.imgcontainer');
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(bgImage,{
+      clipPath: 'circle(5% at 77% 40%)',
+    },
+    {
+      clipPath: 'circle(75% at 50% 50%)',
+      ease: 'none',
+      scrollTrigger:{
+        trigger: bgImage,
+        scrub: 1,
+        start: 'top center',
+        end: 'top center-=200'
+      }
+    })
+  </script>
+</body>
+</html>

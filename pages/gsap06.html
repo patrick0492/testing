@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="gsap06.css">
+</head>
+<body>
+  <div class="container">
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+    <div class="top">
+      <div class="logo fade"></div>
+      <nav>
+        <ul>
+          <li><a href="#">blog</a></li>
+          <li><a href="#">magazine</a></li>
+          <li><a href="#">best of week</a></li>
+          <li><a href="#">best selling</a></li>
+        </ul>
+      </nav>
+      <div class="search fade">
+        <ul>
+          <li><a href="#"><i class="fa fa-search"></i></a></li>
+          <li><a href="#"><i class="fa fa-bars"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <p>photography of 2021</p>
+      <h1>this amazing photography will inspire your travels.</h1>
+      <button>read more <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></button>
+    </div>
+    <div class="social fade">
+      <ul>
+        <li><i class="fa fa-facebook"></i></li>
+        <li><i class="fa fa-twitter"></i></li>
+        <li><div class="fa fa-youtube"></div></li>
+      </ul>
+    </div>
+  </div>
+  <div class="slider">
+    <div class="slide slide1"></div>
+    <div class="slide slide2"></div>
+    <div class="slide slide3"></div>
+    <div class="slide slide4"></div>
+    <div class="slide slide5"></div>
+    <div class="chevron fade">
+      <ul>
+        <li onclick="back()"><i class="fa fa-chevron-left"></i></li>
+        <li style="font-size: 30px;">/</li>
+        <li onclick="next()"><i class="fa fa-chevron-right"></i></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- .li$.li*4>a.a$ voor vier li met opvolgende classnummers plus links met hetzelfde -->
+  <!-- divname>divname>flexone+.flextwo -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script>
+    gsap.from('.bg1',{
+      scale: 1.3,
+      duration: 1
+    })
+    gsap.from('.fade',{
+      opacity: 0,
+      duration: 1,
+      delay: 1
+    })
+    gsap.from('nav li',{
+      opacity: 0,
+      bottom: 15,
+      delay: 1,
+      stagger: .2
+    })
+    gsap.from('.content',{
+      opacity: 0,
+      left: '10%',
+      delay: 1
+    })
+
+    function next(){
+      gsap.to('.slide',{
+        left: '100%',
+        stagger: .1,
+        duration: 1.5
+      })
+      gsap.to('.bg1',{
+        opacity: 0,
+        duration: .1,
+        delay: .5
+      })
+      gsap.to('.bg2',{
+        opacity: 1,
+        duration: .1,
+        delay: .5
+      })
+    }
+    function back(){
+      gsap.to('.slide',{
+        left: '-100%',
+        stagger: .1,
+        duration: 1.5
+      })
+      gsap.to('.bg1',{
+        opacity: 1,
+        duration: .1,
+        delay: .5
+      })
+      gsap.to('.bg2',{
+        opacity: 0,
+        duration: .1,
+        delay: .5
+      })
+    }
+  </script>
+</body>
+</html>
