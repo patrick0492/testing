@@ -199,7 +199,7 @@ img{
     bottom: 2em;
     right: 2em;
     left: initial;
-    width: 50%;
+    width: 46%;
     height: 50%;
     justify-content: space-between;
   }
@@ -209,7 +209,7 @@ img{
     align-items: flex-end;
   }
   .site-info h2{
-    text-align: center;
+    text-align: right;
     font-size: 20px;
   }
   .site-info .row:nth-child(2) .col:nth-child(2) {
