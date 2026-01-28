@@ -116,3 +116,9 @@ a, p, span{
     font-size: calc(100vh / 3 - 16rem);
   }
 }
+@media screen and (max-width: 468px){
+  a{
+    display: block;
+    font-size: 5rem;
+  }
+}
