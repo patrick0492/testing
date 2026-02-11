@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gsap95.css"> 
+</head>
+<body>
+  <nav>
+    <p>Design Ledger</p>
+    <p>Experiment 0492</p>
+  </nav>
+  <div class="folders">
+    <div class="row">
+      <div class="folder variant-1">
+        <div class="folder-preview">
+          <div class="folder-preview-img"><img src="./img/0030.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0031.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0032.jpg" alt=""></div>
+        </div>
+        <div class="folder-wrapper">
+          <div class="folder-index"><p>01</p></div>
+          <div class="folder-name"><h1>figures</h1></div>
+        </div>
+      </div>
+      <div class="folder variant-2">
+        <div class="folder-preview">
+          <div class="folder-preview-img"><img src="./img/0033.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0034.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0035.jpg" alt=""></div>
+        </div>
+        <div class="folder-wrapper">
+          <div class="folder-index"><p>02</p></div>
+          <div class="folder-name"><h1>persona</h1></div>
+        </div>
+      </div>
+    </div>
+        <div class="row">
+      <div class="folder variant-2">
+        <div class="folder-preview">
+          <div class="folder-preview-img"><img src="./img/0036.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0037.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0038.jpg" alt=""></div>
+        </div>
+        <div class="folder-wrapper">
+          <div class="folder-index"><p>03</p></div>
+          <div class="folder-name"><h1>form</h1></div>
+        </div>
+      </div>
+      <div class="folder variant-3">
+        <div class="folder-preview">
+          <div class="folder-preview-img"><img src="./img/0014.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0015.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0016.jpg" alt=""></div>
+        </div>
+        <div class="folder-wrapper">
+          <div class="folder-index"><p>04</p></div>
+          <div class="folder-name"><h1>chromatics</h1></div>
+        </div>
+      </div>
+    </div>
+        <div class="row">
+      <div class="folder variant-1">
+        <div class="folder-preview">
+          <div class="folder-preview-img"><img src="./img/0001.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0002.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0003.jpg" alt=""></div>
+        </div>
+        <div class="folder-wrapper">
+          <div class="folder-index"><p>05</p></div>
+          <div class="folder-name"><h1>mythos</h1></div>
+        </div>
+      </div>
+      <div class="folder variant-2">
+        <div class="folder-preview">
+          <div class="folder-preview-img"><img src="./img/0004.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0005.jpg" alt=""></div>
+          <div class="folder-preview-img"><img src="./img/0006.jpg" alt=""></div>
+        </div>
+        <div class="folder-wrapper">
+          <div class="folder-index"><p>06</p></div>
+          <div class="folder-name"><h1>kinetics</h1></div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/CustomEase.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+  <!-- <script src="https://unpkg.com/lenis@1.1.1/dist/lenis.min.js"></script> -->
+  <script>
+   const folders = document.querySelectorAll('.folder');
+   const folderWrappers = document.querySelectorAll('.folder-wrapper');
+
+   let isMobile = window.innerWidth < 1000;
+
+   function setInitialPosition(){
+    gsap.set(folderWrappers, {y : isMobile ? 0 : 25});
+   }
+
+   folders.forEach((folder, index) =>{
+    const previewImages = folder.querySelectorAll('.folder-preview-img');
+
+    folder.addEventListener('mouseenter', () =>{
+      if (isMobile) return;
+
+      folders.forEach((siblingFolder) =>{
+        if (siblingFolder !== folder){
+          siblingFolder.classList.add('disabled');
+        }
+      });
+
+      gsap.to(folderWrappers[index],{
+        y: 0,
+        duration: 0.25,
+        ease: 'back.out(1.7)',
+      });
+
+      previewImages.forEach((img, imgIndex) =>{
+        let rotation;
+
+        if (imgIndex === 0){
+          rotation = gsap.utils.random(-20, -10);
+        } else if (imgIndex === 1){
+          rotation = gsap.utils.random(-10, 10);
+        } else{
+          rotation = gsap.utils.random(10, 20);
+        }
+
+        gsap.to(img,{
+          y: '-100%',
+          rotation: rotation,
+          duration: 0.25,
+          ease: 'back.out(1.7)',
+          delay: imgIndex * 0.025,
+        });
+
+      });
+    });
+
+    folder.addEventListener('mouseleave', () =>{
+      if (isMobile) return;
+
+      folders.forEach((siblingFolder) =>{
+        siblingFolder.classList.remove('disabled');
+      });
+
+      gsap.to(folderWrappers[index],{
+        y: 25,
+        duration: 0.25,
+        ease: 'back.out(1.7)',
+      });
+
+      previewImages.forEach((img, imgIndex) =>{
+        gsap.to(img,{
+          y: '0%',
+          rotation: 0,
+          duration: 0.25,
+          ease: 'back.out(1.7)',
+          delay: imgIndex * 0.05
+        });
+      });
+    })
+   });
+
+   window.addEventListener('resize', () =>{
+    const currentBreakpoint = window.innerWidth < 1000;
+    if (currentBreakpoint !== isMobile){
+      isMobile = currentBreakpoint;
+      setInitialPosition();
+
+      folders.forEach((folder) =>{
+        folder.classList.remove('disbabled');
+      });
+      const allPreviewImages = document.querySelectorAll('.folder-preview-img');
+      gsap.set(allPreviewImages, {y: '0%', rotation: 0});
+    }
+   });
+
+   setInitialPosition();
+
+  </script>
+</body>
+</html>
